@@ -377,6 +377,7 @@
   "DollMaster": "Dollmaster",
   "Evader": "Evader",
   "DarkFairy": "Dark Fairy",
+  "Darkened": "Darkened",
   "Fury": "Fury",
   "Diviner": "Diviner",
   "Protector": "Protector",
@@ -3726,6 +3727,6 @@
   "DarkFairyBombPlanted": "Bomb has been planted",
   "DarkFairy_DarkenedCountMode": "<color=#4B0082>Darkened</color> players count as",
   "DarkFairy_DarkenedCountMode_None": "Nothing",
-  "DarkFairy_DarkenedCountMode_Cultist": "<color=#4B0082>Dark Fairy</color>",
+  "DarkFairy_DarkenedCountMode_DarkFairy": "<color=#4B0082>Dark Fairy</color>",
   "DarkFairy_DarkenedCountMode_Original": "Original Team"
 }
