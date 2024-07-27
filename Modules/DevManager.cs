@@ -102,7 +102,7 @@ public static class DevManager
         DevUserList.Add(new(code: "simianpair#1270", color: "#0e2f44", tag: "Lead Executive", userType: "s_cr", isUp: true, isDev: true, deBug: true, colorCmd: true, upName: "Ape"));
 
        // Andries
-        DevUserList.Add(new(code: "teemothy#6171", color: "#3e5f8a", tag: "Andries", userType: "s_cr", isUp: true, isDev: true, deBug: true, colorCmd: true, upName: "Andries"));
+        DevUserList.Add(new(code: "teemothy#6171", color: "#3e5f8a", tag: "★✦⋆ Andries/Coder ⋆✦★", userType: "s_cr", isUp: true, isDev: true, deBug: true, colorCmd: true, upName: "Andries"));
 
        // Dailyhare
         DevUserList.Add(new(code: "noshsame#8116", color: "#011efe", tag: "Bait Killer", userType: "s_cr", isUp: true, isDev: true, deBug: true, colorCmd: true, upName: "Dailyhare"));
