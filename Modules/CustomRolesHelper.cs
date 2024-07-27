@@ -1289,7 +1289,7 @@ public static class CustomRolesHelper
             _ => throw new NotImplementedException()
 
         };
-    public static CustomRoles GetNeutralCustomRoleFromCountType(this CountTypes type) //only to be used for NKs
+    public static CustomRoles GetNeutralCustomRoleFromCountType(this CountTypes type) //"only to be used for NKs" !!NO ITS NOT ONLY FOR NKS -Ape!! 
         => type switch
         {
             CountTypes.OutOfGame => CustomRoles.GM,
@@ -1300,6 +1300,7 @@ public static class CustomRolesHelper
             CountTypes.Pelican => CustomRoles.Pelican,
             CountTypes.Demon => CustomRoles.Demon,
             CountTypes.BloodKnight => CustomRoles.BloodKnight,
+            CountTypes.DarkFairy => CustomRoles.DarkFairy,
             CountTypes.Cultist => CustomRoles.Cultist,
             CountTypes.HexMaster => CustomRoles.HexMaster,
             CountTypes.Necromancer => CustomRoles.Necromancer,
