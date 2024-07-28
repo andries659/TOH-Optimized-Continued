@@ -134,8 +134,7 @@ internal class DarkFairy : RoleBase
             if (!taskIndex.ContainsKey(playerId)) taskIndex[playerId] = [];
             taskIndex[playerId].Add(task.Index);
             SendRPC(darkfairyID: playerId, taskIndex: task.Index);
-            player.Notify(GetString("DarkFairyBombPlanted"));
-        // OnOthersTaskComplete can't apply any secondary person, maybe use this with the RpcCheckAndMurder?
+            player.Notify(GetString("DarkFairyTaskMarked"));
         }
         else if (_Player.RpcCheckAndMurder(player, true))
         {
