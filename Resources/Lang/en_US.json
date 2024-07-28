@@ -2229,7 +2229,7 @@
   "Message.PlayerQuitForever": "<b>{0}</b> decided to leave voluntarily \nSorry for the bad gaming experience \nI really worked hard to make progress",
   "Message.MadmateSelfVoteModeNotify": "Please note: The current Madness generation mode is [{0}]\n Voting for yourself means you want to be Madmate. If you meet the conditions to become Madmate and there are still spaces left, you will immediately become Madmate",
   "Message.HostLeftGameInGame": "★Warning★ Host left the game, and the game wouldn't start normally next time. Please exit the lobby or wait until the new Host opens a lobby.",
-  "Message.HostLeftGameInLobby": "★Warning★ Host left the game, and the game wouldn't start normally next time. If the new Host has TOHE, you need to re-enter the lobby to play normally.",
+  "Message.HostLeftGameInLobby": "★Warning★ Host left the game, and the game wouldn't start normally next time. If the new Host has TOHO, you need to re-enter the lobby to play normally.",
   "Message.HostLeftGameNewHostIsMod": "★Warning★ Original Host left the game and <b>{0}</b> become the new Host! \nThe room is still modded, start a game and end it immediately to reset the lobby!",
   "Message.HostLeftGameNewHostIsNotMod": "★Warning★ Original Host left the game and <b>{0}</b> become the new Host. \nBut it's not modded. Please exit the lobby or wait until the new Host opens a lobby.",
   "Message.LobbyShared": "The lobby has successfully been shared!",
@@ -2243,7 +2243,7 @@
   "Message.MaxPlayers": "Maximum players set to ",
   "Message.GhostRoleInfo": "<size=90%><b>Ghost Role Info</b></size>\nHiya! A little about ghost roles...<size=75%>\n\nGhost roles drastically impact the game, so it's not recommended for smaller lobbies if you're unfamiliar. If not explicitly stated otherwise in the description, the Guard button is their ability button ;)\n\n<b>Spawning:</b>\nGhost-roles only spawn after death; the first x people from (team) to die get them.</size>\n\n<size=50%><b>PS: If your previous role didn't have tasks(e.g., sheriff), your tasks as a ghost-role aren't needed for task-win</b></size>",
   "Message.MeCommandInfo": "<size=100%><b>Hi [{0}] {1} !</b></size>\n\n<size=80%><align=\"flush\"><color=#f34c50>friend-code</color> <color=#a6a832>Hash-Puid</color> <color=#6632a8>Type</color> <br>{2} {3} {4}<br><br><color=#7a0000>IsDev</color> <color=#349972>HasUp</color> <size=50%><color=#252dc4>/color-Bypass</color></size><br>{5} {6} {7} <br><br></align>",
-  "Message.MeCommandTargetInfo": "<size=100%><b>Selected [{0}] Player {1} ,</b></size>\n\n<size=90%>Their <color=#f34c50>friend code</color> is <u>{2}</u>.</size>\n\n<size=90%>Their <color=#f34c50>hash puid</color> is <u>{3}</u>.</size>\n\n<size=90%>Their <b><color=#ffc0cb>TOHE</color> <color=#5865F2>Discord</color></b> role is <u>{4}</u>.</size>\n\n",
+  "Message.MeCommandTargetInfo": "<size=100%><b>Selected [{0}] Player {1} ,</b></size>\n\n<size=90%>Their <color=#f34c50>friend code</color> is <u>{2}</u>.</size>\n\n<size=90%>Their <color=#f34c50>hash puid</color> is <u>{3}</u>.</size>\n\n<size=90%>Their <b><color=#ffc0cb>TOHO</color> <color=#5865F2>Discord</color></b> role is <u>{4}</u>.</size>\n\n",
   "Message.MeCommandInvalidID": "The ID you entered seems incorrect. \nPlease use /id to get the player ID of online players",
   "Message.MeCommandNoPermission": "You are not allowed to use /me command for others",
 
@@ -2276,8 +2276,8 @@
 
 
 
-  "Warning.InvalidRpc": "Kicked <b>{0}</b> because an invalid RPC was received.\nPlease check that no mods other than TOHE are installed.",
-  "Warning.NoModHost": "TOHE is not installed on the host",
+  "Warning.InvalidRpc": "Kicked <b>{0}</b> because an invalid RPC was received.\nPlease check that no mods other than TOHO are installed.",
+  "Warning.NoModHost": "TOHO is not installed on the host",
   "Warning.MismatchedVersion": "<b>{0}</b> has a different version of <b>{1}</b>",
   "Warning.AutoExitAtMismatchedVersion": "The host has no or a different version of {0}\nYou will be kicked in {1}",
   "Warning.CanNotUseBepInExConsole": "The use of the console is prohibited\nso your console has been off",
@@ -2483,7 +2483,7 @@
   "SureUse.quit": "We will kick you and block you from entering this lobby again. This setting is irreversible. If you really want it, please send the command /qt {0}",
   "PlayerIdList": "List of player IDs: ",
   "CancelStartCountDown": "The starting countdown was canceled",
-  "RestTOHESetting": "TOHE settings have been restored to default",
+  "RestTOHESetting": "TOHO settings have been restored to default",
   "FPSSetTo": "FPS Set To: {0}",
   "HostKillSelfByCommand": "The lobby Host decided to commit suicide",
   "SyncCustomSettingsRPC": "Synchronized RPC",
@@ -2502,7 +2502,7 @@
   "FFATimeRemain": "<color=#00ffa5>Time Remaining:</color> {0} second(s)",
 
   "GameOver": "Game Over",
-  "TOHEOptions": "TOHE Options",
+  "TOHEOptions": "TOHO Options",
   "Cancel": "Cancel",
   "Back": "Back",
   "Yes": "Yes",
@@ -3729,5 +3729,5 @@
   "DarkFairy_DarkenedCountMode_None": "Nothing",
   "DarkFairy_DarkenedCountMode_DarkFairy": "Dark Fairy",
   "DarkFairy_DarkenedCountMode_Original": "Original Team",
-  "DarkFairyCanDarkenNeutral": "Can convert Neutrals"
+  "DarkFairyCanDarkenNeutral": "Can darken Neutrals"
 }
