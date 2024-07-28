@@ -21,7 +21,9 @@ internal class DarkFairy : RoleBase
     public override bool HasTasks(NetworkedPlayerInfo player, CustomRoles role, bool ForRecompute) => !ForRecompute;
 
     private static OptionItem TaskMarkPerRoundOpt;
+    private static OptionItem CanDarkenNeutral;
     public static OptionItem DarkenedCountMode;
+
 
     private enum DarkenedCountModeSelectList
     {
@@ -42,6 +44,7 @@ internal class DarkFairy : RoleBase
             .SetValueFormat(OptionFormat.Votes);
         Options.OverrideTasksData.Create(Id + 11, TabGroup.NeutralRoles, CustomRoles.DarkFairy);
         DarkenedCountMode = StringOptionItem.Create(Id + 17, "DarkFairy_DarkenedCountMode", EnumHelper.GetAllNames<DarkenedCountModeSelectList>(), 1, TabGroup.NeutralRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.DarkFairy]);
+        CanDarkenNeutral = BooleanOptionItem.Create(Id + 18, "DarkFairyCanCharmNeutral", false, TabGroup.NeutralRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.DarkFairy]);
     }
 
     public override void Init()
@@ -136,7 +139,7 @@ internal class DarkFairy : RoleBase
             SendRPC(darkfairyID: playerId, taskIndex: task.Index);
             player.Notify(GetString("DarkFairyTaskMarked"));
         }
-        else if (_Player.RpcCheckAndMurder(player, true))
+        else if (CanBeDarkened(player) && Mini.Age == 18 || CanBeDarkened(player) && Mini.Age < 18 && !(player.Is(CustomRoles.NiceMini) || player.Is(CustomRoles.EvilMini)))
         {
             foreach (var darkfairyId in taskIndex.Keys)
             { 
@@ -159,5 +162,12 @@ internal class DarkFairy : RoleBase
         if (player.Is(CustomRoles.Darkened) && target.Is(CustomRoles.Darkened)) return true;
         return false;
     }
+    public static bool CanBeDarkened(PlayerControl pc)
+    {
+        return pc != null && (pc.GetCustomRole().IsCrewmate() || pc.GetCustomRole().IsImpostor() || 
+            (CanDarkenNeutral.GetBool() && pc.GetCustomRole().IsNeutral())) && !pc.Is(CustomRoles.Darkened) 
+            && !pc.Is(CustomRoles.Admired) && !pc.Is(CustomRoles.Loyal) && !pc.Is(CustomRoles.Infectious) 
+            && !pc.Is(CustomRoles.Virus) && !pc.Is(CustomRoles.Cultist)
+            && !(pc.GetCustomSubRoles().Contains(CustomRoles.Hurried) && !Hurried.CanBeConverted.GetBool());
+    }
 }
-
