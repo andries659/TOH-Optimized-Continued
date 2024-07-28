@@ -3728,5 +3728,6 @@
   "DarkFairy_DarkenedCountMode": "<color=#4B0082>Darkened</color> players count as",
   "DarkFairy_DarkenedCountMode_None": "Nothing",
   "DarkFairy_DarkenedCountMode_DarkFairy": "Dark Fairy",
-  "DarkFairy_DarkenedCountMode_Original": "Original Team"
+  "DarkFairy_DarkenedCountMode_Original": "Original Team",
+  "DarkFairyCanDarkenNeutral": "Can convert Neutrals"
 }
