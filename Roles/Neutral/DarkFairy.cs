@@ -44,7 +44,7 @@ internal class DarkFairy : RoleBase
             .SetValueFormat(OptionFormat.Votes);
         Options.OverrideTasksData.Create(Id + 11, TabGroup.NeutralRoles, CustomRoles.DarkFairy);
         DarkenedCountMode = StringOptionItem.Create(Id + 17, "DarkFairy_DarkenedCountMode", EnumHelper.GetAllNames<DarkenedCountModeSelectList>(), 1, TabGroup.NeutralRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.DarkFairy]);
-        CanDarkenNeutral = BooleanOptionItem.Create(Id + 18, "DarkFairyCanCharmNeutral", false, TabGroup.NeutralRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.DarkFairy]);
+        CanDarkenNeutral = BooleanOptionItem.Create(Id + 18, "DarkFairyCanDarkenNeutral", false, TabGroup.NeutralRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.DarkFairy]);
     }
 
     public override void Init()
