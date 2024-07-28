@@ -29,7 +29,7 @@ internal class Diviner : RoleBase
 
     public override void SetupCustomOption()
     {
-        SetupSingleRoleOptions(Id, TabGroup.ImpostorRoles, CustomRoles.Diviner, 1, zeroOne: false);
+        SetupRoleOptions(Id, TabGroup.ImpostorRoles, CustomRoles.Diviner);
         KillCooldown = FloatOptionItem.Create(Id + 10, GeneralOption.KillCooldown, new(0f, 180f, 2.5f), 20f, TabGroup.ImpostorRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Diviner])
             .SetValueFormat(OptionFormat.Seconds);
         RevengeTime = IntegerOptionItem.Create(Id + 11, "DivinerRevengeTime", new(0, 60, 1), 30, TabGroup.ImpostorRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Diviner])
