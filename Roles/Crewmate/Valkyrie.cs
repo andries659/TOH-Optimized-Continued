@@ -25,10 +25,9 @@ internal class Valkyrie : RoleBase
     private static float tempKillTimer = 0;
 
     public override void SetupCustomOption()
-  {
-
-   SetupSingleRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Valkyrie, 1, zeroOne: false);
-        KillCooldown = FloatOptionItem.Create(Id + 10, GeneralOption.KillCooldown, new(300f, 300f, 300f), 300f, TabGroup.NeutralRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Valkyrie])
+    {
+        SetupRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Valkyrie);
+        KillCooldown = FloatOptionItem.Create(Id + 10, GeneralOption.KillCooldown, new(0, 300, 5), 300f, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Valkyrie])
             .SetValueFormat(OptionFormat.Seconds);
         RevengeTime = IntegerOptionItem.Create(Id + 11, "ValkyrieRevengeTime", new(0, 30, 5), 10, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Valkyrie])
             .SetValueFormat(OptionFormat.Seconds);
@@ -118,4 +117,3 @@ internal class Valkyrie : RoleBase
         }
     }       
 }   
-
