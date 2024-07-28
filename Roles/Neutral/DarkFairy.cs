@@ -122,6 +122,7 @@ internal class DarkFairy : RoleBase
 
         if (player.Is(CustomRoles.DarkFairy))
         {
+            if (player.IsAlive())
             if (!TaskMarkPerRound.ContainsKey(playerId)) TaskMarkPerRound[playerId] = 0;
             if (TaskMarkPerRound[playerId] >= maxTasksMarkedPerRound)
             {
