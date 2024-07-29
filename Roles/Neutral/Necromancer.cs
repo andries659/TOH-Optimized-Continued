@@ -130,23 +130,4 @@ internal class Necromancer : RoleBase
 
         _ = new LateTask(() => { Countdown(seconds - 1, player); }, 1.01f, "Necromancer Countdown");
     }
-    public override bool OnCheckMurderAsKiller(PlayerControl killer, PlayerControl target)
-    {
-        if (killer == null || target == null || !killer.IsAlive()) return false;
-
-        if (!IsRevenge) return true;
-        else if (target == Killer)
-        {
-            Success = true;
-            killer.Notify(GetString("NecromancerSuccess"));
-            killer.SetKillCooldown(KillCooldown.GetFloat() + tempKillTimer);
-            IsRevenge = false;
-            return true;
-        }
-        else
-        {
-            killer.RpcMurderPlayer(killer);
-            return false;
-        }
-    }
 }
