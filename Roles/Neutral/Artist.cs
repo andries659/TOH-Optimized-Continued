@@ -141,12 +141,4 @@ namespace TOHE.Roles.Neutral
             AmongUsClient.Instance.FinishRpcImmediately(writer);
         }
 
-        public override void ReceiveRPC(CustomMessageReader reader, PlayerControl NaN)
-        {
-            byte playerId = reader.ReadByte();
-            AbilityUses.SetInt(reader.ReadInt32());
-            byte targetId = reader.ReadByte();
-            PaintingTarget[playerId].Add(targetId);
-        }
-    }
-}
+      
