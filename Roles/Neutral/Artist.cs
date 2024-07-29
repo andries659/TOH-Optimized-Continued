@@ -58,7 +58,7 @@ namespace TOHE.Roles.Neutral
         {
             var sender = CustomRpcSender.Create(name: $"Artist.RpcSetSkin({target.Data.PlayerName})");
             
-            
+            // Set player outfit properties
             sender.AutoStartRpc(target.NetId, (byte)RpcCalls.SetColor)
                 .Write(target.Data.NetId)
                 .Write((byte)outfit.ColorId)
@@ -141,7 +141,7 @@ namespace TOHE.Roles.Neutral
             AmongUsClient.Instance.FinishRpcImmediately(writer);
         }
 
-        public override void ReceiveRPC(MessageReader reader, PlayerControl NaN)
+        public override void ReceiveRPC(CustomMessageReader reader, PlayerControl NaN)
         {
             byte playerId = reader.ReadByte();
             AbilityUses.SetInt(reader.ReadInt32());
