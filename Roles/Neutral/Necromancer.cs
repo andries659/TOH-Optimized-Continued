@@ -1,6 +1,7 @@
 ﻿using AmongUs.GameOptions;
 using static TOHE.Options;
 using static TOHE.Translator;
+using static UnityEngine.GraphicsBuffer;
 
 namespace TOHE.Roles.Neutral;
 
@@ -77,17 +78,47 @@ internal class Necromancer : RoleBase
 
         return false;
     }
+    public override bool OnCheckMurderAsKiller(PlayerControl killer, PlayerControl target)
+    {
+        if (killer == null || target == null || !killer.IsAlive()) return false;
+
+        if (!IsRevenge) return true;
+        else if (target == Killer)
+        {
+            Success = true;
+            killer.Notify(GetString("NecromancerSuccess"));
+            killer.SetKillCooldown(KillCooldown.GetFloat() + tempKillTimer);
+            IsRevenge = false;
+            return true;
+        }
+        else
+        {
+            killer.RpcMurderPlayer(killer);
+            return false;
+        }
+    }
     private static void Countdown(int seconds, PlayerControl player)
     {
         var killer = Killer;
-        if (Success)
+        if (Success || !player.IsAlive())
         {
             Timer = RevengeTime.GetInt();
             Success = false;
             Killer = null; 
             return;
         }
-        if (seconds <= 0 || GameStates.IsMeeting && player.IsAlive()) 
+        if (GameStates.IsMeeting && player.IsAlive())
+        {
+            player.SetDeathReason(PlayerState.DeathReason.Kill);
+            player.RpcExileV2();
+            player.Data.IsDead = true;
+            player.Data.MarkDirty();
+            Main.PlayerStates[player.PlayerId].SetDead();
+            player.SetRealKiller(killer);
+            Killer = null;
+            return;
+        }
+        if (seconds <= 0) 
         { 
             player.RpcMurderPlayer(player); 
             player.SetRealKiller(killer);
