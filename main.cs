@@ -29,7 +29,7 @@ public class Main : BasePlugin
 
     public static readonly string ModName = "Town of Host: Optimized";
     public static readonly string ForkId = "TOHO";
-    public static readonly string ModColor = "#ffc0cb";
+    public static readonly string ModColor = "#b47ede";
     public static readonly bool AllowPublicRoom = true;
 
     public static HashAuth DebugKeyAuth { get; private set; }
@@ -39,24 +39,24 @@ public class Main : BasePlugin
     public static ConfigEntry<string> DebugKeyInput { get; private set; }
 
     public const string PluginGuid = "com.Limeau.townofhostoptimized";
-    public const string PluginVersion = "2024.0726.100.00000"; // YEAR.MMDD.VERSION.CANARYDEV
-    public const string PluginDisplayVersion = "1.0.0";
+    public const string PluginVersion = "2024.0729.110.00010"; // YEAR.MMDD.VERSION.CANARYDEV
+    public const string PluginDisplayVersion = "1.1.0 Dev 1";
     public const string SupportedVersionAU = "2024.6.18";
 
     /******************* Change one of the three variables to true before making a release. *******************/
     public static readonly bool Canary = false; // INACTIVE - Latest: (TOHE) V2.0.0 Canary 9
-    public static readonly bool fullRelease = true; // ACTIVE - Latest: V1.0.0
+    public static readonly bool fullRelease = true; // ACTIVE - Latest: V1.0.1
     public static readonly bool devRelease = false; // INACTIVE - Latest: (TOHE) V2.0.0 Dev 25
 
     public static bool hasAccess = true;
 
-    public static readonly bool ShowUpdateButton = true;
+    public static readonly bool ShowUpdateButton = false;
 
     public static readonly bool ShowGitHubButton = true;
     public static readonly string GitHubInviteUrl = "https://github.com/Limeau/TownofHost-Optimized";
 
     public static readonly bool ShowDiscordButton = true;
-    public static readonly string DiscordInviteUrl = "https://discord.gg/imphq";
+    public static readonly string DiscordInviteUrl = "https://discord.gg/tohoptimized";
 
     public static readonly bool ShowWebsiteButton = false;
     public static readonly string WebsiteInviteUrl = "https://tohre.dev";
