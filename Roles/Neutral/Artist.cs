@@ -132,7 +132,7 @@ namespace TOHE.Roles.Neutral
             }
         }
 
-        private static void SendRPC(byte playerId, byte targetId)
+      private static void SendRPC(byte playerId, byte targetId)
         {
             MessageWriter writer = AmongUsClient.Instance.StartRpcImmediately(PlayerControl.LocalPlayer.NetId, (byte)CustomRPC.SyncRoleSkill, SendOption.Reliable, -1);
             writer.Write(playerId);
@@ -140,5 +140,5 @@ namespace TOHE.Roles.Neutral
             writer.Write(targetId);
             AmongUsClient.Instance.FinishRpcImmediately(writer);
         }
-
-      
+    }
+}
