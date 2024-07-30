@@ -16,7 +16,6 @@ namespace TOHE.Roles.Neutral
         private static readonly Dictionary<byte, NetworkedPlayerInfo.PlayerOutfit> OriginalPlayerSkins = [];
 
         private const int Id = 28800;
-        private static readonly HashSet<byte> PlayerIds = new HashSet<byte>();
         public static bool HasEnabled => CustomRoleManager.HasEnabled(CustomRoles.Artist);
         public override CustomRoles ThisRoleBase => CustomRoles.Impostor;
         public override Custom_RoleType ThisRoleType => Custom_RoleType.NeutralKilling;
@@ -26,7 +25,7 @@ namespace TOHE.Roles.Neutral
         private static OptionItem HasImpostorVision;
         private static OptionItem AbilityUses;
 
-        private static readonly Dictionary<byte, float> NowCooldown = new Dictionary<byte, float>();
+        
         private static readonly Dictionary<byte, List<byte>> PlayerSkinsPainted = new Dictionary<byte, List<byte>>();
         private static readonly Dictionary<byte, List<byte>> PaintingTarget = new Dictionary<byte, List<byte>>();
 
@@ -156,6 +155,7 @@ namespace TOHE.Roles.Neutral
                 .EndRpc();
 
             sender.SendMessage();
+        
         
         }
     }
