@@ -147,7 +147,6 @@ public static class CustomRolesHelper
                 CustomRoles.Dictator or
                 CustomRoles.NiceGuesser or
                 CustomRoles.Bodyguard or
-                CustomRoles.Observer or
                 CustomRoles.Retributionist or
                 CustomRoles.Technician or
                 CustomRoles.Admirer or
