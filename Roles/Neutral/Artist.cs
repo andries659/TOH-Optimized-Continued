@@ -17,6 +17,9 @@ namespace TOHE.Roles.Neutral
 
         private const int Id = 28800;
         private static readonly HashSet<byte> PlayerIds = new HashSet<byte>();
+        public static bool HasEnabled => CustomRoleManager.HasEnabled(CustomRoles.Artist);
+        public override CustomRoles ThisRoleBase => CustomRoles.Impostor;
+        public override Custom_RoleType ThisRoleType => Custom_RoleType.NeutralKilling;
 
         private static OptionItem KillCooldown;
         private static OptionItem CanVent;
@@ -61,37 +64,7 @@ namespace TOHE.Roles.Neutral
             PaintingTarget.TryAdd(playerId, new List<byte>());
         }
 
-        private void SetSkin(PlayerControl target, NetworkedPlayerInfo.PlayerOutfit outfit)
-        {
-            var sender = CustomRpcSender.Create(name: $"Artist.RpcSetSkin({target.Data.PlayerName})");
-
-            sender.AutoStartRpc(target.NetId, (byte)RpcCalls.SetColor)
-                .Write(target.Data.NetId)
-                .Write((byte)outfit.ColorId)
-                .EndRpc();
-
-            sender.AutoStartRpc(target.NetId, (byte)RpcCalls.SetHatStr)
-                .Write(outfit.HatId)
-                .Write(target.GetNextRpcSequenceId(RpcCalls.SetHatStr))
-                .EndRpc();
-
-            sender.AutoStartRpc(target.NetId, (byte)RpcCalls.SetSkinStr)
-                .Write(outfit.SkinId)
-                .Write(target.GetNextRpcSequenceId(RpcCalls.SetSkinStr))
-                .EndRpc();
-
-            sender.AutoStartRpc(target.NetId, (byte)RpcCalls.SetVisorStr)
-                .Write(outfit.VisorId)
-                .Write(target.GetNextRpcSequenceId(RpcCalls.SetVisorStr))
-                .EndRpc();
-
-            sender.AutoStartRpc(target.NetId, (byte)RpcCalls.SetPetStr)
-                .Write(outfit.PetId)
-                .Write(target.GetNextRpcSequenceId(RpcCalls.SetPetStr))
-                .EndRpc();
-
-            sender.SendMessage();
-        }
+      
 
         public override void ApplyGameOptions(IGameOptions opt, byte id)
         {
@@ -152,6 +125,38 @@ namespace TOHE.Roles.Neutral
             byte playerId = reader.ReadByte();
             byte targetId = reader.ReadByte();
             PaintingTarget[playerId].Add(targetId);
+
+              private void SetSkin(PlayerControl target, NetworkedPlayerInfo.PlayerOutfit outfit)
+        {
+            var sender = CustomRpcSender.Create(name: $"Artist.RpcSetSkin({target.Data.PlayerName})");
+
+            sender.AutoStartRpc(target.NetId, (byte)RpcCalls.SetColor)
+                .Write(target.Data.NetId)
+                .Write((byte)outfit.ColorId)
+                .EndRpc();
+
+            sender.AutoStartRpc(target.NetId, (byte)RpcCalls.SetHatStr)
+                .Write(outfit.HatId)
+                .Write(target.GetNextRpcSequenceId(RpcCalls.SetHatStr))
+                .EndRpc();
+
+            sender.AutoStartRpc(target.NetId, (byte)RpcCalls.SetSkinStr)
+                .Write(outfit.SkinId)
+                .Write(target.GetNextRpcSequenceId(RpcCalls.SetSkinStr))
+                .EndRpc();
+
+            sender.AutoStartRpc(target.NetId, (byte)RpcCalls.SetVisorStr)
+                .Write(outfit.VisorId)
+                .Write(target.GetNextRpcSequenceId(RpcCalls.SetVisorStr))
+                .EndRpc();
+
+            sender.AutoStartRpc(target.NetId, (byte)RpcCalls.SetPetStr)
+                .Write(outfit.PetId)
+                .Write(target.GetNextRpcSequenceId(RpcCalls.SetPetStr))
+                .EndRpc();
+
+            sender.SendMessage();
+        
         }
     }
 }
