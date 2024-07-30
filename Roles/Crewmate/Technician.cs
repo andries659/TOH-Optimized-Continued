@@ -1,6 +1,7 @@
-﻿using static TOHE.Options;
+using static TOHE.Options;
 using static TOHE.Utils;
 using TOHE.Roles.Neutral;
+using static TOHE.Translator;
 
 namespace TOHE.Roles.Crewmate;
 
@@ -17,12 +18,16 @@ internal class Technician : RoleBase
 
     private static OptionItem SeeAllIDs;
     private static OptionItem SeePlayerInteractions;
+    private static OptionItem NotifyWhenAnyoneVents;
+    private static OptionItem NotifyWhenAnyoneShapeshifts;
 
     public override void SetupCustomOption()
     {
         SetupRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Technician);
         SeeAllIDs = BooleanOptionItem.Create(Id + 2, "TechnicianSeeAllIds", false, TabGroup.CrewmateRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Technician]);
         SeePlayerInteractions = BooleanOptionItem.Create(Id + 3, "TechnicianSeePlayerInteractions", false, TabGroup.CrewmateRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Technician]);
+        NotifyWhenAnyoneVents = BooleanOptionItem.Create(Id + 4, "TechnicianNotifyWhenAnyoneVents", false, TabGroup.CrewmateRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Technician]);
+        NotifyWhenAnyoneShapeshifts = BooleanOptionItem.Create(Id + 5, "TechnicianNotifyWhenAnyoneShapeshifts", false, TabGroup.CrewmateRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Technician]);
     }
     
     public override void Init()
@@ -33,7 +38,6 @@ internal class Technician : RoleBase
     {
         playerIdList.Add(playerId);
     }
-
     public override string GetMark(PlayerControl seer, PlayerControl seen, bool isForMeeting = false)
     {
         if (!seer.IsAlive() || (!SeeAllIDs.GetBool() || !seen.IsAlive())) return string.Empty;
@@ -62,4 +66,29 @@ internal class Technician : RoleBase
         }
         return false;
     }
+    public override bool OnCoEnterVentOthers(PlayerPhysics physics, int ventId)
+    {
+        if (NotifyWhenAnyoneVents.GetBool())
+        {
+            _ = new LateTask(() =>
+            {
+            var technician = _Player;
+            technician.Notify(GetString("TechnicianNotifyVent"));
+            }, 0.5f, "Technician Notified of vent");
+            return true;
+        }
+        return false;
+    }  
+
+    public override void OnCheckOthersShapeshift()
+    {
+        if (NotifyWhenAnyoneShapeshifts.GetBool())
+        {
+            _ = new LateTask(() =>
+            {
+            var technician = _Player;
+            technician.Notify(GetString("TechnicianNotifyShapeshift"));
+            }, 0.5f, "Technician Notified of Shapeshift");
+        }
+    }  
 }
