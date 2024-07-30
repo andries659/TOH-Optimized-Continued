@@ -10,8 +10,9 @@ namespace TOHE.Roles.Neutral
 {
     internal class Artist : RoleBase
     {
-        private static readonly NetworkedPlayerInfo.PlayerOutfit PaintedOutfit = new NetworkedPlayerInfo.PlayerOutfit()
-            .Set("", 15, "", "", "visor_Crack", "", "");
+    
+            private readonly static NetworkedPlayerInfo.PlayerOutfit ConsumedOutfit = new NetworkedPlayerInfo.PlayerOutfit().Set("", 15, "", "", "visor_Crack", "", "");
+            private static readonly Dictionary<byte, NetworkedPlayerInfo.PlayerOutfit> OriginalPlayerSkins = [];
 
         private const int Id = 28800;
         private static readonly HashSet<byte> PlayerIds = new HashSet<byte>();
@@ -113,7 +114,7 @@ namespace TOHE.Roles.Neutral
 
         public static bool IsPainting(byte seer, byte target)
         {
-            return PaintingTarget[seer].Contains(target);
+            return PlayerSkinsPainted[seer].Contains(target);
         }
 
         private void SetPainting(PlayerControl killer, PlayerControl target)
