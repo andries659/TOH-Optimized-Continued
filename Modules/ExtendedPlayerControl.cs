@@ -222,7 +222,7 @@ static class ExtendedPlayerControl
         AmongUsClient.Instance.FinishRpcImmediately(writer);
     }
 
-    public static void RpcGuardAndKill(this PlayerControl killer, PlayerControl target = null, int colorId = 0, bool forObserver = false)
+    public static void RpcGuardAndKill(this PlayerControl killer, PlayerControl target = null, int colorId = 0, bool forTechnician = false)
     {
         if (!AmongUsClient.Instance.AmHost)
         {
@@ -236,10 +236,10 @@ static class ExtendedPlayerControl
 
         if (target == null) target = killer;
 
-        // Check Observer
-        if (Observer.HasEnabled && !forObserver && !MeetingStates.FirstMeeting)
+        // Check Technician
+        if (Technician.HasEnabled && !forTechnician && !MeetingStates.FirstMeeting)
         {
-            Observer.ActivateGuardAnimation(killer.PlayerId, target, colorId);
+            Technician.ActivateGuardAnimation(killer.PlayerId, target, colorId);
         }
 
         // Host
@@ -296,10 +296,10 @@ static class ExtendedPlayerControl
                 writer.Write(time);
                 AmongUsClient.Instance.FinishRpcImmediately(writer);
             }
-            // Check Observer
-            if (Observer.HasEnabled)
+            // Check Technician
+            if (Technician.HasEnabled)
             {
-                Observer.ActivateGuardAnimation(target.PlayerId, target, 11);
+                Technician.ActivateGuardAnimation(target.PlayerId, target, 11);
             }
         }
         player.ResetKillCooldown();
@@ -401,10 +401,10 @@ static class ExtendedPlayerControl
                 writer.Write(time);
                 AmongUsClient.Instance.FinishRpcImmediately(writer);
             }
-            // Check Observer
-            if (Observer.HasEnabled)
+            // Check Technician
+            if (Technician.HasEnabled)
             {
-                Observer.ActivateGuardAnimation(target.PlayerId, target, 11);
+                Technician.ActivateGuardAnimation(target.PlayerId, target, 11);
             }
         }
         player.ResetKillCooldown();
