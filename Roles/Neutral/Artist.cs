@@ -124,8 +124,8 @@ namespace TOHE.Roles.Neutral
             byte playerId = reader.ReadByte();
             byte targetId = reader.ReadByte();
             PaintingTarget[playerId].Add(targetId);
-
-              private void SetSkin(PlayerControl target, NetworkedPlayerInfo.PlayerOutfit outfit)
+        }
+        private void SetSkin(PlayerControl target, NetworkedPlayerInfo.PlayerOutfit outfit)
         {
             var sender = CustomRpcSender.Create(name: $"Artist.RpcSetSkin({target.Data.PlayerName})");
 
