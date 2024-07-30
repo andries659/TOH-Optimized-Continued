@@ -11,12 +11,12 @@ namespace TOHE.Roles.Neutral
 {
     internal class Artist : RoleBase
     {
-
         private readonly static NetworkedPlayerInfo.PlayerOutfit PaintedOutfit = new NetworkedPlayerInfo.PlayerOutfit().Set("", 15, "", "", "visor_Crack", "", "");
         private static readonly Dictionary<byte, NetworkedPlayerInfo.PlayerOutfit> OriginalPlayerSkins = [];
 
         private const int Id = 28800;
-        public static bool HasEnabled => CustomRoleManager.HasEnabled(CustomRoles.Artist);
+        public static bool HasEnabled => PlayerIds.Any();
+
         public override CustomRoles ThisRoleBase => CustomRoles.Impostor;
         public override Custom_RoleType ThisRoleType => Custom_RoleType.NeutralKilling;
 
@@ -24,15 +24,9 @@ namespace TOHE.Roles.Neutral
         private static OptionItem CanVent;
         private static OptionItem HasImpostorVision;
         private static OptionItem AbilityUses;
-
-        
+      
         private static readonly Dictionary<byte, List<byte>> PlayerSkinsPainted = new Dictionary<byte, List<byte>>();
         private static readonly Dictionary<byte, List<byte>> PaintingTarget = new Dictionary<byte, List<byte>>();
-
-        public override CustomRoles ThisRoleBase => CustomRoles.Artist;
-        public override Custom_RoleType ThisRoleType => Custom_RoleType.NeutralKilling;
-
-        public static bool HasEnabled => PlayerIds.Any();
 
         public override void SetupCustomOption()
         {
