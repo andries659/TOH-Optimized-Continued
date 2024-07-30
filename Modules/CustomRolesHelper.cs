@@ -549,18 +549,20 @@ public static class CustomRolesHelper
                 break;
 
             case CustomRoles.Overclocked:
-                if (!pc.CanUseKillButton())
+                if (!pc.CanUseKillButton()) 
                     return false;
                 break;
 
             case CustomRoles.Lazy:
                 if (!Lazy.CheckConflicts(pc))
+                if (pc.Is(CustomRoles.Protector))
                     return false;
                 break;
 
             case CustomRoles.Ghoul:
                 if (pc.Is(CustomRoles.Lazy)
-                    || pc.Is(CustomRoles.LazyGuy))
+                    || pc.Is(CustomRoles.LazyGuy)
+                    || pc.Is(CustomRoles.Mundane))
                     return false;
                 if (pc.GetCustomRole().IsNeutral() || pc.GetCustomRole().IsImpostor() || pc.GetCustomRole().IsTasklessCrewmate() || pc.GetCustomRole().IsTaskBasedCrewmate())
                     return false;
@@ -599,6 +601,8 @@ public static class CustomRolesHelper
 
             case CustomRoles.Fragile:
                 if (pc.Is(CustomRoles.Lucky)
+                    || pc.Is(CustomRoles.Valkyrie)
+                    || pc.Is(CustomRoles.Diviner)
                     || pc.Is(CustomRoles.Veteran)
                     || pc.Is(CustomRoles.Guardian)
                     || pc.Is(CustomRoles.Medic)
@@ -872,7 +876,9 @@ public static class CustomRolesHelper
 
             case CustomRoles.Nimble:
                 if (Knight.CheckCanUseVent(pc)
-                    || pc.Is(CustomRoles.CopyCat))
+                    || pc.Is(CustomRoles.CopyCat)
+                    || pc.Is(CustomRoles.Valkyrie)
+                    || pc.Is(CustomRoles.Diviner))
                     return false;
                 if (!pc.GetCustomRole().IsTasklessCrewmate())
                     return false;
