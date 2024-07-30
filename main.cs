@@ -688,7 +688,6 @@ public enum CustomRoles
     Mortician,
     NiceGuesser,
     NiceMini,
-    Observer,
     Oracle,
     Overseer, 
     Pacifist, 
