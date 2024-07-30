@@ -149,7 +149,7 @@ public static class CustomRolesHelper
                 CustomRoles.Bodyguard or
                 CustomRoles.Observer or
                 CustomRoles.Retributionist or
-                CustomRoles.Lookout or
+                CustomRoles.Technician or
                 CustomRoles.Admirer or
                 CustomRoles.Cleanser or
                 CustomRoles.CopyCat or
