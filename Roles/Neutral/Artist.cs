@@ -1,4 +1,5 @@
 using AmongUs.GameOptions;
+using Hazel;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,9 +11,9 @@ namespace TOHE.Roles.Neutral
 {
     internal class Artist : RoleBase
     {
-    
-            private readonly static NetworkedPlayerInfo.PlayerOutfit ConsumedOutfit = new NetworkedPlayerInfo.PlayerOutfit().Set("", 15, "", "", "visor_Crack", "", "");
-            private static readonly Dictionary<byte, NetworkedPlayerInfo.PlayerOutfit> OriginalPlayerSkins = [];
+
+        private readonly static NetworkedPlayerInfo.PlayerOutfit ConsumedOutfit = new NetworkedPlayerInfo.PlayerOutfit().Set("", 15, "", "", "visor_Crack", "", "");
+        private static readonly Dictionary<byte, NetworkedPlayerInfo.PlayerOutfit> OriginalPlayerSkins = [];
 
         private const int Id = 28800;
         private static readonly HashSet<byte> PlayerIds = new HashSet<byte>();
@@ -24,6 +25,7 @@ namespace TOHE.Roles.Neutral
 
         private static readonly Dictionary<byte, float> NowCooldown = new Dictionary<byte, float>();
         private static readonly Dictionary<byte, List<byte>> PlayerSkinsPainted = new Dictionary<byte, List<byte>>();
+        private static readonly Dictionary<byte, List<byte>> PaintingTarget = new Dictionary<byte, List<byte>>();
 
         public override CustomRoles ThisRoleBase => CustomRoles.Artist;
         public override Custom_RoleType ThisRoleType => Custom_RoleType.NeutralKilling;
@@ -56,6 +58,7 @@ namespace TOHE.Roles.Neutral
         {
             PlayerSkinsPainted.TryAdd(playerId, new List<byte>());
             PlayerIds.Add(playerId);
+            PaintingTarget.TryAdd(playerId, new List<byte>());
         }
 
         private void SetSkin(PlayerControl target, NetworkedPlayerInfo.PlayerOutfit outfit)
@@ -123,7 +126,7 @@ namespace TOHE.Roles.Neutral
             {
                 if (!Camouflage.IsCamouflage)
                 {
-                    SetSkin(target, PaintedOutfit);
+                    SetSkin(target, outfit:ConsumedOutfit);
                 }
 
                 PlayerSkinsPainted[killer.PlayerId].Add(target.PlayerId);
@@ -131,7 +134,7 @@ namespace TOHE.Roles.Neutral
                 target.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.Artist), GetString("PaintedByArtist")));
 
                 OriginalPlayerSkins.Add(target.PlayerId, Camouflage.PlayerSkins[target.PlayerId]);
-                Camouflage.PlayerSkins[target.PlayerId] = PaintedOutfit;
+                Camouflage.PlayerSkins[target.PlayerId] = ConsumedOutfit;
             }
         }
 
@@ -147,7 +150,6 @@ namespace TOHE.Roles.Neutral
         public override void ReceiveRPC(MessageReader reader, PlayerControl NaN)
         {
             byte playerId = reader.ReadByte();
-            AbilityUses.SetInt(reader.ReadInt32());
             byte targetId = reader.ReadByte();
             PaintingTarget[playerId].Add(targetId);
         }
