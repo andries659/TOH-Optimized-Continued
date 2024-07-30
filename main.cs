@@ -677,7 +677,6 @@ public enum CustomRoles
     Knight, 
     LazyGuy,
     Lighter,
-    Lookout,
     Marshall,
     Mayor,
     Mechanic, 
