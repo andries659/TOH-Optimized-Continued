@@ -708,6 +708,7 @@ public enum CustomRoles
     SuperStar,
     Swapper,
     TaskManager,
+    Technician,
     Telecommunication,
     Tracefinder,
     //Tracker,
