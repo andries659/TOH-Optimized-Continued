@@ -723,6 +723,7 @@ public enum CustomRoles
     Amnesiac,
     Arsonist,
     Artist,
+    Assassin,
     Bandit,
     BloodKnight,
     Collector,
@@ -947,6 +948,7 @@ public enum CustomWinner
     Doppelganger = CustomRoles.Doppelganger,
     Solsticer = CustomRoles.Solsticer,
     DarkFairy = CustomRoles.DarkFairy,
+    Assassin = CustomRoles.Assassin,
 }
 public enum AdditionalWinners
 {

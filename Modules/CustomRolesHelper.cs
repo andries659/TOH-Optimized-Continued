@@ -188,7 +188,8 @@ public static class CustomRolesHelper
             CustomRoles.Juggernaut or
             CustomRoles.BloodKnight or
             CustomRoles.Cultist or
-            CustomRoles.DarkFairy;
+            CustomRoles.DarkFairy or
+            CustomRoles.Assassin;
     }
     public static bool IsTasklessCrewmate(this CustomRoles role)
     {
@@ -1226,6 +1227,7 @@ public static class CustomRolesHelper
            CustomRoles.SchrodingersCat => CountTypes.None,
            CustomRoles.Solsticer => CountTypes.None,
            CustomRoles.DarkFairy => CountTypes.DarkFairy,
+           CustomRoles.Assassin => CountTypes.Assassin,
            _ => role.IsImpostorTeam() ? CountTypes.Impostor : CountTypes.Crew,
 
            // CustomRoles.Phantom => CountTypes.OutOfGame,
@@ -1291,6 +1293,7 @@ public static class CustomRolesHelper
             CustomRoles.Mini => CustomWinner.NiceMini,
             CustomRoles.Doppelganger => CustomWinner.Doppelganger,
             CustomRoles.DarkFairy => CustomWinner.DarkFairy,
+            CustomRoles.Assassin => CustomWinner.Assassin,
             _ => throw new NotImplementedException()
 
         };
@@ -1306,6 +1309,7 @@ public static class CustomRolesHelper
             CountTypes.Demon => CustomRoles.Demon,
             CountTypes.BloodKnight => CustomRoles.BloodKnight,
             CountTypes.DarkFairy => CustomRoles.DarkFairy,
+            CountTypes.Assassin => CustomRoles.Assassin,
             CountTypes.Cultist => CustomRoles.Cultist,
             CountTypes.HexMaster => CustomRoles.HexMaster,
             CountTypes.Necromancer => CustomRoles.Necromancer,
@@ -1414,5 +1418,6 @@ public enum CountTypes
     RuthlessRomantic,
     Necromancer,
     DarkFairy,
-    Darkened
+    Darkened,
+    Assassin
 }

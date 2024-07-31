@@ -18,7 +18,7 @@ internal class Assassin : RoleBase
 
     public override void SetupCustomOption()
     {
-        SetupRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Assassin);
+        SetupRoleOptions(Id, TabGroup.NeutralRoles, CustomRoles.Assassin);
         AssassinKillCooldown = FloatOptionItem.Create(Id + 2, GeneralOption.KillCooldown, new(5f, 180f, 2.5f), 30f, TabGroup.CrewmateRoles, false)
             .SetParent(CustomRoleSpawnChances[CustomRoles.Assassin])
             .SetValueFormat(OptionFormat.Seconds);
@@ -49,13 +49,13 @@ internal class Assassin : RoleBase
         if (target.GetCustomRole().IsImpostor() && !target.Is(CustomRoles.Madmate) && !target.GetCustomRole().IsConverted())
         {
             killer.RpcSetCustomRole(CustomRoles.Admired);
-            killer.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.Adnired), GetString("AssassinCrewmateNotify")));
+            killer.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.Admired), GetString("AssassinCrewmateNotify")));
             //Utils.NotifyRoles(SpecifySeer: killer);
             Utils.MarkEveryoneDirtySettings();
         }
         if (target.GetCustomRole().IsNeutral() && !target.Is(CustomRoles.Madmate) && !target.GetCustomRole().IsConverted())
         {
-            killer.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.Adnired), GetString("AssassinNeutralNotify")));
+            killer.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.Admired), GetString("AssassinNeutralNotify")));
             //Utils.NotifyRoles(SpecifySeer: killer);
             Utils.MarkEveryoneDirtySettings();
         }
