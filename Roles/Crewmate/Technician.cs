@@ -24,10 +24,10 @@ internal class Technician : RoleBase
     public override void SetupCustomOption()
     {
         SetupRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Technician);
-        SeeAllIDs = BooleanOptionItem.Create(Id + 2, "TechnicianSeeAllIds", false, TabGroup.CrewmateRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Technician]);
-        SeePlayerInteractions = BooleanOptionItem.Create(Id + 3, "TechnicianSeePlayerInteractions", false, TabGroup.CrewmateRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Technician]);
-        NotifyWhenAnyoneVents = BooleanOptionItem.Create(Id + 4, "TechnicianNotifyWhenAnyoneVents", false, TabGroup.CrewmateRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Technician]);
-        NotifyWhenAnyoneShapeshifts = BooleanOptionItem.Create(Id + 5, "TechnicianNotifyWhenAnyoneShapeshifts", false, TabGroup.CrewmateRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Technician]);
+        SeeAllIDs = BooleanOptionItem.Create(Id + 2, "TechnicianSeeAllIds", true, TabGroup.CrewmateRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Technician]);
+        SeePlayerInteractions = BooleanOptionItem.Create(Id + 3, "TechnicianSeePlayerInteractions", true, TabGroup.CrewmateRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Technician]);
+        NotifyWhenAnyoneVents = BooleanOptionItem.Create(Id + 4, "TechnicianNotifyWhenAnyoneVents", true, TabGroup.CrewmateRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Technician]);
+        NotifyWhenAnyoneShapeshifts = BooleanOptionItem.Create(Id + 5, "TechnicianNotifyWhenAnyoneShapeshifts", true, TabGroup.CrewmateRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Technician]);
     }
     
     public override void Init()
