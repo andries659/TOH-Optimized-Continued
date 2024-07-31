@@ -874,6 +874,7 @@ public enum CustomRoles
     Torch,
     Trapper,
     Tired,
+    Underclocked,
     Unlucky,
     VoidBallot,
     Watcher,
