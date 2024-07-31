@@ -2736,8 +2736,8 @@
   "TechnicianSeePlayerInteractions": "See all shield animations",
   "TechnicianNotifyWhenAnyoneVents": "Notify when anyone vents",
   "TechnicianNotifyWhenAnyoneShapeshifts": "Notify when anyone shapeshifts",
-  "TechnicianNotifyVent": "Someone vented",
-  "TechnicianNotifyShapeshift": "Someone shapeshifted",
+  "TechnicianNotifyVent": "<color=#8cffff>Someone vented</color>",
+  "TechnicianNotifyShapeshift": "<color=#ff1919>Someone shapeshifted</color>",
 
   "ShieldDuration": "",
   "ImpCanBeUnlucky": "<color=#ff1919>Impostors</color> can become <color=#b8d7a3>Unlucky</color>",
