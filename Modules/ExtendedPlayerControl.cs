@@ -741,6 +741,7 @@ static class ExtendedPlayerControl
                     case CustomRoles.Underclocked:
                         Main.AllPlayerKillCooldown[player.PlayerId] -= Main.AllPlayerKillCooldown[player.PlayerId] * (Underclocked.UnderclockedIncrease.GetFloat() * 100);
                         break;
+                        
                     case CustomRoles.Diseased:
                         Diseased.IncreaseKCD(player);
                         break;
