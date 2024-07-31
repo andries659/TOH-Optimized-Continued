@@ -990,6 +990,7 @@
   "DarkenedInfoLong": "(Betrayal Add-ons):\nThe Darkened add-on is obtained by being charmed by the Dark Fairy when they completed a similar task that you have.\nOnce converted, you are now on the Dark Fairy's team and no longer on your original team.",
   "ProtectorInfoLong": "(Crewmates):\nAs the Protector, whenever you finish a task, you get a temporary shield.\n\n Note: Shield only protects from direct kill attacks.",
   "AssassinInfoLong":  "(Neutral):\nAfter you kill for the first time, certain things will happen:\nIf you kill a Crewmate, you become a Madmate and win with Impostors.\nIf you kill a Neutral, you become a neutral killer.\nIf you kill an Impostor, you become a Wakened Assassin and win with Crewmates.",
+  "TechnicianInfoLong": "(Crewmate):\nAs the Technician, you have three main abilities.\n\nYou can see all player IDs at all times.\nThis allows you to see through shapeshifts and camouflages.\n\nyou can see all shield animations caused by other players after the first meeting. Shield animations typically indicate a role ability.\n\nYou can get notfied whenever any player vents or shapeshifts, shapeshifts used for abilities do not notify the Technician.",
   "ShowTextOverlay": "Text Overlay",
   "Overlay.GuesserMode": "<size=50%>Guesser Mode</size>",
   "Overlay.NoGameEnd": "<size=50%>No Game End</size>",
@@ -2730,6 +2731,13 @@
   "FuryInRage": "Rage active!",
   "SeerFuryInRage": "The <color=#ff1919>Fury</color> is enraged!",
   "SeerNotifyRageActive": "Notify everyone when ability activates",
+
+  "TechnicianSeeAllIDs": "See all IDs",
+  "TechnicianSeePlayerInteractions": "See all shield animations",
+  "TechnicianNotifyWhenAnyoneVents": "Notify when anyone vents",
+  "TechnicianNotifyWhenAnyoneShapeshifts": "Notify when anyone shapeshifts",
+  "TechnicianNotifyVent": "Someone vented",
+  "TechnicianNotifyShapeshift": "Someone shapeshifted",
 
   "ShieldDuration": "",
   "ImpCanBeUnlucky": "<color=#ff1919>Impostors</color> can become <color=#b8d7a3>Unlucky</color>",
