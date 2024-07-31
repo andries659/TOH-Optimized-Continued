@@ -29,6 +29,8 @@ internal class Assassin : RoleBase
     }
     public override void Add(byte playerId)
     {
+        AbilityLimit = 1;
+
         playerIdList.Add(playerId);
 
         if (!Main.ResetCamPlayerList.Contains(playerId))
@@ -38,27 +40,31 @@ internal class Assassin : RoleBase
     public override bool CanUseKillButton(PlayerControl pc) => true;
     public override bool OnCheckMurderAsKiller(PlayerControl killer, PlayerControl target)
     {
-        if (killer.Is(CustomRoles.Madmate)) return true;
-        if (target.GetCustomRole().IsCrewmate() && !target.Is(CustomRoles.Madmate) && !target.GetCustomRole().IsConverted())
-        {
-            killer.RpcSetCustomRole(CustomRoles.Madmate);
-            killer.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.Madmate), GetString("AssassinImpostorNotify")));
-            //Utils.NotifyRoles(SpecifySeer: killer);
-            Utils.MarkEveryoneDirtySettings();
-        }
-        if (target.GetCustomRole().IsImpostor() && !target.Is(CustomRoles.Madmate) && !target.GetCustomRole().IsConverted())
-        {
-            killer.RpcSetCustomRole(CustomRoles.Admired);
-            killer.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.Admired), GetString("AssassinCrewmateNotify")));
-            //Utils.NotifyRoles(SpecifySeer: killer);
-            Utils.MarkEveryoneDirtySettings();
-        }
-        if (target.GetCustomRole().IsNeutral() && !target.Is(CustomRoles.Madmate) && !target.GetCustomRole().IsConverted())
-        {
-            killer.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.Admired), GetString("AssassinNeutralNotify")));
-            //Utils.NotifyRoles(SpecifySeer: killer);
-            Utils.MarkEveryoneDirtySettings();
-        }
-        return true;
+        if (AbilityLimit < 1) return false;
+            if (killer.Is(CustomRoles.Madmate)) return true;
+            if (target.GetCustomRole().IsCrewmate() && !target.Is(CustomRoles.Madmate) && !target.GetCustomRole().IsConverted())
+            {
+                killer.RpcSetCustomRole(CustomRoles.ImpostorTOHE);
+                killer.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.ImpostorTOHE), GetString("AssassinImpostorNotify")));
+                //Utils.NotifyRoles(SpecifySeer: killer);
+                Utils.MarkEveryoneDirtySettings();
+                AbilityLimit = 0;
+            }
+            if (target.GetCustomRole().IsImpostor() && !target.Is(CustomRoles.Madmate) && !target.GetCustomRole().IsConverted())
+            {
+                killer.RpcSetCustomRole(CustomRoles.Sheriff);
+                killer.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.Sheriff), GetString("AssassinSheriffNotify")));
+                //Utils.NotifyRoles(SpecifySeer: killer);
+                Utils.MarkEveryoneDirtySettings();
+                AbilityLimit = 0;
+            }
+            if (target.GetCustomRole().IsNeutral() && !target.Is(CustomRoles.Madmate) && !target.GetCustomRole().IsConverted())
+            {
+                killer.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.Assassin), GetString("AssassinNeutralNotify")));
+                //Utils.NotifyRoles(SpecifySeer: killer);
+                Utils.MarkEveryoneDirtySettings();
+                AbilityLimit = 0;
+            }
+            return true;
     }
 }
