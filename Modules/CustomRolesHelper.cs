@@ -554,6 +554,11 @@ public static class CustomRolesHelper
                     return false;
                 break;
 
+            case CustomRoles.Underclocked:
+                if (!pc.CanUseKillButton())
+                    return false;
+                break;
+
             case CustomRoles.Lazy:
                 if (!Lazy.CheckConflicts(pc))
                 if (pc.Is(CustomRoles.Protector))
