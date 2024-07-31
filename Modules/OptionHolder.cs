@@ -948,6 +948,8 @@ public static class Options
         
         Tired.SetupCustomOptions();
 
+        Underclocked.SetupCustomOptions();
+
         VoidBallot.SetupCustomOptions();
 
         TextOptionItem.Create(10000017, "RoleType.Mixed", TabGroup.Addons) // MIXED
