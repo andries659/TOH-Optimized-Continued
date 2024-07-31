@@ -6,7 +6,7 @@ public static class Underclocked
 {
     private const int Id = 30000;
 
-    public static OptionItem OverclockedIncrease;
+    public static OptionItem UnderclockedIncrease;
 
     public static void SetupCustomOptions()
     {
