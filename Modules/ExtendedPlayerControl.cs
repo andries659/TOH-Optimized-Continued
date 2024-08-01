@@ -739,7 +739,7 @@ static class ExtendedPlayerControl
                         break;
   
                     case CustomRoles.Underclocked:
-                        Main.AllPlayerKillCooldown[player.PlayerId] -= Main.AllPlayerKillCooldown[player.PlayerId] + (Underclocked.UnderclockedIncrease.GetFloat());
+                        Main.AllPlayerKillCooldown[player.PlayerId] = Main.AllPlayerKillCooldown[player.PlayerId] + (Underclocked.UnderclockedIncrease.GetFloat());
                         break;
                         
                     case CustomRoles.Diseased:
