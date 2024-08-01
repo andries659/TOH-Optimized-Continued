@@ -687,6 +687,18 @@ public static class CustomRolesHelper
                     return false;
                 break;
 
+            case CustomRoles.Identifier:
+                if (pc.Is(CustomRoles.Oblivious)
+                    || pc.Is(CustomRoles.Mortician)
+                    || pc.Is(CustomRoles.Cleaner)
+                    || pc.Is(CustomRoles.Medusa)
+                    || pc.Is(CustomRoles.Vulture)
+                    || pc.Is(CustomRoles.Coroner))
+                    return false;
+                if ((pc.GetCustomRole().IsCrewmate() && !Identifier.CrewCanBeIdentifier.GetBool()) || (pc.GetCustomRole().IsNeutral() && !Identifier.NeutralCanBeIdentifier.GetBool()) || (pc.GetCustomRole().IsImpostor() && !Identifier.ImpCanBeIdentifier.GetBool()))
+                    return false;
+                break;
+
             case CustomRoles.Necroview:
                 if (pc.Is(CustomRoles.Doctor)
                     || pc.Is(CustomRoles.God)
