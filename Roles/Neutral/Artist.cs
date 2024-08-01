@@ -1,3 +1,4 @@
+/*
 using AmongUs.GameOptions;
 using Hazel;
 using System.Collections.Generic;
@@ -153,3 +154,4 @@ internal class Artist : RoleBase
         sender.SendMessage();             
     }
 }
+*/
