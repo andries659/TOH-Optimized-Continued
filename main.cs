@@ -599,6 +599,7 @@ public enum CustomRoles
     Godfather,
     Greedy,
     Hangman,
+    Hypnotist,
     Inhibitor,
     Instigator,
     Kamikaze,

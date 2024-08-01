@@ -18,7 +18,7 @@ internal class Hypnotist : RoleBase
 
     private static OptionItem HypnotizeCooldown;
     private static OptionItem HypnosisDuration;
-    private static OptionItem AmountOfHypnitizes;
+    private static OptionItem AmountOfHypnotizes;
     private static OptionItem ShowShapeshiftAnimationsOpt;
 
     private static readonly HashSet<byte> playerIdList = [];
@@ -30,7 +30,7 @@ internal class Hypnotist : RoleBase
            .SetValueFormat(OptionFormat.Seconds);
         HypnosisDuration = FloatOptionItem.Create(Id + 3, "HypnotistHypnosisDuration", new(2.5f, 180f, 1.5f), 10f, TabGroup.ImpostorRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Hypnotist])
            .SetValueFormat(OptionFormat.Seconds);
-        AmountOfHypnitizes = IntegerOptionItem.Create(Id + 4, "HypnotistMaxCount", new(1, 7, 1), 3, TabGroup.ImpostorRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Hypnotist])
+        AmountOfHypnotizes = IntegerOptionItem.Create(Id + 4, "HypnotistMaxCount", new(1, 7, 1), 3, TabGroup.ImpostorRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Hypnotist])
             .SetValueFormat(OptionFormat.Times);
         ShowShapeshiftAnimationsOpt = BooleanOptionItem.Create(Id + 5, GeneralOption.ShowShapeshiftAnimations, true, TabGroup.ImpostorRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Hypnotist]);
     }
