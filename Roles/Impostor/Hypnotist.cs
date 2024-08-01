@@ -7,7 +7,7 @@
 //namespace TOHE.Roles.Impostor;
 
 //internal class Hypnotist : RoleBase
-{
+//{
     //===========================SETUP================================\\
     //private const int Id = 29700;
     //public static bool HasEnabled => CustomRoleManager.HasEnabled(CustomRoles.Hypnotist);
