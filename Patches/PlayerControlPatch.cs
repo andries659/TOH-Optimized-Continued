@@ -929,7 +929,7 @@ class ReportDeadBodyPatch
         
         Sleuth.OnReportDeadBody(player, target);
 
-
+        Identifier.OnReportDeadBody(player, target);
 
         foreach (var pc in Main.AllPlayerControls)
         {
