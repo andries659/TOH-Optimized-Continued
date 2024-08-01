@@ -29,7 +29,6 @@ public static class Identifier
         IdentifierNotify.Clear();
     }
 
-// Code uses RpcMurder because I was testing the ColorId check, will complete this next time!
     public static void OnReportDeadBody(PlayerControl reporter, NetworkedPlayerInfo deadBody)
     {
         if (reporter.Is(CustomRoles.Identifier) && !deadBody.Object.IsAlive() && reporter.PlayerId != deadBody.PlayerId)
@@ -39,12 +38,110 @@ public static class Identifier
 
             if (killerOutfit.ColorId == 0)
             {
-            reporter.RpcMurderPlayer(reporter);
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierDark"));
             }
             
             if (killerOutfit.ColorId == 1)
             {
-            reporter.RpcMurderPlayer(realKiller);
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierDark"));
+            }
+            
+            if (killerOutfit.ColorId == 2)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierDark"));
+            }
+
+            if (killerOutfit.ColorId == 3)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierLight"));
+            }
+            
+            if (killerOutfit.ColorId == 4)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierDark"));
+            }
+            
+            if (killerOutfit.ColorId == 5)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierLight"));
+            }
+
+            if (killerOutfit.ColorId == 6)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierDark"));
+            }
+            
+            if (killerOutfit.ColorId == 7)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierLight"));
+            }
+            
+            if (killerOutfit.ColorId == 8)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierDark"));
+            }
+
+            if (killerOutfit.ColorId == 9)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierDark"));
+            }
+            
+            if (killerOutfit.ColorId == 10)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierLight"));
+            }
+            
+            if (killerOutfit.ColorId == 11)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierLight"));
+            }
+
+            if (killerOutfit.ColorId == 12)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierDark"));
+            }
+            
+            if (killerOutfit.ColorId == 13)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierLight"));
+            }
+            
+            if (killerOutfit.ColorId == 14)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierLight"));
+            }
+
+            if (killerOutfit.ColorId == 15)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierLight"));
+            }
+            
+            if (killerOutfit.ColorId == 16)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierLight"));
+            }
+            
+            if (killerOutfit.ColorId == 17)
+            {
+                string msg;
+                msg = string.Format(Translator.GetString("IdentifierDark"));
             }
         }
 
