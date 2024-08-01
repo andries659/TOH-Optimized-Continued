@@ -1,4 +1,6 @@
-﻿namespace TOHE.Roles.AddOns.Common;
+using static TOHE.Options;
+using static TOHE.Translator;
+namespace TOHE.Roles.AddOns.Common;
 
 public static class Identifier
 {
@@ -27,8 +29,24 @@ public static class Identifier
         IdentifierNotify.Clear();
     }
 
+// Code uses RpcMurder because I was testing the ColorId check, will complete this next time!
     public static void OnReportDeadBody(PlayerControl reporter, NetworkedPlayerInfo deadBody)
     {
+        if (reporter.Is(CustomRoles.Identifier) && !deadBody.Object.IsAlive() && reporter.PlayerId != deadBody.PlayerId)
+        {
+            var realKiller = deadBody.Object.GetRealKiller();
+            var killerOutfit = Camouflage.PlayerSkins[realKiller.PlayerId];
+
+            if (killerOutfit.ColorId == 0)
+            {
+            reporter.RpcMurderPlayer(reporter);
+            }
+            
+            if (killerOutfit.ColorId == 1)
+            {
+            reporter.RpcMurderPlayer(realKiller);
+            }
+        }
 
     }
 }
