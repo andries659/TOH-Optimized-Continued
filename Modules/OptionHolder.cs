@@ -916,6 +916,8 @@ public static class Options
 
         Sleuth.SetupCustomOptions();
 
+        Identifier.SetupCustomOptions();
+
         Tiebreaker.SetupCustomOptions();
     
         Torch.SetupCustomOptions();
