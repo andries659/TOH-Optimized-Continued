@@ -10,8 +10,7 @@ public static class Underclocked
 
     public static void SetupCustomOptions()
     {
-        SetupAdtRoleOptions(Id, CustomRoles.Underclocked, canSetNum: true);
-        UnderclockedIncrease = FloatOptionItem.Create(Id + 10, "UnderclockedIncrease", new(0f, 60f, 5f), 15f, TabGroup.Addons, false).SetParent(CustomRoleSpawnChances[CustomRoles.Underclocked])
+        UnderclockedKillCooldown = FloatOptionItem.Create(Id + 10, "UnderclockedKillCooldown", new(25f, 180f, 2.5f), 30f, TabGroup.Addons, false).SetParent(CustomRoleSpawnChances[CustomRoles.Underclocked])
             .SetValueFormat(OptionFormat.Seconds);
     }
 }
