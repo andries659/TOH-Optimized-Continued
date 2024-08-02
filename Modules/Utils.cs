@@ -1579,7 +1579,7 @@ public static class Utils
                 {
                     var modTagVanilla = $"<size=1.4>{GetString("ModeratorTag")} - </size>";
                     var vipTagVanilla = $"<size=1.4>{GetString("VIPTag")} - </size>";
-                    name = $"{(hasTag ? tag.Replace("\r\n", " - ") : string.Empty)}{name}";
+                    name = $"{(hasTag ? tag.Replace("\r\n", " | ") : string.Empty)}{name}";
                 }
             }
         }
