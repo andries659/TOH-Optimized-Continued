@@ -1457,6 +1457,7 @@ public static class Utils
                 if (Options.CurrentGameMode == CustomGameMode.FFA)
                     name = $"<color=#00ffff><size=1.7>{GetString("ModeFFA")}</size></color>\r\n" + name;
             }
+
             var modtag = "";
             if (Options.ApplyVipList.GetValue() == 1 && player.FriendCode != PlayerControl.LocalPlayer.FriendCode)
             {
@@ -1562,11 +1563,25 @@ public static class Utils
                 };
             }
 
-            if (!name.Contains($"\r\r") && player.FriendCode.GetDevUser().HasTag() && (player.AmOwner || player.IsModClient()))
+            DevUser devUser = player.FriendCode.GetDevUser();
+            bool hasTag = devUser.HasTag();
+            if (hasTag)
             {
-                name = player.FriendCode.GetDevUser().GetTag() + "<size=1.5>" + modtag + "</size>" + name;
+                string tag = hasTag ? devUser.GetTag() : string.Empty;
+                if (tag == "null") tag = string.Empty;
+                if (player.AmOwner || player.IsModClient())
+                {
+                    var modTagModded = $"<size=1.4>{GetString("ModeratorTag")}\r\n</size>";
+                    var vipTagModded = $"<size=1.4>{GetString("VIPTag")}\r\n</size>";
+                    name = $"{(hasTag ? tag : string.Empty)}{name}";
+                }
+                else
+                {
+                    var modTagVanilla = $"<size=1.4>{GetString("ModeratorTag")} - </size>";
+                    var vipTagVanilla = $"<size=1.4>{GetString("VIPTag")} - </size>";
+                    name = $"{(hasTag ? tag.Replace("\r\n", " - ") : string.Empty)}{name}";
+                }
             }
-            else name = modtag + name;
         }
         if (name != player.name && player.CurrentOutfitType == PlayerOutfitType.Default)
             player.RpcSetName(name);
