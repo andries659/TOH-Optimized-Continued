@@ -56,7 +56,7 @@ namespace TOHE.Roles.Impostor
 
         public override void SetKillCooldown(byte id) => Main.AllPlayerKillCooldown[id] = KillCooldown.GetFloat();
 
-        public override bool OnCheckShapeshift(PlayerControl shapeshifter, PlayerControl target)
+        public override void OnShapeshift(PlayerControl shapeshifter, PlayerControl target, bool IsAnimate, bool shapeshifting)
         {
             if (shapeshifter == null || target == null) return false;
 
