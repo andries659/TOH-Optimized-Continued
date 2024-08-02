@@ -32,8 +32,7 @@ namespace TOHE.Roles.Impostor
             TaskAddCooldown = FloatOptionItem.Create(Id + 11, "TaskAddCooldown", new FloatRange(0f, 180f, 2.5f), 30f, TabGroup.ImpostorRoles, false)
                 .SetParent(CustomRoleSpawnChances[CustomRoles.Capitalist])
                 .SetValueFormat(OptionFormat.Seconds);
-            CanVent = BooleanOptionItem.Create(Id + 12, GeneralOption.CanVent, true, TabGroup.ImpostorRoles, false)
-                .SetParent(CustomRoleSpawnChances[CustomRoles.Capitalist]);
+    
         }
 
         public override void Init()
