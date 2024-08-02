@@ -836,6 +836,7 @@ public enum CustomRoles
     Gravestone,
     Guesser,
     Hurried,
+    Identifier,
     Infected,
     Influenced,
     Knighted,
@@ -881,7 +882,6 @@ public enum CustomRoles
     Watcher,
     Workhorse,
     Youtuber,
-    Identifier
 }
 //WinData
 public enum CustomWinner
