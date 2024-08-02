@@ -2035,7 +2035,7 @@
   "NemesisKillSucceed": "[{0}] was killed by the Nemesis!",
   "NemesisKillDisable": "Sorry, but according to Host's settings, Nemesis revenge is prohibited in this game",
   "NemesisKillMax": "You've reached the maximum amount of kills, you can't kill anymore!",
-
+  
   "CelebrityDead": "Shock! Celebrity[{0}]has unfortunately been mercilessly killed in the recent period!",
   "CyberDead": "Oh no! It appears the Cyber, <b>{0}</b>, has died recently.",
   "DetectiveNoticeVictim": "According to your investigation,\nthe victim ([{0}]) had the role [{1}]",
@@ -3008,6 +3008,9 @@
   "KeeperTitle": "Keeper",
 
   "MaulRadius": "Maul Radius",
+  "ImpCanBeIdentifier": "<color=#ff1919>Impostors</color> can become Identifier",
+  "CrewCanBeIdentifier": "<color=#8cffff>Crewmates</color> can become Identifier",
+  "NeutralCanBeIdentifier": "<color=#7f8c8d>Neutrals</color> can become Identifier",
   "ImpCanBeAutopsy": "<color=#ff1919>Impostors</color> can become <color=#80ffdd>Autopsy</color>",
   "CrewCanBeAutopsy": "<color=#8cffff>Crewmates</color> can become <color=#80ffdd>Autopsy</color>",
   "NeutralCanBeAutopsy": "<color=#7f8c8d>Neutrals</color> can become <color=#80ffdd>Autopsy</color>",
