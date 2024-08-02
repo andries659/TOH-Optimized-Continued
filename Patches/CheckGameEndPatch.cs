@@ -149,12 +149,6 @@ class GameEndCheckerForNormal
                             CustomWinnerHolder.WinnerIds.Add(pc.PlayerId);
                         }
                         break;
-                    case CustomWinner.Assassin:
-                        if (pc.Is(CustomRoles.Assassin) && !CustomWinnerHolder.WinnerIds.Contains(Romantic.BetPlayer[pc.PlayerId]))
-                        {
-                            CustomWinnerHolder.WinnerIds.Add(pc.PlayerId);
-                        }
-                        break;
                 }
             }
             if (CustomWinnerHolder.WinnerTeam is not CustomWinner.Draw and not CustomWinner.None and not CustomWinner.Error)
