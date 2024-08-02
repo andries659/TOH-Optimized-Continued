@@ -881,8 +881,7 @@ public enum CustomRoles
     Watcher,
     Workhorse,
     Youtuber,
-    Identifier,
-    Underclocked
+    Identifier
 }
 //WinData
 public enum CustomWinner
