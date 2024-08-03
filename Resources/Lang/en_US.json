@@ -990,7 +990,7 @@
   "AssassinInfoLong": "(Neutral):\nAfter you kill for the first time, certain things will happen:\nIf you kill a Crewmate, you become an Impostor.\nIf you kill a Neutral, you become a neutral killer.\nIf you kill an Impostor, you become a Sheriff.",
   "TechnicianInfoLong": "(Crewmate):\nAs the Technician, you have three main abilities.\n\nYou can see all player IDs at all times.\nThis allows you to see through shapeshifts and camouflages.\n\nYou can see all shield animations caused by other players after the first meeting. Shield animations typically indicate a role ability.\n\nYou can get notfied whenever any player vents or shapeshifts, shapeshifts used for abilities do not notify the Technician.",
   "UnderclockedInfoLong": "(Add-ons):\nAs the Underclocked, your kill cooldown is increased by a certian amount.\n\nThis feature is only assigned to roles with a kill button.",
-  "IdentifierInfoLong": "(Add-ons)\n As the Identifier, when you report a body, you will get a message in meeting saying if the Killer has a lighter or darker color.",
+  "IdentifierInfoLong": "(Add-ons):\nAs the Identifier, when reporting a body, you will get a message in meeting saying if the Killer has a lighter or darker color.",
   "ShowTextOverlay": "Text Overlay",
   "Overlay.GuesserMode": "<size=50%>Guesser Mode</size>",
   "Overlay.NoGameEnd": "<size=50%>No Game End</size>",
