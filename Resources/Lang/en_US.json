@@ -3265,8 +3265,9 @@
   "EnigmaClueLevelTitle": "Enigma Level Clue!",
   "EnigmaClueFriendCodeTitle": "Enigma Friendcode Clue!",
 
-  "IdentifierDark": "The Killer has a dark color!\nBlue, Red, Green, Orange, Black, Purple, Brown, Maroon, Tan ",
-  "IdentifierLight": "The Killer has a light color!\n(Pink, Yellow, White, Cyan, Lime, Rose, Banana, Gray, Coral",
+  "IdentifierDark": "The Killer has a dark color!\n(Blue, Red, Green, Orange, Black, Purple, Brown, Maroon, Tan)",
+  "IdentifierLight": "The Killer has a light color!\n(Pink, Yellow, White, Cyan, Lime, Rose, Banana, Gray, Coral)", 
+  "IdentifierNoticeTitle": "IDENTIFIER",
   
   "VotesPerKill": "Votes gained for each kill",
   "PickpocketGetVote": "You've got {0} votes",
