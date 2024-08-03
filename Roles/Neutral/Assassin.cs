@@ -19,7 +19,7 @@ internal class Assassin : RoleBase
     public override void SetupCustomOption()
     {
         SetupRoleOptions(Id, TabGroup.NeutralRoles, CustomRoles.Assassin);
-        AssassinKillCooldown = FloatOptionItem.Create(Id + 2, GeneralOption.KillCooldown, new(5f, 180f, 2.5f), 30f, TabGroup.CrewmateRoles, false)
+        AssassinKillCooldown = FloatOptionItem.Create(Id + 2, GeneralOption.KillCooldown, new(5f, 180f, 2.5f), 30f, TabGroup.NeutralRoles, false)
             .SetParent(CustomRoleSpawnChances[CustomRoles.Assassin])
             .SetValueFormat(OptionFormat.Seconds);
     }
