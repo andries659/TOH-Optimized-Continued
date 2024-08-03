@@ -1,5 +1,3 @@
-using static TOHE.Options;
-using static TOHE.Translator;
 namespace TOHE.Roles.AddOns.Common;
 
 public static class Identifier
@@ -36,114 +34,20 @@ public static class Identifier
             var realKiller = deadBody.Object.GetRealKiller();
             var killerOutfit = Camouflage.PlayerSkins[realKiller.PlayerId];
 
-            if (killerOutfit.ColorId == 0)
+            if (killerOutfit.ColorId == 0 || killerOutfit.ColorId == 1 || killerOutfit.ColorId == 2 || killerOutfit.ColorId == 4 || killerOutfit.ColorId == 6 || killerOutfit.ColorId == 8 || killerOutfit.ColorId == 9 || killerOutfit.ColorId == 12 || killerOutfit.ColorId == 17)
             {
                 string msg;
                 msg = string.Format(Translator.GetString("IdentifierDark"));
-            }
-            
-            if (killerOutfit.ColorId == 1)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierDark"));
-            }
-            
-            if (killerOutfit.ColorId == 2)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierDark"));
+                IdentifierNotify.Add(reporter.PlayerId, msg);
             }
 
-            if (killerOutfit.ColorId == 3)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierLight"));
-            }
-            
-            if (killerOutfit.ColorId == 4)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierDark"));
-            }
-            
-            if (killerOutfit.ColorId == 5)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierLight"));
-            }
 
-            if (killerOutfit.ColorId == 6)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierDark"));
-            }
-            
-            if (killerOutfit.ColorId == 7)
+            if (killerOutfit.ColorId == 3 || killerOutfit.ColorId == 5 || killerOutfit.ColorId == 7 || killerOutfit.ColorId == 10 || killerOutfit.ColorId == 11 || killerOutfit.ColorId == 13 || killerOutfit.ColorId == 14 || killerOutfit.ColorId == 15 || killerOutfit.ColorId == 16)
             {
                 string msg;
                 msg = string.Format(Translator.GetString("IdentifierLight"));
-            }
-            
-            if (killerOutfit.ColorId == 8)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierDark"));
-            }
-
-            if (killerOutfit.ColorId == 9)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierDark"));
-            }
-            
-            if (killerOutfit.ColorId == 10)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierLight"));
-            }
-            
-            if (killerOutfit.ColorId == 11)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierLight"));
-            }
-
-            if (killerOutfit.ColorId == 12)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierDark"));
-            }
-            
-            if (killerOutfit.ColorId == 13)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierLight"));
-            }
-            
-            if (killerOutfit.ColorId == 14)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierLight"));
-            }
-
-            if (killerOutfit.ColorId == 15)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierLight"));
-            }
-            
-            if (killerOutfit.ColorId == 16)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierLight"));
-            }
-            
-            if (killerOutfit.ColorId == 17)
-            {
-                string msg;
-                msg = string.Format(Translator.GetString("IdentifierDark"));
+                IdentifierNotify.Add(reporter.PlayerId, msg);
             }
         }
-
     }
 }
