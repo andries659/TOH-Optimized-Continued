@@ -34,7 +34,7 @@ public static class Identifier
             var realKiller = deadBody.Object.GetRealKiller();
             var killerOutfit = Camouflage.PlayerSkins[realKiller.PlayerId];
 
-            if (killerOutfit.ColorId == 0 || killerOutfit.ColorId == 1 || killerOutfit.ColorId == 2 || killerOutfit.ColorId == 4 || killerOutfit.ColorId == 6 || killerOutfit.ColorId == 8 || killerOutfit.ColorId == 9 || killerOutfit.ColorId == 12 || killerOutfit.ColorId == 17)
+            if (killerOutfit.ColorId == 0 || killerOutfit.ColorId == 1 || killerOutfit.ColorId == 2 || killerOutfit.ColorId == 4 || killerOutfit.ColorId == 6 || killerOutfit.ColorId == 8 || killerOutfit.ColorId == 9 || killerOutfit.ColorId == 12 || killerOutfit.ColorId == 16)
             {
                 string msg;
                 msg = string.Format(Translator.GetString("IdentifierDark"));
@@ -42,7 +42,7 @@ public static class Identifier
             }
 
 
-            if (killerOutfit.ColorId == 3 || killerOutfit.ColorId == 5 || killerOutfit.ColorId == 7 || killerOutfit.ColorId == 10 || killerOutfit.ColorId == 11 || killerOutfit.ColorId == 13 || killerOutfit.ColorId == 14 || killerOutfit.ColorId == 15 || killerOutfit.ColorId == 16)
+            if (killerOutfit.ColorId == 3 || killerOutfit.ColorId == 5 || killerOutfit.ColorId == 7 || killerOutfit.ColorId == 10 || killerOutfit.ColorId == 11 || killerOutfit.ColorId == 13 || killerOutfit.ColorId == 14 || killerOutfit.ColorId == 15 || killerOutfit.ColorId == 17)
             {
                 string msg;
                 msg = string.Format(Translator.GetString("IdentifierLight"));
