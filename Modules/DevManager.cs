@@ -35,7 +35,7 @@ public static class DevManager
             new(code: "neatnet#5851", color: "#FFFF00", tag: "The 200IQ guy", isUp: true, isDev: false, deBug: false, colorCmd: false, upName: "The 200IQ guy"),
         
             // Lime
-            new(code: "latevoice#4590", color: "#ffc0cb", tag: "The entire circus", isUp: true, isDev: true, deBug: true, colorCmd: true, upName: "Lime"),
+            new(code: "latevoice#4590", color: "#00ff00", tag: "The entire circus", isUp: true, isDev: true, deBug: true, colorCmd: true, upName: "Lime"),
 
             // Ape
             new(code: "simianpair#1270", color: "#0e2f44", tag: "Executive", isUp: true, isDev: true, deBug: true, colorCmd: true, upName: "Ape"),
@@ -45,6 +45,9 @@ public static class DevManager
 
             // Dailyhare
             new(code: "noshsame#8116", color: "#011efe", tag: "Bait Killer", isUp: true, isDev: true, deBug: true, colorCmd: true, upName: "Dailyhare"),
+
+            // BXO
+            new(code: "justgust#5169", color: "#07296c", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "BXO"),
 
         ];
     }
