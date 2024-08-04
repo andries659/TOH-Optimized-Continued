@@ -29,7 +29,7 @@ namespace TOHE.Roles.Neutral
 
         public override void SetupCustomOption()
         {
-            SetupRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.TimeMaster);
+            SetupRoleOptions(Id, TabGroup.NeutralRoles, CustomRoles.Repellant);
             RepellantSkillCooldown = FloatOptionItem.Create(Id + 10, "RepellantSkillCooldown", new(1f, 180f, 1f), 20f, TabGroup.NeutralRoles, false)
                 .SetParent(CustomRoleSpawnChances[CustomRoles.Repellant])
                 .SetValueFormat(OptionFormat.Seconds);
