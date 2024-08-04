@@ -49,9 +49,6 @@ public static class DevManager
             // BXO
             new(code: "justgust#5169", color: "#07296c", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "BXO"),
 
-            // Fold
-            new(code: "leftsilage#1800", color: "#a43030", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "0 Fold"),
-
             // Apoc
             new(code: "crunchwide#1938", color: "#ffa500", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Apoc"),
 
