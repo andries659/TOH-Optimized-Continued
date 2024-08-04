@@ -241,5 +241,6 @@
   "Assassin": "#5c0131",
   "Technician": "#333c49",
   "Identifier": "#D64ED7",
-  "Underclocked": "#070089"
+  "Underclocked": "#070089",
+  "Repellant": "#86A069" 
 }
