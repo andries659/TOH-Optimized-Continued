@@ -92,7 +92,7 @@ namespace TOHE.Roles.Neutral
                     }              
                     else
                     {
-                        target.RpcMurderPlayer(killer);
+                        target.RpcGuardAndKill(killer);
                         killer.SetRealKiller(target);
                         Logger.Info($"{target.GetRealName()} kill {killer.GetRealName()}", "Repellant");
                         return false;
