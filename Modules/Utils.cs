@@ -1582,6 +1582,7 @@ public static class Utils
                     name = $"{(hasTag ? tag.Replace("\r\n", " | ") : string.Empty)}{name}";
                 }
             }
+            else name = modtag + name;
         }
         if (name != player.name && player.CurrentOutfitType == PlayerOutfitType.Default)
             player.RpcSetName(name);
