@@ -15,6 +15,7 @@ public static class BanManager
     private static readonly string BAN_LIST_PATH = @"./TOHE-DATA/BanList.txt";
     private static readonly string MODERATOR_LIST_PATH = @"./TOHE-DATA/Moderators.txt";
     private static readonly string VIP_LIST_PATH = @"./TOHE-DATA/VIP-List.txt";
+    private static readonly string Exclusive_LIST_PATH = @"./TOHE-DATA/Exclusive-List.txt";
     private static readonly string WHITE_LIST_LIST_PATH = @"./TOHE-DATA/WhiteList.txt";
     //private static List<string> EACList = []; // Don't make it read-only
     public static List<string> TempBanWhiteList = []; //To prevent writing to ban list
@@ -45,6 +46,11 @@ public static class BanManager
             {
                 Logger.Warn("Creating a new VIP-List.txt file", "BanManager");
                 File.Create(VIP_LIST_PATH).Close();
+            }
+            if (!File.Exists(Exclusive_LIST_PATH))
+            {
+                Logger.Warn("Creating a new Exclusive-List.txt file", "BanManager");
+                File.Create(Exclusive_LIST_PATH).Close();
             }
             if (!File.Exists(WHITE_LIST_LIST_PATH))
             {

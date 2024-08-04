@@ -382,7 +382,7 @@
   "Technician": "Technician",
   "Underclocked": "Underclocked",
   "Identifier": "Identifier",
-  "Repellant": "Repellant", 
+  "Repellant": "Repellant",
   "BracketAddons": "Add Brackets To Add-ons",
   "EngineerTOHEInfo": "Use the vents to catch the <color=#ff1919>Impostors</color>",
   "ScientistTOHEInfo": "Access portable vitals from anywhere",
@@ -507,7 +507,7 @@
   "RetributionistInfo": "Help the crew after you die",
   "HawkInfo": "Seek murdering the bad guys!",
   "DeputyInfo": "Handcuff killers to increase their cooldowns",
-  "ValkyrieInfo": "Take revenge on your enemies", 
+  "ValkyrieInfo": "Take revenge on your enemies",
   "InvestigatorInfo": "Find potential evils",
   "GuardianInfo": "Complete your tasks to become immortal",
   "AddictInfo": "Vent to become invulnerable, or you'll die",
@@ -681,12 +681,12 @@
   "EvaderInfo": "Get a second chance and refuse to be ejected in meetings!",
   "DarkFairyInfo": "Convert ALL the players, via your tasks!",
   "FuryInfo": "Unleash your rage",
-  "DivinerInfo":"Kill your killer to defy death",
+  "DivinerInfo": "Kill your killer to defy death",
   "ProtectorInfo": "Complete tasks, shield yourself!",
   "AssassinInfo": "Choose your own team by killing",
   "TechnicianInfo": "You can see it all",
   "UnderclockedInfo": "Higher cooldown",
-  "RepellantInfo": "Shield yourself against the killers", 
+  "RepellantInfo": "Shield yourself against the killers",
   "IdentifierInfo": "Find killers based on their color",
   "EngineerTOHEInfoLong": "(Crewmates):\nAs the Engineer, you may access the vents while Comms Sabotaged is inactive.",
   "ScientistTOHEInfoLong": "(Crewmates):\nAs the Scientist, you can see vitals at any time, showing you who is alive and dead.",
@@ -1013,7 +1013,7 @@
 
   "AssassinImpostorNotify": "You have become an Impostor",
   "AssassinSheriffNotify": "You have become a Sheriff",
-  "AssassinNeutralNotify":  "You have become a Neutral Killer",
+  "AssassinNeutralNotify": "You have become a Neutral Killer",
 
   "AbilityCD": "Ability Cooldown",
   "GrenadierSkillMaxOfUseage": "(Initial) Max number of Grenades",
@@ -1362,7 +1362,7 @@
   "WardenNotifyLimit": "Max number of alerts",
 
   "UnderclockedIncrease": "Kill cooldown increase",
-  
+
   "BombCooldown": "Bomb Cooldown",
   "Warlock_CanKillSelf": "Can Kill Themselves",
   "CrewpostorKnowsAllies": "Knows <color=#ff1919>Impostors</color>",
@@ -1540,9 +1540,9 @@
   "ImpCanBeGravestone": "<color=#ff1919>Impostors</color> can become <color=#2EA8E7>Gravestone</color>",
   "CrewCanBeGravestone": "<color=#8cffff>Crewmates</color> can become <color=#2EA8E7>Gravestone</color>",
   "NeutralCanBeGravestone": "<color=#7f8c8d>Neutrals</color> can become <color=#2EA8E7>Gravestone</color>",
-  "ImpCanBeEvader":"<color=#ff1919>Impostors</color> can become <color=#eb8634>Evader</color>",
-  "NeutralCanBeEvader":"<color=#7f8c8d>Neutrals</color> can become <color=#eb8634>Evader</color>",
-  "CrewCanBeEvader":"<color=#8cffff>Crewmates</color> can become <color=#eb8634>Evader</color>",
+  "ImpCanBeEvader": "<color=#ff1919>Impostors</color> can become <color=#eb8634>Evader</color>",
+  "NeutralCanBeEvader": "<color=#7f8c8d>Neutrals</color> can become <color=#eb8634>Evader</color>",
+  "CrewCanBeEvader": "<color=#8cffff>Crewmates</color> can become <color=#eb8634>Evader</color>",
   "TimeThiefDecreaseMeetingTime": "Lower Meeting Time by",
   "TimeThiefLowerLimitVotingTime": "Minimum Voting Time",
   "TimeThiefReturnStolenTimeUponDeath": "Return Stolen Time Upon Death",
@@ -1860,6 +1860,8 @@
   "ApplyModeratorList": "Apply Moderator List",
   "VipTag": "VIP★",
   "ApplyVipList": "Apply VIP List",
+  "ExclusiveTag": "Exclusive★",
+  "ApplyExclusiveList": "Apply Exclusive List",
   "AllowSayCommand": "Allow moderators to use /say command",
   "KickCommandDisabled": "The kick command is currently disabled.",
   "KickCommandNoAccess": "You do not have access to the kick command.",
@@ -2032,7 +2034,7 @@
   "NemesisKillSucceed": "[{0}] was killed by the Nemesis!",
   "NemesisKillDisable": "Sorry, but according to Host's settings, Nemesis revenge is prohibited in this game",
   "NemesisKillMax": "You've reached the maximum amount of kills, you can't kill anymore!",
-  
+
   "CelebrityDead": "Shock! Celebrity[{0}]has unfortunately been mercilessly killed in the recent period!",
   "CyberDead": "Oh no! It appears the Cyber, <b>{0}</b>, has died recently.",
   "DetectiveNoticeVictim": "According to your investigation,\nthe victim ([{0}]) had the role [{1}]",
@@ -2975,15 +2977,15 @@
   "JailedNotifyMsg": "The Jailer has jailed you. No one can guess or judge you. You can only guess The Jailer.\n\nIf Jailer votes you, you will be executed after the meeting ends.",
   "JailerTitle": "Jailer",
 
-  "ValkyrieRevengeTime":"Revenge duration",
-  "ValkyrieHide":"Hide from the Valkyrie!",
-  "ValkyrieRevenge":"You have {0}s to kill <color=#E4D339>{1}</color>",
-  "ValkyrieSuccess":"Congratulations! You live to see another day.",
-  "DivinerRevengeTime":"Revenge duration",
-  "DivinerHide":"Hide from the Diviner!",
-  "DivinerRevenge":"You have {0}s to kill <color=#ff0000>{1}</color>",
-  "DivinerSuccess":"Congratulations! You live to see another day.",
-  
+  "ValkyrieRevengeTime": "Revenge duration",
+  "ValkyrieHide": "Hide from the Valkyrie!",
+  "ValkyrieRevenge": "You have {0}s to kill <color=#E4D339>{1}</color>",
+  "ValkyrieSuccess": "Congratulations! You live to see another day.",
+  "DivinerRevengeTime": "Revenge duration",
+  "DivinerHide": "Hide from the Diviner!",
+  "DivinerRevenge": "You have {0}s to kill <color=#ff0000>{1}</color>",
+  "DivinerSuccess": "Congratulations! You live to see another day.",
+
   "CopyCatCopyCooldown": "Copy cooldown",
   "CopyCatRoleChange": "Your role has been changed to <b>{0}</b>",
   "CopyCatCanNotCopy": "You can not copy the target's role",
@@ -3263,9 +3265,9 @@
   "EnigmaClueFriendCodeTitle": "Enigma Friendcode Clue!",
 
   "IdentifierDark": "The Killer has a dark color!\n(Blue, Red, Green, Orange, Black, Purple, Brown, Maroon, Tan)",
-  "IdentifierLight": "The Killer has a light color!\n(Pink, Yellow, White, Cyan, Lime, Rose, Banana, Gray, Coral)", 
+  "IdentifierLight": "The Killer has a light color!\n(Pink, Yellow, White, Cyan, Lime, Rose, Banana, Gray, Coral)",
   "IdentifierNoticeTitle": "IDENTIFIER",
-  
+
   "VotesPerKill": "Votes gained for each kill",
   "PickpocketGetVote": "You've got {0} votes",
   "VultureArrowsPointingToDeadBody": "Arrows pointing to dead bodies",

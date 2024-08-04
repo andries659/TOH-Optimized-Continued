@@ -24,7 +24,8 @@ internal class ChatCommands
     private static readonly string modTagsFiles = @"./TOHE-DATA/Tags/MOD_TAGS";
     private static readonly string sponsorTagsFiles = @"./TOHE-DATA/Tags/SPONSOR_TAGS";
     private static readonly string vipTagsFiles = @"./TOHE-DATA/Tags/VIP_TAGS";
-    
+    private static readonly string exclusiveTagsFiles = @"./TOHE-DATA/Tags/Exclusive_TAGS";
+
     private static readonly Dictionary<char, int> Pollvotes = [];
     private static readonly Dictionary<char, string> PollQuestions = [];
     private static readonly List<byte> PollVoted = [];
@@ -69,6 +70,7 @@ internal class ChatCommands
         if (PlayerControl.LocalPlayer.GetRoleClass() is Swapper sw && sw.SwapMsg(PlayerControl.LocalPlayer, text)) goto Canceled; 
         Directory.CreateDirectory(modTagsFiles);
         Directory.CreateDirectory(vipTagsFiles);
+        Directory.CreateDirectory(exclusiveTagsFiles);
         Directory.CreateDirectory(sponsorTagsFiles);
 
         if (Blackmailer.CheckBlackmaile(PlayerControl.LocalPlayer) && PlayerControl.LocalPlayer.IsAlive())
@@ -1850,6 +1852,7 @@ internal class ChatCommands
 
         Directory.CreateDirectory(modTagsFiles);
         Directory.CreateDirectory(vipTagsFiles);
+        Directory.CreateDirectory(exclusiveTagsFiles);
         Directory.CreateDirectory(sponsorTagsFiles);
 
         if (Blackmailer.CheckBlackmaile(player) && player.IsAlive() && !player.IsModClient())
@@ -1977,7 +1980,7 @@ internal class ChatCommands
             case "/rename":
             case "/renomear":
             case "/переименовать":
-                if (Options.PlayerCanSetName.GetBool() || player.FriendCode.GetDevUser().IsDev || Utils.IsPlayerVIP(player.FriendCode))
+                if (Options.PlayerCanSetName.GetBool() || player.FriendCode.GetDevUser().IsDev || Utils.IsPlayerVIP(player.FriendCode) || Utils.IsPlayerExclusive(player.FriendCode))
                 {
                     if (GameStates.IsInGame)
                     {
@@ -2157,7 +2160,7 @@ internal class ChatCommands
             case "/color":
             case "/cor":
             case "/цвет":
-                if (Options.PlayerCanSetColor.GetBool() || player.FriendCode.GetDevUser().IsDev || player.FriendCode.GetDevUser().ColorCmd || Utils.IsPlayerVIP(player.FriendCode))
+                if (Options.PlayerCanSetColor.GetBool() || player.FriendCode.GetDevUser().IsDev || player.FriendCode.GetDevUser().ColorCmd || Utils.IsPlayerVIP(player.FriendCode) || Utils.IsPlayerExclusive(player.FriendCode))
                 {
                     if (GameStates.IsInGame)
                     {
@@ -2524,7 +2527,7 @@ internal class ChatCommands
                     Utils.SendMessage(GetString("VipColorCommandDisabled"), player.PlayerId);
                     break;
                 }
-                if (!Utils.IsPlayerVIP(player.FriendCode))
+                if (!Utils.IsPlayerVIP(player.FriendCode) || !Utils.IsPlayerExclusive(player.FriendCode))
                 {
                     Utils.SendMessage(GetString("VipColorCommandNoAccess"), player.PlayerId);
                     break;
