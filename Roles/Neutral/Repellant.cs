@@ -74,25 +74,31 @@ namespace TOHE.Roles.Neutral
 
         public override bool OnCheckMurderAsTarget(PlayerControl killer, PlayerControl target)
         {
-        
-            if (RepellantInProtect.ContainsKey(target.PlayerId) && killer.PlayerId != target.PlayerId)
-            {
-                
-                if (RepellantInProtect[target.PlayerId] + RepellantSkillDuration.GetInt() >= GetTimeStamp(DateTime.UtcNow))
+            if (killer.PlayerId != target.PlayerId && RepellantInProtect.TryGetValue(target.PlayerId, out var time))
+                if (time + RepellantSkillDuration.GetInt() >= GetTimeStamp())
                 {
-                    
-                    killer.Notify(GetString("RepellantBlockedMurder"));
-
-                    
-                    target.Notify(GetString("RepellantProtected"));
-
-                    
-                    return true;
-                }
-            }
-            
-            
-            return false;
+                    if (killer.Is(CustomRoles.Pestilence))
+                    {
+                        killer.RpcMurderPlayer(target);
+                        target.SetRealKiller(killer);
+                        Logger.Info($"{killer.GetRealName()} kill {target.GetRealName()} because killer Pestilence", "Repellant");
+                        return false;
+                    }
+                    else if (killer.Is(CustomRoles.Jinx))
+                    {
+                        target.RpcCheckAndMurder(killer);
+                        Logger.Info($"{killer.GetRealName()} is Jinx try kill {target.GetRealName()} but it is canceled", "Repellant");
+                        return false;
+                    }              
+                    else
+                    {
+                        target.RpcGuardAndKill(killer);
+                        killer.SetRealKiller(target);
+                        Logger.Info($"{target.GetRealName()} kill {killer.GetRealName()}", "Repellant");
+                        return false;
+                    }
+                }  
+            return true;
         }
 
         public override void OnEnterVent(PlayerControl pc, Vent AirConditioning)
