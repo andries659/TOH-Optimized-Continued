@@ -377,6 +377,10 @@ public static class CustomRolesHelper
         // Checking for conflicts with roles and other add-ons
         switch (role)
         {
+            case CustomRoles.Evader:
+                if ((pc.GetCustomRole().IsCrewmate() && !Evader.CrewCanBeEvader.GetBool()) || (pc.GetCustomRole().IsNeutral() && !Evader.NeutralCanBeEvader.GetBool()) || (pc.GetCustomRole().IsImpostor() && !Evader.ImpCanBeEvader.GetBool()))
+                    return false;
+                break;
             case CustomRoles.Stubborn:
                 if ((pc.GetCustomRole().IsCrewmate() && !Stubborn.CrewCanBeStubborn.GetBool()) || (pc.GetCustomRole().IsNeutral() && !Stubborn.NeutralCanBeStubborn.GetBool()) || (pc.GetCustomRole().IsImpostor() && !Stubborn.ImpCanBeStubborn.GetBool()))
                     return false;
