@@ -978,6 +978,7 @@ public enum AdditionalWinners
     Pixie = CustomRoles.Pixie,
     Quizmaster = CustomRoles.Quizmaster,
     SchrodingersCat = CustomRoles.SchrodingersCat,
+    Repellant =!CustomRoles.Repellant
     //   NiceMini = CustomRoles.NiceMini,
     //   Baker = CustomRoles.Baker,
 }
