@@ -2231,6 +2231,7 @@ public static class Utils
             var Breason when BannedReason(Breason) => false,
             PlayerState.DeathReason.Slice => CustomRoles.Hawk.IsEnable(),
             PlayerState.DeathReason.BloodLet => CustomRoles.Bloodmoon.IsEnable(),
+            PlayerState.DeathReason.Vaporized => CustomRoles.Vaporizer.IsEnable(),
             PlayerState.DeathReason.Kill => true,
             _ => true,
         };
