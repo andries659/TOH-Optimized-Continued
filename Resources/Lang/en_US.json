@@ -1011,13 +1011,6 @@
   "SMUsesUsedWhenFixingReactorOrO2": "Uses it takes to fix Reactor/O2",
   "SMUsesUsedWhenFixingLightsOrComms": "Uses it takes to fix Lights/Comms",
 
-  "RepellantSkillCooldown": "Shield cooldown",
-  "RepellantSkillCooldown": "Shield duration",
-  "RepellantMaxUses": "Max shield uses",
-  "RepellantSkillStop": "Shield ended",
-  "RepellantOnGuard": "You are shielded for {0} seconds",
-
-  
   "AssassinImpostorNotify": "You have become an Impostor",
   "AssassinSheriffNotify": "You have become a Sheriff",
   "AssassinNeutralNotify": "You have become a Neutral Killer",

@@ -52,9 +52,6 @@ public static class DevManager
             // Apoc
             new(code: "crunchwide#1938", color: "#ffa500", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Apoc"),
 
-            // Plague
-            new(code: "trunksun#2271", color: "#808000", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "THE PLAGUE"),
-
         ];
     }
 
