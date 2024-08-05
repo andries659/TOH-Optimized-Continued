@@ -1,8 +1,9 @@
-﻿using AmongUs.GameOptions;
+using AmongUs.GameOptions;
+using System;
 using TOHE.Roles.Core;
 using UnityEngine;
 using static TOHE.Options;
-namespace TOHE.Roles.Neutra;;
+namespace TOHE.Roles.Neutral;
 
 internal class Vaporizer : RoleBase
 {
@@ -13,6 +14,7 @@ internal class Vaporizer : RoleBase
     public override Custom_RoleType ThisRoleType => Custom_RoleType.ImpostorKilling;
     //==================================================================\\
 
+    public static OptionItem VaporizerKillCooldown;
     public override void SetupCustomOption()
     {
         SetupRoleOptions(Id, TabGroup.NeutralRoles, CustomRoles.Vaporizer);
@@ -22,13 +24,18 @@ internal class Vaporizer : RoleBase
     public override bool OnCheckMurderAsKiller(PlayerControl killer, PlayerControl target)
     {
         Main.PlayerStates[target.PlayerId].deathReason = PlayerState.DeathReason.Vaporized;
-        killer.RpcGuardAndKill(target)
+        killer.RpcGuardAndKill(target);
         target.RpcExileV2();
         Main.PlayerStates[target.PlayerId].SetDead();
         target.Data.IsDead = true;
         target.SetRealKiller(killer);
-        target.Notify(GetString("VaporizedTarget"));
+        target.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.Vaporizer), GetString("VaporizedTarget")));
         killer.SetKillCooldown();
         return false;
+    }
+
+    private string GetString(string v)
+    {
+        throw new NotImplementedException();
     }
 }
