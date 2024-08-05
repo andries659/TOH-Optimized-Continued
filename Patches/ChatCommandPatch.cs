@@ -2530,7 +2530,7 @@ internal class ChatCommands
                     Utils.SendMessage(GetString("VipColorCommandDisabled"), player.PlayerId);
                     break;
                 }
-                if (!Utils.IsPlayerVIP(player.FriendCode) && !Utils.IsPlayerExclusive(player.FriendCode) && !Utils.IsPlayerSpecial(player.FriendCode))
+                if (!Utils.IsPlayerVIP(player.FriendCode))
                 {
                     Utils.SendMessage(GetString("VipColorCommandNoAccess"), player.PlayerId);
                     break;
@@ -2573,6 +2573,128 @@ internal class ChatCommands
                     if (!File.Exists(colorFilePathh))
                     {
                         Logger.Msg($"File Not exist, creating file at {vipTagsFiles}/{player.FriendCode}.txt", "vipcolor");
+                        File.Create(colorFilePathh).Close();
+                    }
+                    File.WriteAllText(colorFilePathh, $"{subArgs}");
+                    break;
+                }
+            case "/exclusivecolor":
+            case "/exclusivecolour":
+            case "/exccolor":
+            case "/excolor":
+            case "/ecolor":
+            case "/exccolour":
+            case "/excolour":
+            case "/ecolour":
+                if (Options.ApplyExclusiveList.GetValue() == 0)
+                {
+                    Utils.SendMessage(GetString("ExclusiveColorCommandDisabled"), player.PlayerId);
+                    break;
+                }
+                if (!Utils.IsPlayerExclusive(player.FriendCode))
+                {
+                    Utils.SendMessage(GetString("ExclusiveColorCommandNoAccess"), player.PlayerId);
+                    break;
+                }
+                if (!GameStates.IsLobby)
+                {
+                    Utils.SendMessage(GetString("ExclusiveColorCommandNoLobby"), player.PlayerId);
+                    break;
+                }
+                if (!Options.GradientTagsOpt.GetBool()) 
+                { 
+                    subArgs = args.Length != 2 ? "" : args[1];
+                    if (string.IsNullOrEmpty(subArgs) || !Utils.CheckColorHex(subArgs))
+                    {
+                        Logger.Msg($"{subArgs}", "exclusivecolor");
+                        Utils.SendMessage(GetString("ExclusiveColorInvalidHexCode"), player.PlayerId);
+                        break;
+                    }
+                    string colorFilePathh = $"{exclusiveTagsFiles}/{player.FriendCode}.txt";
+                    if (!File.Exists(colorFilePathh))
+                    {
+                        Logger.Warn($"File Not exist, creating file at {exclusiveTagsFiles}/{player.FriendCode}.txt", "exclusivecolor");
+                        File.Create(colorFilePathh).Close();
+                    }
+        
+                    File.WriteAllText(colorFilePathh, $"{subArgs}");
+                    break;
+                }
+                else
+                {
+                    subArgs = args.Length < 3 ? "" : args[1] + " " + args[2];
+                    Regex regexx = new(@"^[0-9A-Fa-f]{6}\s[0-9A-Fa-f]{6}$");
+                    if (string.IsNullOrEmpty(subArgs) || !regexx.IsMatch(subArgs))
+                    {
+                        Logger.Msg($"{subArgs}", "exclusivecolor");
+                        Utils.SendMessage(GetString("ExclusiveColorInvalidGradientCode"), player.PlayerId);
+                        break;
+                    }
+                    string colorFilePathh = $"{exclusiveTagsFiles}/{player.FriendCode}.txt";
+                    if (!File.Exists(colorFilePathh))
+                    {
+                        Logger.Msg($"File Not exist, creating file at {exclusiveTagsFiles}/{player.FriendCode}.txt", "exclusivecolor");
+                        File.Create(colorFilePathh).Close();
+                    }
+                    File.WriteAllText(colorFilePathh, $"{subArgs}");
+                    break;
+                }
+            case "/specialcolor":
+            case "/specialcolour":
+            case "/specolor":
+            case "/spcolor":
+            case "/scolor":
+            case "/specolour":
+            case "/spcolour":
+            case "/scolour":
+                if (Options.ApplySpecialList.GetValue() == 0)
+                {
+                    Utils.SendMessage(GetString("SpecialColorCommandDisabled"), player.PlayerId);
+                    break;
+                }
+                if (!Utils.IsPlayerExclusive(player.FriendCode))
+                {
+                    Utils.SendMessage(GetString("SpecialColorCommandNoAccess"), player.PlayerId);
+                    break;
+                }
+                if (!GameStates.IsLobby)
+                {
+                    Utils.SendMessage(GetString("SpecialColorCommandNoLobby"), player.PlayerId);
+                    break;
+                }
+                if (!Options.GradientTagsOpt.GetBool()) 
+                { 
+                    subArgs = args.Length != 2 ? "" : args[1];
+                    if (string.IsNullOrEmpty(subArgs) || !Utils.CheckColorHex(subArgs))
+                    {
+                        Logger.Msg($"{subArgs}", "specialcolor");
+                        Utils.SendMessage(GetString("SpecialColorInvalidHexCode"), player.PlayerId);
+                        break;
+                    }
+                    string colorFilePathh = $"{specialTagsFiles}/{player.FriendCode}.txt";
+                    if (!File.Exists(colorFilePathh))
+                    {
+                        Logger.Warn($"File Not exist, creating file at {specialTagsFiles}/{player.FriendCode}.txt", "specialcolor");
+                        File.Create(colorFilePathh).Close();
+                    }
+        
+                    File.WriteAllText(colorFilePathh, $"{subArgs}");
+                    break;
+                }
+                else
+                {
+                    subArgs = args.Length < 3 ? "" : args[1] + " " + args[2];
+                    Regex regexx = new(@"^[0-9A-Fa-f]{6}\s[0-9A-Fa-f]{6}$");
+                    if (string.IsNullOrEmpty(subArgs) || !regexx.IsMatch(subArgs))
+                    {
+                        Logger.Msg($"{subArgs}", "specialcolor");
+                        Utils.SendMessage(GetString("SpecialColorInvalidGradientCode"), player.PlayerId);
+                        break;
+                    }
+                    string colorFilePathh = $"{specialTagsFiles}/{player.FriendCode}.txt";
+                    if (!File.Exists(colorFilePathh))
+                    {
+                        Logger.Msg($"File Not exist, creating file at {specialTagsFiles}/{player.FriendCode}.txt", "specialcolor");
                         File.Create(colorFilePathh).Close();
                     }
                     File.WriteAllText(colorFilePathh, $"{subArgs}");
