@@ -9,9 +9,9 @@ internal class Vaporizer : RoleBase
 {
     //===========================SETUP================================\\
     private const int Id = 30600;
-    public static bool HasEnabled => CustomRoleManager.HasEnabled(CustomRoles.Hangman);
-    public override CustomRoles ThisRoleBase => CustomRoles.Shapeshifter;
-    public override Custom_RoleType ThisRoleType => Custom_RoleType.ImpostorKilling;
+    public static bool HasEnabled => CustomRoleManager.HasEnabled(CustomRoles.Vaporizer);
+    public override CustomRoles ThisRoleBase => CustomRoles.Impostor;
+    public override Custom_RoleType ThisRoleType => Custom_RoleType.NeutralKilling;
     //==================================================================\\
 
     public static OptionItem VaporizerKillCooldown;
