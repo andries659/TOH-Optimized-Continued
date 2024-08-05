@@ -562,6 +562,7 @@ public static class CustomRolesHelper
             case CustomRoles.Lazy:
                 if (!Lazy.CheckConflicts(pc))
                 if (pc.Is(CustomRoles.Protector))
+                if (pc.GetCustomRole().IsImpostor() || pc.GetCustomRole().IsImpostor() || pc.GetCustomRole().IsTasklessCrewmate() || pc.GetCustomRole().IsTaskBasedCrewmate())
                     return false;
                 break;
 
