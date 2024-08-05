@@ -1908,6 +1908,8 @@
   "WarnCommandInvalidID": "Invalid player ID specified.\nPlease use '/warn [playerID] [reason]' to warn a player. \nExample :- /warn 5 lava chatting",
   "WarnCommandWarnHost": "You are not permitted to warn the host.",
 
+  "VaporizedTarget": "You have been Vaporized and will leave no body.",
+  
   "WarnCommandWarnMod": "You are not permitted to warn other moderators.",
   "WarnCommandWarned": "has been warned. There will be no more warnings given and appropriate action will be taken \n ",
   "WarnExample": "Use /warn [id] [reason] in future. \nExample :-\n /warn 5 lava chatting",
@@ -1954,6 +1956,7 @@
   "DeathReason.Retribution": "Retribution",
   "DeathReason.Slice": "Sliced",
   "DeathReason.BloodLet": "Bleed",
+  "DeathReason.Vaporized": "Vaporized",
   "OnlyEnabledDeathReasons": "Only Enabled Death Reasons",
   "Alive": "Alive",
   "Disconnected": "Disconnected",
