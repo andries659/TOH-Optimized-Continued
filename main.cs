@@ -786,6 +786,7 @@ public enum CustomRoles
     Taskinator,
     Terrorist,
     Traitor,
+    Vaporizer,
     Vector,
     VengefulRomantic,
     Virus,
