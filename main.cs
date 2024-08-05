@@ -954,6 +954,7 @@ public enum CustomWinner
     Solsticer = CustomRoles.Solsticer,
     DarkFairy = CustomRoles.DarkFairy,
     Assassin = CustomRoles.Assassin,
+    Vaporizer = CustomRoles.Vaporizer,
 }
 public enum AdditionalWinners
 {
@@ -979,7 +980,7 @@ public enum AdditionalWinners
     Pixie = CustomRoles.Pixie,
     Quizmaster = CustomRoles.Quizmaster,
     SchrodingersCat = CustomRoles.SchrodingersCat,
-    Repellant =!CustomRoles.Repellant
+    Repellant = CustomRoles.Repellant
     //   NiceMini = CustomRoles.NiceMini,
     //   Baker = CustomRoles.Baker,
 }
