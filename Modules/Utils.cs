@@ -1364,6 +1364,13 @@ public static class Utils
         var friendCodes = File.ReadAllLines(friendCodesFilePath);
         return friendCodes.Any(code => code.Contains(friendCode));
     }
+    public static bool IsPlayerSpecial(string friendCode)
+    {
+        if (friendCode == "") return false;
+        var friendCodesFilePath = @"./TOHE-DATA/Special-List.txt";
+        var friendCodes = File.ReadAllLines(friendCodesFilePath);
+        return friendCodes.Any(code => code.Contains(friendCode));
+    }
     public static bool CheckColorHex(string ColorCode)
     {
         Regex regex = new("^[0-9A-Fa-f]{6}$");
@@ -1431,7 +1438,7 @@ public static class Utils
 
         if (!(player.AmOwner || player.FriendCode.GetDevUser().HasTag()))
         {
-            if (!IsPlayerModerator(player.FriendCode) && !IsPlayerVIP(player.FriendCode) && !IsPlayerExclusive(player.FriendCode))
+            if (!IsPlayerModerator(player.FriendCode) && !IsPlayerVIP(player.FriendCode) && !IsPlayerExclusive(player.FriendCode) && !IsPlayerSpecial(player.FriendCode))
             {
                 string name1 = Main.AllPlayerNames.TryGetValue(player.PlayerId, out var n1) ? n1 : "";
                 if (GameStates.IsLobby && name1 != player.name && player.CurrentOutfitType == PlayerOutfitType.Default) player.RpcSetName(name1);
@@ -1514,7 +1521,7 @@ public static class Utils
             {
                 if (IsPlayerExclusive(player.FriendCode))
                 {
-                    string colorFilePath = @$"./TOHE-DATA/Tags/Exclusive_TAGS/{player.FriendCode}.txt";
+                    string colorFilePath = @$"./TOHE-DATA/Tags/EXCLUSIVE_TAGS/{player.FriendCode}.txt";
                     //static color
                     if (!Options.GradientTagsOpt.GetBool())
                     {
@@ -1548,9 +1555,53 @@ public static class Utils
                             endColorCode = "ffff00";
                         }
                         //"33ccff", "ff99cc"
-                        if (startColorCode == endColorCode) modtag = $"<color=#{startColorCode}>{GetString("VipTag")}</color>";
+                        if (startColorCode == endColorCode) modtag = $"<color=#{startColorCode}>{GetString("ExclusiveTag")}</color>";
 
-                        else modtag = GradientColorText(startColorCode, endColorCode, GetString("VipTag"));
+                        else modtag = GradientColorText(startColorCode, endColorCode, GetString("ExclusiveTag"));
+                    }
+                }
+            }
+            if (Options.ApplySpecialList.GetValue() == 1 && player.FriendCode != PlayerControl.LocalPlayer.FriendCode)
+            {
+                if (IsPlayerSpecial(player.FriendCode))
+                {
+                    string colorFilePath = @$"./TOHE-DATA/Tags/SPECIAL_TAGS/{player.FriendCode}.txt";
+                    //static color
+                    if (!Options.GradientTagsOpt.GetBool())
+                    { 
+                        string startColorCode = "ffff00";
+                        if (File.Exists(colorFilePath))
+                        {
+                            string ColorCode = File.ReadAllText(colorFilePath);
+                            _ = ColorCode.Trim();
+                            if (CheckColorHex(ColorCode)) startColorCode = ColorCode;
+                        }
+                        //"ffff00"
+                        modtag = $"<color=#{startColorCode}>{GetString("SpecialTag")}</color>";
+                        }
+                    else //gradient color
+                    {
+                        string startColorCode = "ffff00";
+                        string endColorCode = "ffff00";
+                        string ColorCode = "";
+                        if (File.Exists(colorFilePath))
+                        {
+                            ColorCode = File.ReadAllText(colorFilePath);
+                            if (ColorCode.Split(" ").Length == 2)
+                            {
+                                startColorCode = ColorCode.Split(" ")[0];
+                                endColorCode = ColorCode.Split(" ")[1];
+                            }
+                        }
+                        if (!CheckGradientCode(ColorCode))
+                        {
+                            startColorCode = "ffff00";
+                            endColorCode = "ffff00";
+                        }
+                        //"33ccff", "ff99cc"
+                        if (startColorCode == endColorCode) modtag = $"<color=#{startColorCode}>{GetString("SpecialTag")}</color>";
+
+                        else modtag = GradientColorText(startColorCode, endColorCode, GetString("SpecialTag"));
                     }
                 }
             }
@@ -1625,6 +1676,7 @@ public static class Utils
                     var modTagModded = $"<size=1.4>{GetString("ModeratorTag")}\r\n</size>";
                     var vipTagModded = $"<size=1.4>{GetString("VIPTag")}\r\n</size>";
                     var exclusiveTagModded = $"<size=1.4>{GetString("ExclusiveTag")}\r\n</size>";
+                    var specialTagModded = $"<size=1.4>{GetString("SpecialTag")}\r\n</size>";
                     name = $"{(hasTag ? tag : string.Empty)}{name}";
                 }
                 else
@@ -1632,6 +1684,7 @@ public static class Utils
                     var modTagVanilla = $"<size=1.4>{GetString("ModeratorTag")} - </size>";
                     var vipTagVanilla = $"<size=1.4>{GetString("VIPTag")} - </size>";
                     var exclusiveTagVanilla = $"<size=1.4>{GetString("ExclusiveTag")} - </size>";
+                    var specialTagVanilla = $"<size=1.4>{GetString("SpecialTag")} - </size>";
                     name = $"{(hasTag ? tag.Replace("\r\n", " | ") : string.Empty)}{name}";
                 }
             }

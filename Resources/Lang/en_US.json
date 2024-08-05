@@ -1862,6 +1862,8 @@
   "ApplyVipList": "Apply VIP List",
   "ExclusiveTag": "Exclusive★",
   "ApplyExclusiveList": "Apply Exclusive List",
+  "SpecialTag": "Special★",
+  "ApplySpecialList": "Apply Special List",
   "AllowSayCommand": "Allow moderators to use /say command",
   "KickCommandDisabled": "The kick command is currently disabled.",
   "KickCommandNoAccess": "You do not have access to the kick command.",

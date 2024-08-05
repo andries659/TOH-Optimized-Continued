@@ -24,7 +24,8 @@ internal class ChatCommands
     private static readonly string modTagsFiles = @"./TOHE-DATA/Tags/MOD_TAGS";
     private static readonly string sponsorTagsFiles = @"./TOHE-DATA/Tags/SPONSOR_TAGS";
     private static readonly string vipTagsFiles = @"./TOHE-DATA/Tags/VIP_TAGS";
-    private static readonly string exclusiveTagsFiles = @"./TOHE-DATA/Tags/Exclusive_TAGS";
+    private static readonly string exclusiveTagsFiles = @"./TOHE-DATA/Tags/EXCLUSIVE_TAGS";
+    private static readonly string specialTagsFiles = @"./TOHE-DATA/Tags/SPECIAL_TAGS";
 
     private static readonly Dictionary<char, int> Pollvotes = [];
     private static readonly Dictionary<char, string> PollQuestions = [];
@@ -72,6 +73,7 @@ internal class ChatCommands
         Directory.CreateDirectory(vipTagsFiles);
         Directory.CreateDirectory(exclusiveTagsFiles);
         Directory.CreateDirectory(sponsorTagsFiles);
+        Directory.CreateDirectory(specialTagsFiles);
 
         if (Blackmailer.CheckBlackmaile(PlayerControl.LocalPlayer) && PlayerControl.LocalPlayer.IsAlive())
         {
@@ -1854,6 +1856,7 @@ internal class ChatCommands
         Directory.CreateDirectory(vipTagsFiles);
         Directory.CreateDirectory(exclusiveTagsFiles);
         Directory.CreateDirectory(sponsorTagsFiles);
+        Directory.CreateDirectory(specialTagsFiles);
 
         if (Blackmailer.CheckBlackmaile(player) && player.IsAlive() && !player.IsModClient())
         {
@@ -1980,7 +1983,7 @@ internal class ChatCommands
             case "/rename":
             case "/renomear":
             case "/переименовать":
-                if (Options.PlayerCanSetName.GetBool() || player.FriendCode.GetDevUser().IsDev || Utils.IsPlayerVIP(player.FriendCode) || Utils.IsPlayerExclusive(player.FriendCode))
+                if (Options.PlayerCanSetName.GetBool() || player.FriendCode.GetDevUser().IsDev || Utils.IsPlayerVIP(player.FriendCode) || Utils.IsPlayerExclusive(player.FriendCode) || Utils.IsPlayerSpecial(player.FriendCode))
                 {
                     if (GameStates.IsInGame)
                     {
@@ -2160,7 +2163,7 @@ internal class ChatCommands
             case "/color":
             case "/cor":
             case "/цвет":
-                if (Options.PlayerCanSetColor.GetBool() || player.FriendCode.GetDevUser().IsDev || player.FriendCode.GetDevUser().ColorCmd || Utils.IsPlayerVIP(player.FriendCode) || Utils.IsPlayerExclusive(player.FriendCode))
+                if (Options.PlayerCanSetColor.GetBool() || player.FriendCode.GetDevUser().IsDev || player.FriendCode.GetDevUser().ColorCmd || Utils.IsPlayerVIP(player.FriendCode) || Utils.IsPlayerExclusive(player.FriendCode) || Utils.IsPlayerSpecial(player.FriendCode))
                 {
                     if (GameStates.IsInGame)
                     {
@@ -2527,7 +2530,7 @@ internal class ChatCommands
                     Utils.SendMessage(GetString("VipColorCommandDisabled"), player.PlayerId);
                     break;
                 }
-                if (!Utils.IsPlayerVIP(player.FriendCode) || !Utils.IsPlayerExclusive(player.FriendCode))
+                if (!Utils.IsPlayerVIP(player.FriendCode) && !Utils.IsPlayerExclusive(player.FriendCode) && !Utils.IsPlayerSpecial(player.FriendCode))
                 {
                     Utils.SendMessage(GetString("VipColorCommandNoAccess"), player.PlayerId);
                     break;
@@ -2572,8 +2575,6 @@ internal class ChatCommands
                         Logger.Msg($"File Not exist, creating file at {vipTagsFiles}/{player.FriendCode}.txt", "vipcolor");
                         File.Create(colorFilePathh).Close();
                     }
-                    //Logger.Msg($"File exists, creating file at {vipTagsFiles}/{player.FriendCode}.txt", "vipcolor");
-                    //Logger.Msg($"{subArgs}","modcolor");
                     File.WriteAllText(colorFilePathh, $"{subArgs}");
                     break;
                 }
