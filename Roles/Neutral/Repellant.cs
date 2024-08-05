@@ -12,7 +12,7 @@ namespace TOHE.Roles.Neutral
     internal class Repellant : RoleBase
     {
         //===========================SETUP================================\\
-        private const int Id = 305000;
+        private const int Id = 30500;
         private static readonly HashSet<byte> PlayerIds = new HashSet<byte>(); // Initialize HashSet
         public static bool HasEnable = PlayerIds.Any();
         
