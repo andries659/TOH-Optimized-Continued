@@ -384,6 +384,7 @@
   "Identifier": "Identifier",
   "Repellant": "Repellant",
   "Vaporizer":  "Vaporizer",
+  "Laborer": "Laborer", 
   "BracketAddons": "Add Brackets To Add-ons",
   "EngineerTOHEInfo": "Use the vents to catch the <color=#ff1919>Impostors</color>",
   "ScientistTOHEInfo": "Access portable vitals from anywhere",
@@ -690,6 +691,7 @@
   "RepellantInfo": "Shield yourself against the killers",
   "IdentifierInfo": "Find killers based on their color",
   "VaporizerInfo":  "Leave no trace with your kills",
+  "LaborerInfo": Kill crewmates and see them lose", 
   "EngineerTOHEInfoLong": "(Crewmates):\nAs the Engineer, you may access the vents while Comms Sabotaged is inactive.",
   "ScientistTOHEInfoLong": "(Crewmates):\nAs the Scientist, you can see vitals at any time, showing you who is alive and dead.",
   "NoisemakerTOHEInfoLong": "(Crewmates):\nAs the Noisemaker, whenever you die you will make a noise, and a visual indicator of your death appears on the screen so the Crewmates can run to catch the person who killed you red-handed (even if it’s not Red).",
@@ -997,6 +999,7 @@
   "IdentifierInfoLong": "(Add-ons):\nAs the Identifier, when reporting a body, you will get a message in meeting saying if the Killer has a lighter or darker color.",
   "RepellantInfoLong": "(Neutral):\nAs the Repellant, you can vent to temporarily shield yourself against killers. Live till the end to win.",
   "VaporizerInfoLong":  "(Neutral):\nThe Vaporizer's kills will not leave dead bodies. Additionaly, vaporized players will have the 'Vaporized' death reason.",
+  "LaborerInfoLong": "(Neutral):\nThe Laborer can mark a target, and when someone kills the target, the Laborer will kill the target instead, Live till the end while making sure crewmates lose.", 
   "ShowTextOverlay": "Text Overlay",
   "Overlay.GuesserMode": "<size=50%>Guesser Mode</size>",
   "Overlay.NoGameEnd": "<size=50%>No Game End</size>",
@@ -1014,6 +1017,12 @@
   "SMUsesUsedWhenFixingReactorOrO2": "Uses it takes to fix Reactor/O2",
   "SMUsesUsedWhenFixingLightsOrComms": "Uses it takes to fix Lights/Comms",
 
+  "LaborerSkillCooldown": "Mark cooldown",
+  "LaborerSkillLimitOpt": "Ability Uses", 
+  "LaborerCanVent": "Can Vent",
+  "LaborerHasImpostorVision": "Has Impostor Vision", 
+
+  
   "RepellantSkillCooldown": "Protect cooldown",
   "RepellantSkillDuration": "Shield duration",
   "RepellantMaxUses": "Max shields",
