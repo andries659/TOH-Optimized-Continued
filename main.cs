@@ -982,7 +982,7 @@ public enum AdditionalWinners
     Quizmaster = CustomRoles.Quizmaster,
     SchrodingersCat = CustomRoles.SchrodingersCat,
     Repellant = CustomRoles.Repellant,
-    Laborer = CustomRoles.Laborer,
+    Laborer = CustomRoles.Laborer
     //   NiceMini = CustomRoles.NiceMini,
     //   Baker = CustomRoles.Baker,
 }
