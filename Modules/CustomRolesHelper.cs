@@ -133,6 +133,7 @@ public static class CustomRolesHelper
             CustomRoles.VengefulRomantic or
             CustomRoles.Doppelganger or
             CustomRoles.SchrodingersCat or
+            CustomRoles.Repellant or
             CustomRoles.Follower;
     }
     public static bool IsAmneCrew(this PlayerControl target)
