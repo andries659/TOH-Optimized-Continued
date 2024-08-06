@@ -134,6 +134,7 @@ public static class CustomRolesHelper
             CustomRoles.Doppelganger or
             CustomRoles.SchrodingersCat or
             CustomRoles.Repellant or
+            CustomRoles.Laborer or
             CustomRoles.Follower;
     }
     public static bool IsAmneCrew(this PlayerControl target)
