@@ -274,6 +274,12 @@ class GameEndCheckerForNormal
                         CustomWinnerHolder.WinnerIds.Add(pc.PlayerId);
                         CustomWinnerHolder.AdditionalWinnerTeams.Add(AdditionalWinners.Opportunist);
                     }
+                    //Repellant
+                    if (pc.Is(CustomRoles.Repellant) && pc.IsAlive())
+                    {
+                        CustomWinnerHolder.WinnerIds.Add(pc.PlayerId);
+                        CustomWinnerHolder.AdditionalWinnerTeams.Add(AdditionalWinners.Repellant);
+                    }
                     //pixie
                     if (pc.Is(CustomRoles.Pixie) && !CustomWinnerHolder.CheckForConvertedWinner(pc.PlayerId)) Pixie.PixieWinCondition(pc);
                     //Shaman

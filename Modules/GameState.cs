@@ -38,7 +38,7 @@ public class PlayerState(byte playerId)
 
         var pc = GetPlayerById(PlayerId);
 
-        if (role == CustomRoles.Opportunist)
+        if (role == CustomRoles.Opportunist || role == CustomRoles.Repellant)
         {
             if (AmongUsClient.Instance.AmHost)
             {
