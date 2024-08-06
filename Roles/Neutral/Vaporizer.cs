@@ -34,6 +34,8 @@ internal class Vaporizer : RoleBase
         return false;
     }
 
+    public override bool CanUseKillButton(PlayerControl pc) => true;
+
     private string GetString(string v)
     {
         throw new NotImplementedException();
