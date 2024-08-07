@@ -52,6 +52,15 @@ public static class DevManager
             // Apoc
             new(code: "crunchwide#1938", color: "#ffa500", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Apoc"),
 
+            // Diffy
+            new(code: "funnytiger#8420", color: "#FFC5CB", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Diffy"),
+
+            // Plague
+            new(code: "trunksun#2271", color: "#800080", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Plague"),
+
+            // Glazecraft
+            new(code: "motorstack#2287", color: "#ec9d2f", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Glazecraft"),
+
         ];
     }
 
