@@ -105,7 +105,7 @@ internal class Keymaster : RoleBase
         }
         if (KeyColor == 1 && kmColor == 1 || KeyColor == 2 && kmColor == 2 || KeyColor == 3 && kmColor == 3 || KeyColor == 4 && kmColor == 4 || KeyColor == 5 && kmColor == 5 || KeyColor == 6 && kmColor == 6 || KeyColor == 7 && kmColor == 7 || KeyColor == 8 && kmColor == 8)
         {
-            pc.Notify(GetString("KeymasterGG"), 3f);
+            pc.Notify(GetString("KeymasterGG"), 10f);
             KeyColor = 69;
             HasWon = true;
             foreach (var player in Main.AllAlivePlayerControls)
@@ -124,7 +124,7 @@ internal class Keymaster : RoleBase
         }
         if (KeyColor == 1 && kmColor != 1 || KeyColor == 2 && kmColor != 2 || KeyColor == 3 && kmColor != 3 || KeyColor == 4 && kmColor != 4 || KeyColor == 5 && kmColor != 5 || KeyColor == 6 && kmColor != 6 || KeyColor == 7 && kmColor != 7 || KeyColor == 8 && kmColor != 8)
         {
-            pc.Notify(GetString("KeymasterL"), 5f);
+            pc.Notify(GetString("KeymasterL"), 10f);
             pc.RpcMurderPlayer(pc);
         }
             if (LimboState == false)
