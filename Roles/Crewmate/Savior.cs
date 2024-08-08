@@ -22,10 +22,13 @@ internal class Savior : RoleBase
 
     private static readonly HashSet<byte> saviorTarget = [];
     private static readonly Dictionary<byte, bool> DidVote = [];
+    public static OptionItem ResetCooldown;
 
     public override void SetupCustomOption()
     {
         SetupRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Savior);
+        ResetCooldown = IntegerOptionItem.Create(Id + 2, "SaviorResetCooldown", new (1, 30, 1), 3, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Savior])
+            .SetValueFormat(OptionFormat.Seconds);
     }
     public override void Init()
     {
@@ -58,7 +61,7 @@ internal class Savior : RoleBase
 
         saviorTarget.Add(target.PlayerId);
         Logger.Info($"{voter.GetNameWithRole()} chosen as savior target by {target.GetNameWithRole()}", "Savior");
-        Utils.SendMessage(string.Format(GetString("SaviorProtect"), target.GetRealName()), voter.PlayerId, title: Utils.ColorString(Utils.GetRoleColor(CustomRoles.Savior), GetString("SaviorTitle")));
+        Utils.SendMessage(string.Format(GetString("SaviorProtect"), target.GetRealName()), voter.PlayerId, title: Utils.ColorString(Utils.GetRoleColor(CustomRoles.Keeper), GetString("SaviorTitle")));
         return false;
     }
     public override bool CheckMurderOnOthersTarget(PlayerControl killer, PlayerControl target)
@@ -71,13 +74,14 @@ internal class Savior : RoleBase
         killer.RpcGuardAndKill(target);
         killer.SetKillCooldown(ResetCooldown.GetFloat());
 
-        NotifyRoles(SpecifySeer: killer, SpecifyTarget: target, ForceLoop: true);
-        NotifyRoles(SpecifySeer: target, SpecifyTarget: killer, ForceLoop: true);
+        Utils.NotifyRoles(SpecifySeer: killer, SpecifyTarget: target, ForceLoop: true);
+        Utils.NotifyRoles(SpecifySeer: target, SpecifyTarget: killer, ForceLoop: true);
         Logger.Info($"{target.GetNameWithRole()} : Shield Shatter from the Savior", "Savior");
         return true;
     }
-    public override void OnCheckStartMeeting()
+    public override bool OnCheckStartMeeting(PlayerControl reporter)
     {
         saviorTarget.Clear();
+        return true;
     }
 }
