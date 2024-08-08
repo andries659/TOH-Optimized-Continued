@@ -27,7 +27,7 @@ internal class Savior : RoleBase
     public override void SetupCustomOption()
     {
         SetupRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Savior);
-        ResetCooldown = IntegerOptionItem.Create(Id + 2, "SaviorResetCooldown", new (1, 30, 1), 3, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Savior])
+        ResetCooldown = IntegerOptionItem.Create(Id + 2, "SaviorResetCooldown", new (0, 60, 2.5), 10, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Savior])
             .SetValueFormat(OptionFormat.Seconds);
     }
     public override void Init()
