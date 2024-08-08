@@ -25,7 +25,7 @@ internal class Savior : RoleBase
 
     public override void SetupCustomOption()
     {
-        SetupRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Keeper);
+        SetupRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Savior);
     }
     public override void Init()
     {
@@ -58,7 +58,7 @@ internal class Savior : RoleBase
 
         saviorTarget.Add(target.PlayerId);
         Logger.Info($"{voter.GetNameWithRole()} chosen as savior target by {target.GetNameWithRole()}", "Savior");
-        Utils.SendMessage(string.Format(GetString("SaviorProtect"), target.GetRealName()), voter.PlayerId, title: Utils.ColorString(Utils.GetRoleColor(CustomRoles.Keeper), GetString("SaviorTitle")));
+        Utils.SendMessage(string.Format(GetString("SaviorProtect"), target.GetRealName()), voter.PlayerId, title: Utils.ColorString(Utils.GetRoleColor(CustomRoles.Savior), GetString("SaviorTitle")));
         return false;
     }
     public override bool CheckMurderOnOthersTarget(PlayerControl killer, PlayerControl target)
