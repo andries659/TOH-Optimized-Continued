@@ -326,6 +326,15 @@ class GameEndCheckerForNormal
                             CustomWinnerHolder.AdditionalWinnerTeams.Add(AdditionalWinners.Specter);
                         }
                     }
+                    if (!Keymaster.StealsWin.GetBool())
+                    {
+                        //Phantom
+                        if (pc.Is(CustomRoles.Keymaster) && Keymaster.HasWon == true)
+                        {
+                            CustomWinnerHolder.WinnerIds.Add(pc.PlayerId);
+                            CustomWinnerHolder.AdditionalWinnerTeams.Add(AdditionalWinners.Keymaster);
+                        }
+                    }
                     //自爆卡车来咯
                     if (pc.Is(CustomRoles.Provocateur) && Provocateur.Provoked.TryGetValue(pc.PlayerId, out var tar))
                     {
