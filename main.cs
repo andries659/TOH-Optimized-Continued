@@ -985,8 +985,8 @@ public enum AdditionalWinners
     Quizmaster = CustomRoles.Quizmaster,
     SchrodingersCat = CustomRoles.SchrodingersCat,
     Repellant = CustomRoles.Repellant,
-    Laborer = CustomRoles.Laborer
-    Keymaster = CustomRoles.Keymaster
+    Laborer = CustomRoles.Laborer,
+    Keymaster = CustomRoles.Keymaster,
     //   NiceMini = CustomRoles.NiceMini,
     //   Baker = CustomRoles.Baker,
 }
