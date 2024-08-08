@@ -796,6 +796,7 @@ public enum CustomRoles
     Werewolf,
     Workaholic,
     Wraith,
+    Keymaster,
 
    //two-way camp
     Mini,
@@ -957,6 +958,7 @@ public enum CustomWinner
     DarkFairy = CustomRoles.DarkFairy,
     Assassin = CustomRoles.Assassin,
     Vaporizer = CustomRoles.Vaporizer,
+    Keymaster = CustomRoles.Keymaster,
 }
 public enum AdditionalWinners
 {
@@ -984,6 +986,7 @@ public enum AdditionalWinners
     SchrodingersCat = CustomRoles.SchrodingersCat,
     Repellant = CustomRoles.Repellant,
     Laborer = CustomRoles.Laborer
+    Keymaster = CustomRoles.Keymaster
     //   NiceMini = CustomRoles.NiceMini,
     //   Baker = CustomRoles.Baker,
 }
