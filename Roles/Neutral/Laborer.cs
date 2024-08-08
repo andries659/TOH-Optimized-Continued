@@ -8,7 +8,7 @@ namespace TOHE.Roles.Neutral;
 internal class Laborer : RoleBase
 {
     //===========================SETUP================================\\
-    private const int Id = 309000;
+    private const int Id = 30900;
     public static bool HasEnabled => CustomRoleManager.HasEnabled(CustomRoles.Laborer);
     public override CustomRoles ThisRoleBase => CustomRoles.Impostor;
     public override Custom_RoleType ThisRoleType => Custom_RoleType.NeutralBenign;
