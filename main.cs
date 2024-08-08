@@ -699,6 +699,7 @@ public enum CustomRoles
     Randomizer,
     Reverie,
     Retributionist,
+    Savior,
     Sheriff,
     Snitch,
     SpeedBooster,
