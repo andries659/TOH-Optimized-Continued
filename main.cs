@@ -39,8 +39,8 @@ public class Main : BasePlugin
     public static ConfigEntry<string> DebugKeyInput { get; private set; }
 
     public const string PluginGuid = "com.Limeau.townofhostoptimized";
-    public const string PluginVersion = "2024.0805.120.00000"; // YEAR.MMDD.VERSION.CANARYDEV
-    public const string PluginDisplayVersion = "1.2.0 Dev 1";
+    public const string PluginVersion = "2024.0809.120.00000"; // YEAR.MMDD.VERSION.CANARYDEV
+    public const string PluginDisplayVersion = "1.2.0 Dev 2";
     public const string SupportedVersionAU = "2024.6.18";
 
     /******************* Change one of the three variables to true before making a release. *******************/
