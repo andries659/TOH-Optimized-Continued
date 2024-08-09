@@ -1,3 +1,4 @@
+/*
 using Hazel;
 using System;
 using System.Text;
@@ -85,3 +86,4 @@ internal class Savior : RoleBase
         return true;
     }
 }
+*/
