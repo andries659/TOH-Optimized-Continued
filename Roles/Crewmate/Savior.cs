@@ -28,7 +28,7 @@ internal class Savior : RoleBase
     public override void SetupCustomOption()
     {
         Options.SetupRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Savior);
-        ResetCooldown = FloatOptionItem.Create(Id + 30, "MedicResetCooldown", new(0f, 120f, 1f), 10f, TabGroup.CrewmateRoles, false)
+        ResetCooldown = FloatOptionItem.Create(Id + 30, "SaviorResetCooldown", new(0f, 120f, 1f), 10f, TabGroup.CrewmateRoles, false)
             .SetParent(Options.CustomRoleSpawnChances[CustomRoles.Savior])
             .SetValueFormat(OptionFormat.Seconds);
     }
@@ -64,6 +64,7 @@ internal class Savior : RoleBase
            => !Main.PlayerStates[playerId].IsDead
            && AbilityLimit > 0;
 
+    public override bool CanUseKillButton(PlayerControl pc) => CheckKillButton(pc.PlayerId);
 
     public override bool CheckMurderOnOthersTarget(PlayerControl killer, PlayerControl target)
     {
