@@ -5,6 +5,7 @@ using TOHE.Modules;
 using TOHE.Roles.Core;
 using static TOHE.Utils;
 using static TOHE.Translator;
+using System;
 
 
 namespace TOHE.Roles.Crewmate;
@@ -21,6 +22,8 @@ internal class Savior : RoleBase
     private static OptionItem ResetCooldown;
 
     public static readonly List<byte> ProtectList = [];
+
+    private static byte TempMarkProtected;
 
     public override void SetupCustomOption()
     {
@@ -51,14 +54,21 @@ internal class Savior : RoleBase
         AbilityLimit--;
         ProtectList.Add(target.PlayerId);
         TempMarkProtected = target.PlayerId;
-        SendRPCForProtectList();
 
         if (!Options.DisableShieldAnimations.GetBool()) killer.RpcGuardAndKill();
+
+        return true;
     }
+
+    public bool CheckKillButton(byte playerId)
+           => !Main.PlayerStates[playerId].IsDead
+           && AbilityLimit > 0;
+
+
     public override bool CheckMurderOnOthersTarget(PlayerControl killer, PlayerControl target)
     {
         var Saviors = Utils.GetPlayerListByRole(CustomRoles.Savior);
-        if (killer == null || target == null || Savior == null || !Savior.Any()) return true;
+        if (killer == null || target == null || Saviors == null || !Saviors.Any()) return true;
         if (!ProtectList.Contains(target.PlayerId)) return false;
         killer.RpcGuardAndKill(target);
         killer.SetKillCooldown(ResetCooldown.GetFloat());
