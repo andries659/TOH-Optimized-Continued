@@ -1,11 +1,11 @@
-/*
+using AmongUs.GameOptions;
 using Hazel;
-using System;
-using System.Text;
 using UnityEngine;
+using TOHE.Modules;
 using TOHE.Roles.Core;
+using static TOHE.Utils;
 using static TOHE.Translator;
-using static TOHE.Options;
+
 
 namespace TOHE.Roles.Crewmate;
 
@@ -13,77 +13,60 @@ internal class Savior : RoleBase
 {
     //===========================SETUP================================\\
     private const int Id = 31000;
-    private static readonly HashSet<byte> playerIdList = [];
-    public static bool HasEnabled => playerIdList.Any();
-    
-    public override CustomRoles ThisRoleBase => CustomRoles.Crewmate;
+    public static bool HasEnabled => CustomRoleManager.HasEnabled(CustomRoles.Savior);
+    public override CustomRoles ThisRoleBase => CustomRoles.Impostor;
     public override Custom_RoleType ThisRoleType => Custom_RoleType.CrewmateSupport;
     //==================================================================\\
 
+    private static OptionItem ResetCooldown;
 
-    private static readonly HashSet<byte> saviorTarget = [];
-    private static readonly Dictionary<byte, bool> DidVote = [];
-    public static OptionItem ResetCooldown;
+    public static readonly List<byte> ProtectList = [];
 
     public override void SetupCustomOption()
     {
-        SetupRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Savior);
-        ResetCooldown = FloatOptionItem.Create(Id + 2, "SaviorResetCooldown", new (0f, 60f, 2.5f), 10f, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Savior])
+        Options.SetupRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Savior);
+        ResetCooldown = FloatOptionItem.Create(Id + 30, "MedicResetCooldown", new(0f, 120f, 1f), 10f, TabGroup.CrewmateRoles, false)
+            .SetParent(Options.CustomRoleSpawnChances[CustomRoles.Savior])
             .SetValueFormat(OptionFormat.Seconds);
     }
     public override void Init()
     {
-        playerIdList.Clear();
-        saviorTarget.Clear();
-        DidVote.Clear();
+        ProtectList.Clear();
+        TempMarkProtected = byte.MaxValue;
     }
-
     public override void Add(byte playerId)
     {
-        saviorTarget.Add(playerId);
-        playerIdList.Add(playerId);
-        DidVote.Add(playerId, false);
-    }
-    public override void Remove(byte playerId)
-    {
-        saviorTarget.Remove(playerId);
-        playerIdList.Remove(playerId);
-        DidVote.Remove(playerId);
-    }
+        AbilityLimit = 1;
 
-    public static bool OnVotes(PlayerControl voter, PlayerControl target)
+        if (!Main.ResetCamPlayerList.Contains(playerId))
+            Main.ResetCamPlayerList.Add(playerId);
+    }
+    public override bool ForcedCheckMurderAsKiller(PlayerControl killer, PlayerControl target)
     {
-        if (!CustomRoles.Savior.HasEnabled()) return true;
-        if (voter == null || target == null) return true;
-        if (!voter.Is(CustomRoles.Savior)) return true;
-        if (DidVote[voter.PlayerId]) return true;
-        DidVote[voter.PlayerId] = true;
-        if (saviorTarget.Contains(target.PlayerId)) return true;
+        if (killer == null || target == null) return false;
+        if (!CheckKillButton(killer.PlayerId)) return false;
+        if (ProtectList.Contains(target.PlayerId)) return false;
+        if (AbilityLimit <= 0) return false;
 
-        saviorTarget.Add(target.PlayerId);
-        Logger.Info($"{voter.GetNameWithRole()} chosen as savior target by {target.GetNameWithRole()}", "Savior");
-        Utils.SendMessage(string.Format(GetString("SaviorProtect"), target.GetRealName()), voter.PlayerId, title: Utils.ColorString(Utils.GetRoleColor(CustomRoles.Keeper), GetString("SaviorTitle")));
-        return false;
+        AbilityLimit--;
+        ProtectList.Add(target.PlayerId);
+        TempMarkProtected = target.PlayerId;
+        SendRPCForProtectList();
+
+        if (!Options.DisableShieldAnimations.GetBool()) killer.RpcGuardAndKill();
     }
     public override bool CheckMurderOnOthersTarget(PlayerControl killer, PlayerControl target)
     {
-
         var Saviors = Utils.GetPlayerListByRole(CustomRoles.Savior);
-        if (killer == null || target == null || Saviors == null || !Saviors.Any()) return true;
-        if (saviorTarget.Contains(target.PlayerId)) return false;
-
+        if (killer == null || target == null || Savior == null || !Savior.Any()) return true;
+        if (!ProtectList.Contains(target.PlayerId)) return false;
         killer.RpcGuardAndKill(target);
         killer.SetKillCooldown(ResetCooldown.GetFloat());
-
-        Utils.NotifyRoles(SpecifySeer: killer, SpecifyTarget: target, ForceLoop: true);
-        Utils.NotifyRoles(SpecifySeer: target, SpecifyTarget: killer, ForceLoop: true);
         Logger.Info($"{target.GetNameWithRole()} : Shield Shatter from the Savior", "Savior");
         return true;
     }
-    public override bool OnCheckStartMeeting(PlayerControl reporter)
+    public override void AfterMeetingTasks()
     {
-        saviorTarget.Clear();
-        return true;
+        ProtectList.Clear();
+        AbilityLimit = 1;
     }
-}
-*/
