@@ -70,3 +70,4 @@ internal class Savior : RoleBase
         ProtectList.Clear();
         AbilityLimit = 1;
     }
+}
