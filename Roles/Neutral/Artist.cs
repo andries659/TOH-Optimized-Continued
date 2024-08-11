@@ -34,9 +34,9 @@ namespace TOHE.Roles.Neutral
         {
             SetupRoleOptions(Id, TabGroup.NeutralRoles, CustomRoles.Artist);
             KillCooldown = FloatOptionItem.Create(Id + 10, GeneralOption.KillCooldown, new(0f, 180f, 2.5f), 30f, TabGroup.NeutralRoles, false)
-                .SetParent(CustomRoleSpawnChances[CustomRoles.Artist])
+                .SetParent(CustomRoleSpawnChances[CustomRoles.Artist]);
             PaintCooldown = FloatOptionItem.Create(Id + 11, "ArtistPaintCooldown", new(0f, 180f, 2.5f), 15f, TabGroup.NeutralRoles, false)
-                .SetParent(CustomRoleSpawnChances[CustomRoles.Artist])
+                .SetParent(CustomRoleSpawnChances[CustomRoles.Artist]);
             CanVent = BooleanOptionItem.Create(Id + 12, GeneralOption.CanVent, true, TabGroup.NeutralRoles, false)
                 .SetParent(CustomRoleSpawnChances[CustomRoles.Artist]);
             HasImpostorVision = BooleanOptionItem.Create(Id + 13, GeneralOption.ImpostorVision, true, TabGroup.NeutralRoles, false)
