@@ -182,8 +182,8 @@ namespace TOHE.Roles.Neutral
             sender.SendMessage();
         }
         public override string GetProgressText(byte playerId, bool comms) 
-            => Utils.ColorString(CanJinx(playerId) ? Utils.GetRoleColor(CustomRoles.Gangster).ShadeColor(0.25f) : Color.gray, $"({AbilityLimit})");
+            => Utils.ColorString(CanPaint(playerId) ? Utils.GetRoleColor(CustomRoles.Gangster).ShadeColor(0.25f) : Color.gray, $"({AbilityLimit})");
     
-        private bool CanJinx(byte id) => AbilityLimit > 0;
+        private bool CanPaint(byte id) => AbilityLimit > 0;
     }
 }
