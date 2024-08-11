@@ -1,4 +1,3 @@
-/*
 using AmongUs.GameOptions;
 using Hazel;
 using System.Collections.Generic;
@@ -54,39 +53,49 @@ namespace TOHE.Roles.Neutral
 
         public override void Add(byte playerId)
         {
+            AbilityLimit = AbilityUses.GetInt();
             PlayerSkinsPainted[playerId] = new List<byte>();
             PlayerIds.Add(playerId);
             PaintingTarget[playerId] = new List<byte>();
+
+            var pc = Utils.GetPlayerById(playerId);
+            pc.AddDoubleTrigger();
+
+            if (!Main.ResetCamPlayerList.Contains(playerId))
+                Main.ResetCamPlayerList.Add(playerId);
         }
+        public override void SetKillCooldown(byte id) => Main.AllPlayerKillCooldown[id] = KillCooldown.GetFloat();
+        public override bool CanUseKillButton(PlayerControl pc) => true;
+        public override bool CanUseImpostorVentButton(PlayerControl pc) => CanVent.GetBool();
+        public override bool CanUseSabotage(PlayerControl pc) => false;
 
         public override void ApplyGameOptions(IGameOptions opt, byte id)
         {
             opt.SetVision(HasImpostorVision.GetBool());
         }
 
-        public override void SetKillCooldown(byte id)
-        {
-            Main.AllPlayerKillCooldown[id] = KillCooldown.GetFloat();
-        }
-
-        public override bool CanUseKillButton(PlayerControl pc) => true;
-        public override bool CanUseImpostorVentButton(PlayerControl pc) => CanVent.GetBool();
-        public override bool CanUseSabotage(PlayerControl pc) => false;
-
         public override bool OnCheckMurderAsKiller(PlayerControl killer, PlayerControl target)
         {
-        
-            if (AbilityUses.GetInt() > 0)
+            if (killer == null) return true;
+            if (target == null) return true;
+            if (AbilityLimit <= 0) return true;
+
+            if (PlayerSkinsPainted[killer.PlayerId].Contains(target.PlayerId))
             {
-                
-                if (!PlayerSkinsPainted[killer.PlayerId].Contains(target.PlayerId))
-                {
-                    SetPainting(killer, target);
-                    return false; 
-                }
-                return false; 
+                _ = new LateTask(() => { killer.SetKillCooldown(KillCooldown.GetFloat()); }, 0.1f, "Artist set kcd");
+                return true;
             }
-            return true;
+            else
+            {
+                return killer.CheckDoubleTrigger(target, () => 
+                { 
+                    AbilityLimit -= 1;
+                    SetSkin(target, PaintedOutfit);
+                    PlayerSkinsPainted[killer.PlayerId].Add(target.PlayerId);
+                    killer.SetKillCooldown(KillCooldown.GetFloat());
+                    Utils.NotifyRoles(SpecifySeer: killer, SpecifyTarget: target);
+                });
+            }
         }
 
         private void SetPainting(PlayerControl killer, PlayerControl target)
@@ -170,6 +179,9 @@ namespace TOHE.Roles.Neutral
 
             sender.SendMessage();
         }
+        public override string GetProgressText(byte playerId, bool comms) 
+            => Utils.ColorString(CanPaint(playerId) ? Utils.GetRoleColor(CustomRoles.Gangster).ShadeColor(0.25f) : Color.gray, $"({AbilityLimit})");
+    
+        private bool CanPaint(byte id) => AbilityLimit > 0;
     }
 }
-*/
