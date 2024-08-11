@@ -22,6 +22,7 @@ namespace TOHE.Roles.Neutral
         public override Custom_RoleType ThisRoleType => Custom_RoleType.NeutralKilling;
 
         private static OptionItem KillCooldown;
+        private static OptionItem PaintCooldown;
         private static OptionItem CanVent;
         private static OptionItem HasImpostorVision;
         private static OptionItem AbilityUses;
@@ -34,12 +35,13 @@ namespace TOHE.Roles.Neutral
             SetupRoleOptions(Id, TabGroup.NeutralRoles, CustomRoles.Artist);
             KillCooldown = FloatOptionItem.Create(Id + 10, GeneralOption.KillCooldown, new(0f, 180f, 2.5f), 30f, TabGroup.NeutralRoles, false)
                 .SetParent(CustomRoleSpawnChances[CustomRoles.Artist])
-                .SetValueFormat(OptionFormat.Seconds);
-            CanVent = BooleanOptionItem.Create(Id + 13, GeneralOption.CanVent, true, TabGroup.NeutralRoles, false)
+            PaintCooldown = FloatOptionItem.Create(Id + 11, "ArtistPaintCooldown", new(0f, 180f, 2.5f), 15f, TabGroup.NeutralRoles, false)
+                .SetParent(CustomRoleSpawnChances[CustomRoles.Artist])
+            CanVent = BooleanOptionItem.Create(Id + 12, GeneralOption.CanVent, true, TabGroup.NeutralRoles, false)
                 .SetParent(CustomRoleSpawnChances[CustomRoles.Artist]);
-            HasImpostorVision = BooleanOptionItem.Create(Id + 14, GeneralOption.ImpostorVision, true, TabGroup.NeutralRoles, false)
+            HasImpostorVision = BooleanOptionItem.Create(Id + 13, GeneralOption.ImpostorVision, true, TabGroup.NeutralRoles, false)
                 .SetParent(CustomRoleSpawnChances[CustomRoles.Artist]);
-            AbilityUses = IntegerOptionItem.Create(Id + 11, "AbilityUses", new(0, 15, 1), 5, TabGroup.NeutralRoles, false)
+            AbilityUses = IntegerOptionItem.Create(Id + 14, "AbilityUses", new(0, 15, 1), 5, TabGroup.NeutralRoles, false)
                 .SetParent(CustomRoleSpawnChances[CustomRoles.Artist])
                 .SetValueFormat(OptionFormat.Times);
         }
@@ -92,7 +94,7 @@ namespace TOHE.Roles.Neutral
                     AbilityLimit -= 1;
                     SetSkin(target, PaintedOutfit);
                     PlayerSkinsPainted[killer.PlayerId].Add(target.PlayerId);
-                    killer.SetKillCooldown(KillCooldown.GetFloat());
+                killer.SetKillCooldown(PaintCooldown.GetFloat());
                     Utils.NotifyRoles(SpecifySeer: killer, SpecifyTarget: target);
                 });
             }
@@ -180,8 +182,8 @@ namespace TOHE.Roles.Neutral
             sender.SendMessage();
         }
         public override string GetProgressText(byte playerId, bool comms) 
-            => Utils.ColorString(CanPaint(playerId) ? Utils.GetRoleColor(CustomRoles.Gangster).ShadeColor(0.25f) : Color.gray, $"({AbilityLimit})");
+            => Utils.ColorString(CanJinx(playerId) ? Utils.GetRoleColor(CustomRoles.Gangster).ShadeColor(0.25f) : Color.gray, $"({AbilityLimit})");
     
-        private bool CanPaint(byte id) => AbilityLimit > 0;
+        private bool CanJinx(byte id) => AbilityLimit > 0;
     }
 }
