@@ -898,6 +898,8 @@ public static class Options
 
         Flash.SetupCustomOption();
 
+        Informable.SetupCustomOptions();
+
         Lazy.SetupCustomOptions();
 
         Loyal.SetupCustomOptions();
