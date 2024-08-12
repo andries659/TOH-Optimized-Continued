@@ -844,6 +844,7 @@ public enum CustomRoles
     Identifier,
     Infected,
     Influenced,
+    Informable,
     Knighted,
     LastImpostor,
     Lazy,
