@@ -309,6 +309,10 @@ public static class CustomRoleManager
                         Cyber.AfterCyberDeadTask(target, inMeeting);
                         break;
 
+                    case CustomRoles.Informable
+                        Informable.InformableDead(target, inMeeting);
+                        break;
+
                     case CustomRoles.Bait when !inMeeting:
                         Bait.BaitAfterDeathTasks(trueDMKiller, target); // Use trueDMKiller to any roles that needs the Dollmaster to be the killer!
                         break;
