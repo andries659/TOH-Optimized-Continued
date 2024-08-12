@@ -1,6 +1,6 @@
 namespace TOHE.Roles.AddOns.Common;
 
-public static class Sleuth
+public static class Informable
 {
     private const int Id = 31100;
 
@@ -11,9 +11,9 @@ public static class Sleuth
     public static void SetupCustomOptions()
     {
         Options.SetupAdtRoleOptions(Id, CustomRoles.Sleuth, canSetNum: true);
-        ImpCanBeSleuth = BooleanOptionItem.Create(Id + 10, "ImpCanBeInformable", true, TabGroup.Addons, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Sleuth]);
-        CrewCanBeSleuth = BooleanOptionItem.Create(Id + 11, "CrewCanBeInformable", true, TabGroup.Addons, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Sleuth]);
-        NeutralCanBeSleuth = BooleanOptionItem.Create(Id + 12, "NeutralCanBeInformable", true, TabGroup.Addons, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Sleuth]);
+        ImpCanBeInformable = BooleanOptionItem.Create(Id + 10, "ImpCanBeInformable", true, TabGroup.Addons, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Informable]);
+        CrewCanBeInformable = BooleanOptionItem.Create(Id + 11, "CrewCanBeInformable", true, TabGroup.Addons, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Informable]);
+        NeutralCanBeInformable = BooleanOptionItem.Create(Id + 12, "NeutralCanBeInformable", true, TabGroup.Addons, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Informable]);
     }
 
     public static void InformableDead(PlayerControl target, bool inMeeting)
