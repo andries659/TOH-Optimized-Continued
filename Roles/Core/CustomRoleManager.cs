@@ -309,7 +309,7 @@ public static class CustomRoleManager
                         Cyber.AfterCyberDeadTask(target, inMeeting);
                         break;
 
-                    case CustomRoles.Informable
+                    case CustomRoles.Informable:
                         Informable.InformableDead(target, inMeeting);
                         break;
 
