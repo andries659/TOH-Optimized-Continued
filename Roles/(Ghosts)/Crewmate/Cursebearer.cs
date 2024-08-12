@@ -19,13 +19,16 @@ internal class Cursebearer : RoleBase
     //==================================================================\\
 
     public static OptionItem RevealCooldown;
-    
+    public static OptionItem IncreaseByOneIfConvert;
+
     public static readonly Dictionary<byte, byte> BetPlayer = [];
     public int KeepCount = 0;
+    public bool KnowTargetRole = false;
     public override void SetupCustomOption()
     {
         SetupSingleRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Cursebearer);
         RevealCooldown = FloatOptionItem.Create(Id + 10, GeneralOption.KillCooldown, new(0f, 120f, 2.5f), 25f, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Cursebearer]);
+        IncreaseByOneIfConvert = BooleanOptionItem.Create(Id + 11, "IncreaseByOneIfConvert", false, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Cursebearer]);
     }
 
     public override void Add(byte playerId)
@@ -69,7 +72,8 @@ internal class Cursebearer : RoleBase
         else
         {
             AbilityLimit--;
-            BetPlayer.Add(target.PlayerId);
+            BetPlayer.Add(target.PlayerId, killer.PlayerId);
+            KnowTargetRole = true;
             return false;
         }
     }
