@@ -25,7 +25,7 @@ internal class Cursebearer : RoleBase
     public override void SetupCustomOption()
     {
         SetupSingleRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Cursebearer);
-        RevealCooldown = FloatOptionItem.Create(Id + 10, GeneralOption.KillCooldown, new(0f, 120f, 2.5f), 25f, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Cursebearer])
+        RevealCooldown = FloatOptionItem.Create(Id + 10, GeneralOption.KillCooldown, new(0f, 120f, 2.5f), 25f, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Cursebearer]);
     }
 
     public override void Add(byte playerId)
@@ -60,13 +60,13 @@ internal class Cursebearer : RoleBase
     }
     public override void ApplyGameOptions(IGameOptions opt, byte playerId)
     {
-        AURoleOptions.GuardianAngelCooldown = KillCooldown.GetFloat();
+        AURoleOptions.GuardianAngelCooldown = RevealCooldown.GetFloat();
         AURoleOptions.ProtectionDurationSeconds = 0f;
     }
     public override bool OnCheckProtect(PlayerControl killer, PlayerControl target)
     {
         if (AbilityLimit <= 0) return false;
-        else;
+        else
         {
             AbilityLimit--;
             BetPlayer.Add(target.PlayerId);
