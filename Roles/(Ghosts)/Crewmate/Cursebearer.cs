@@ -24,7 +24,7 @@ internal class Cursebearer : RoleBase
     public int KeepCount = 0;
     public override void SetupCustomOption()
     {
-        SetupSingleRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Hawk);
+        SetupSingleRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Cursebearer);
         RevealCooldown = FloatOptionItem.Create(Id + 10, GeneralOption.KillCooldown, new(0f, 120f, 2.5f), 25f, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Cursebearer])
     }
 
