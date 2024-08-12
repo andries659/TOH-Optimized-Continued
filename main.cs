@@ -642,6 +642,7 @@ public enum CustomRoles
     Zombie,
 
     //Crewmate Ghost
+    Cursebearer,
     Ghastly,
     Hawk,
     Warden,
