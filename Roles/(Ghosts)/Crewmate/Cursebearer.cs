@@ -1,3 +1,4 @@
+/*
 using AmongUs.GameOptions;
 using System;
 using TOHE.Roles.Core;
@@ -90,3 +91,4 @@ internal class Cursebearer : RoleBase
         return BetPlayer.TryGetValue(player.PlayerId, out var tar) && tar == target.PlayerId;
     }
 }
+*/
