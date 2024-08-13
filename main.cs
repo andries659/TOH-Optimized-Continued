@@ -39,7 +39,7 @@ public class Main : BasePlugin
     public static ConfigEntry<string> DebugKeyInput { get; private set; }
 
     public const string PluginGuid = "com.Limeau.townofhostoptimized";
-    public const string PluginVersion = "2024.0809.120.00033"; // YEAR.MMDD.VERSION.CANARYDEV
+    public const string PluginVersion = "2024.0809.121.00000"; // YEAR.MMDD.VERSION.CANARYDEV
     public const string PluginDisplayVersion = "1.2.1";
     public const string SupportedVersionAU = "2024.8.13";
 
