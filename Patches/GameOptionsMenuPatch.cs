@@ -465,6 +465,7 @@ public static class NumberOptionPatch
         {
             var item = OptionItem.AllOptions[index];
             __instance.TitleText.text = item.GetName();
+            __instance.AdjustButtonsActiveState();
             return false;
         }
 
@@ -521,6 +522,7 @@ public static class NumberOptionPatch
             __instance.Value = __instance.ValidRange.min;
             __instance.UpdateValue();
             __instance.OnValueChanged.Invoke(__instance);
+            __instance.AdjustButtonsActiveState();
             return false;
         }
 
@@ -530,6 +532,7 @@ public static class NumberOptionPatch
             __instance.Value += increment;
             __instance.UpdateValue();
             __instance.OnValueChanged.Invoke(__instance);
+            __instance.AdjustButtonsActiveState();
             return false;
         }
 
@@ -543,6 +546,7 @@ public static class NumberOptionPatch
             __instance.Value = __instance.ValidRange.max;
             __instance.UpdateValue();
             __instance.OnValueChanged.Invoke(__instance);
+            __instance.AdjustButtonsActiveState();
             return false;
         }
 
@@ -552,6 +556,7 @@ public static class NumberOptionPatch
             __instance.Value -= increment;
             __instance.UpdateValue();
             __instance.OnValueChanged.Invoke(__instance);
+            __instance.AdjustButtonsActiveState();
             return false;
         }
 
@@ -582,6 +587,7 @@ public static class StringOptionPatch
                 };
             }
             __instance.TitleText.text = name;
+            __instance.AdjustButtonsActiveState();
             return false;
         }
         return true;
@@ -650,6 +656,7 @@ public static class StringOptionPatch
             __instance.Value = __instance.Values.Length - 1;
             __instance.UpdateValue();
             __instance.OnValueChanged?.Invoke(__instance);
+            __instance.AdjustButtonsActiveState();
             return false;
         }
         return true;
