@@ -1,4 +1,3 @@
-/*
 namespace TOHE.Roles.AddOns.Common;
 
 public static class Informable
@@ -29,4 +28,3 @@ public static class Informable
         }
     }
 }
-*/
