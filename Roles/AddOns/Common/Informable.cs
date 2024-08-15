@@ -11,7 +11,7 @@ public static class Informable
     public static List<bool> SetDead = [];
     public static void SetupCustomOptions()
     {
-        Options.SetupAdtRoleOptions(Id, CustomRoles.Sleuth, canSetNum: true);
+        Options.SetupAdtRoleOptions(Id, CustomRoles.Informable, canSetNum: true);
         ImpCanBeInformable = BooleanOptionItem.Create(Id + 10, "ImpCanBeInformable", true, TabGroup.Addons, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Informable]);
         CrewCanBeInformable = BooleanOptionItem.Create(Id + 11, "CrewCanBeInformable", true, TabGroup.Addons, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Informable]);
         NeutralCanBeInformable = BooleanOptionItem.Create(Id + 12, "NeutralCanBeInformable", true, TabGroup.Addons, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Informable]);
