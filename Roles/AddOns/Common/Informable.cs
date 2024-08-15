@@ -18,7 +18,7 @@ public static class Informable
     }
     public static void OnReportDeadBody(PlayerControl reporter, NetworkedPlayerInfo deadBody)
     {
-        if (SetDead = true)
+        if (SetDead == true)
         {
             var realKiller = deadBody.Object.GetRealKiller();
             foreach (var pc in Main.AllPlayerControls)
