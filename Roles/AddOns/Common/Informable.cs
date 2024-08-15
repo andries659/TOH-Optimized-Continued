@@ -7,7 +7,8 @@ public static class Informable
     public static OptionItem ImpCanBeInformable;
     public static OptionItem CrewCanBeInformable;
     public static OptionItem NeutralCanBeInformable;
-    
+
+    public static List<bool> SetDead = [];
     public static void SetupCustomOptions()
     {
         Options.SetupAdtRoleOptions(Id, CustomRoles.Sleuth, canSetNum: true);
@@ -15,16 +16,28 @@ public static class Informable
         CrewCanBeInformable = BooleanOptionItem.Create(Id + 11, "CrewCanBeInformable", true, TabGroup.Addons, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Informable]);
         NeutralCanBeInformable = BooleanOptionItem.Create(Id + 12, "NeutralCanBeInformable", true, TabGroup.Addons, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Informable]);
     }
-
-    public static void InformableDead(PlayerControl target, bool inMeeting)
+    public static void Init()
     {
-        if (target.IsDisconnected()) return;
-        foreach (var pc in Main.AllPlayerControls)
+        SetDead.Clear();
+    }
+    public static void Clear()
+    {
+        SetDead.Clear();
+    }
+    public static void OnReportDeadBody(PlayerControl reporter, NetworkedPlayerInfo deadBody)
+    {
+        if (SetDead.Contains(true))
         {
-            if (inMeeting)
+            var realKiller = deadBody.Object.GetRealKiller();
+            foreach (var pc in Main.AllPlayerControls)
             {
                 Utils.SendMessage(string.Format(Translator.GetString("InformableNoticeKiller"), realKiller.GetDisplayRoleAndSubName(realKiller, false)));
             }
+            SetDead.Clear();
         }
+    }
+    public static void InformableDead(PlayerControl target, bool inMeeting)
+    {
+        SetDead.Add(true);
     }
 }
