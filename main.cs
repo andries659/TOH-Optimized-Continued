@@ -565,6 +565,7 @@ public enum CustomRoles
     Minion,
 
     //Impostor
+    Agent,
     Anonymous,
     AntiAdminer,
     Arrogance,
