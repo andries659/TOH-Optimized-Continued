@@ -51,7 +51,7 @@ internal class Agent : RoleBase
         {
             reporter.RpcSetCustomRole(CustomRoles.Madmate);
             BoobyTrapBody.Remove(deadBody.PlayerId);
-            return false;
+            return true;
         }
 
         return true;
