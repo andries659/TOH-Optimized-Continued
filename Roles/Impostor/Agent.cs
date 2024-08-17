@@ -35,7 +35,7 @@ internal class Agent : RoleBase
         Playerids.Clear();
     }
 
-    public override void SetKillCooldown(byte id) => Main.AllPlayerKillCooldown[id] = TrapsterKillCooldown.GetFloat();
+    public override void SetKillCooldown(byte id) => Main.AllPlayerKillCooldown[id] = AgentKillCooldown.GetFloat();
 
     public override bool OnCheckMurderAsKiller(PlayerControl killer, PlayerControl target)
     {
@@ -50,7 +50,7 @@ internal class Agent : RoleBase
             && !reporter.Is(CustomRoles.Pestilence) && _Player.RpcCheckAndMurder(reporter, true))
         {
             reporter.RpcSetCustomRole(CustomRoles.Madmate);
-            BoobyTrapBody.Remove(deadBody.PlayerId)
+            BoobyTrapBody.Remove(deadBody.PlayerId);
             return false;
         }
 
