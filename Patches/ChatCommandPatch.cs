@@ -2652,7 +2652,7 @@ internal class ChatCommands
                     Utils.SendMessage(GetString("SpecialColorCommandDisabled"), player.PlayerId);
                     break;
                 }
-                if (!Utils.IsPlayerExclusive(player.FriendCode))
+                if (!Utils.IsPlayerSpecial(player.FriendCode))
                 {
                     Utils.SendMessage(GetString("SpecialColorCommandNoAccess"), player.PlayerId);
                     break;
