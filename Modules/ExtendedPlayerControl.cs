@@ -4,6 +4,7 @@ using InnerNet;
 using System;
 using System.Text;
 using TOHE.Modules;
+using TOHE.Roles._Ghosts_.Crewmate;
 using TOHE.Roles.AddOns.Common;
 using TOHE.Roles.AddOns.Impostor;
 using TOHE.Roles.Core;
@@ -1054,6 +1055,13 @@ static class ExtendedPlayerControl
                 logger.Info($"Dark Fairy Know Role");
             return true;
         }
+        else if (Cursebearer.KnowRole(seer, target))
+        {
+            if (isVanilla)
+                logger.Info($"Cursebearer Know Role");
+            return true;
+        }
+
 
 
         else return false;

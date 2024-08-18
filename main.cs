@@ -871,6 +871,7 @@ public enum CustomRoles
     Reach,
     Rebound,
     Recruit,
+    Revealed,
     Seer,
     Silent,
     Statue,

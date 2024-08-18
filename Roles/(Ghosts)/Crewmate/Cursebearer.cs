@@ -1,5 +1,7 @@
 using AmongUs.GameOptions;
 using System;
+using System.Linq;
+using TOHE.Roles.AddOns.Common;
 using TOHE.Roles.Core;
 using TOHE.Roles.Double;
 using UnityEngine;
@@ -19,22 +21,17 @@ internal class Cursebearer : RoleBase
     //==================================================================\\
 
     public static OptionItem RevealCooldown;
-    public static OptionItem IncreaseByOneIfConvert;
-
-    public static readonly Dictionary<byte, byte> BetPlayer = [];
     public int KeepCount = 0;
     public bool KnowTargetRole = false;
     public override void SetupCustomOption()
     {
         SetupSingleRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Cursebearer);
         RevealCooldown = FloatOptionItem.Create(Id + 10, GeneralOption.KillCooldown, new(0f, 120f, 2.5f), 25f, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Cursebearer]);
-        IncreaseByOneIfConvert = BooleanOptionItem.Create(Id + 11, "IncreaseByOneIfConvert", false, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Cursebearer]);
     }
     public override void Init()
     {
         KeepCount = 0;
         KnowTargetRole = false;
-        BetPlayer.Clear();
     }
     public override void Add(byte playerId)
     {
@@ -46,23 +43,6 @@ internal class Cursebearer : RoleBase
             {
                 KeepCount++;
             }
-        }
-    }
-    
-    public override void OnReportDeadBody(PlayerControl reporter, NetworkedPlayerInfo target)
-    {
-        int ThisCount = 0;
-        foreach (var pc in Main.AllPlayerControls)
-        {
-            if (pc.IsAnySubRole(x => x.IsConverted()))
-            {
-                ThisCount++;
-            }
-        }
-        if (ThisCount > KeepCount && IncreaseByOneIfConvert.GetBool())
-        {
-            KeepCount++;
-            AbilityLimit += ThisCount - KeepCount;
         }
 
     }
@@ -76,17 +56,15 @@ internal class Cursebearer : RoleBase
         if (AbilityLimit <= 0) return false;
         else
         {
-            AbilityLimit--;
-            BetPlayer.Add(target.PlayerId, killer.PlayerId);
-            KnowTargetRole = true;
-            return false;
+            target.RpcSetCustomRole(CustomRoles.Revealed);
+            return true;
         }
     }
 
 
-    public override bool KnowRoleTarget(PlayerControl player, PlayerControl target)
+    public static bool KnowRole(PlayerControl seer, PlayerControl target)
     {
-        if (KnowTargetRole == false) return false;
-        return BetPlayer.TryGetValue(player.PlayerId, out var tar) && tar == target.PlayerId;
+        if (target.Is(CustomRoles.Revealed)) return true;
+        return false;
     }
 }
