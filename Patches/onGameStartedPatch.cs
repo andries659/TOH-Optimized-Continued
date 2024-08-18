@@ -183,6 +183,7 @@ internal class ChangeRoleSettings
             Radar.Init();
             Glow.Init();
             Sleuth.Init();
+            Informable.Init();
             Identifier.Init();
             Bait.Init();
             Antidote.Init();

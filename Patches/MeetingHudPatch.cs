@@ -889,6 +889,7 @@ class MeetingHudStartPatch
         Cyber.Clear();
         Sleuth.Clear();
         Identifier.Clear();
+        Informable.Clear();
     }
     public static void Prefix(/*MeetingHud __instance*/)
     {
