@@ -56,6 +56,7 @@ internal class Cursebearer : RoleBase
         if (AbilityLimit <= 0) return false;
         else
         {
+            AbilityLimit -= 1;
             target.RpcSetCustomRole(CustomRoles.Revealed);
             return true;
         }
