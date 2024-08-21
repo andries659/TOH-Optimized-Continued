@@ -132,7 +132,7 @@ public static class MainMenuManagerPatch
         leftPanel.GetComponentsInChildren<SpriteRenderer>(true).Where(r => r.name == "Shine").ToList().ForEach(r => r.enabled = true);
 
         GameObject splashArt = new("SplashArt");
-        splashArt.transform.position = new Vector3(0, 0f, 300f); //= new Vector3(0, 0.40f, 600f);
+        splashArt.transform.position = new Vector3(0, 0f, 600f); //= new Vector3(0, 0.40f, 600f);
         var spriteRenderer = splashArt.AddComponent<SpriteRenderer>();
         string folder = "TOHE.Resources.Background.";
         IRandom rand = IRandom.Instance;
@@ -142,7 +142,7 @@ public static class MainMenuManagerPatch
         string[] fileNames = assembly.GetManifestResourceNames().Where(resourceName => resourceName.StartsWith(folder) && resourceName.EndsWith(".png")).ToArray();
         int choice = rand.Next(0, fileNames.Length);
 
-        spriteRenderer.sprite = Utils.LoadSprite(fileNames[choice], 150f);
+        spriteRenderer.sprite = Utils.LoadSprite(fileNames[choice], 200f);
 
 
         //__instance.playLocalButton.inactiveSprites.GetComponent<SpriteRenderer>().color = new Color(0.1647f, 0f, 0.7765f);
