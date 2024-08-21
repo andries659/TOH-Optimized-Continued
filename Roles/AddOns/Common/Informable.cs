@@ -1,4 +1,4 @@
-﻿using static UnityEngine.GraphicsBuffer;
+﻿/* using static UnityEngine.GraphicsBuffer;
 using static TOHE.Utils;
 using static TOHE.Translator;
 
@@ -38,3 +38,4 @@ public static class Informable
         }
     }
 }
+*/

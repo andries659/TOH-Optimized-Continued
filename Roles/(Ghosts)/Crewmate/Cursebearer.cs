@@ -20,13 +20,13 @@ internal class Cursebearer : RoleBase
     public override Custom_RoleType ThisRoleType => Custom_RoleType.CrewmateGhosts;
     //==================================================================\\
 
-    public static OptionItem RevealCooldown;
+    public static OptionItem CBRevealCooldown;
     public int KeepCount = 0;
     public bool KnowTargetRole = false;
     public override void SetupCustomOption()
     {
         SetupSingleRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Cursebearer);
-        RevealCooldown = FloatOptionItem.Create(Id + 10, GeneralOption.KillCooldown, new(0f, 120f, 2.5f), 25f, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Cursebearer]);
+        CBRevealCooldown = FloatOptionItem.Create(Id + 10, GeneralOption.KillCooldown, new(0f, 120f, 2.5f), 25f, TabGroup.CrewmateRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Cursebearer]);
     }
     public override void Init()
     {
@@ -48,7 +48,7 @@ internal class Cursebearer : RoleBase
     }
     public override void ApplyGameOptions(IGameOptions opt, byte playerId)
     {
-        AURoleOptions.GuardianAngelCooldown = RevealCooldown.GetFloat();
+        AURoleOptions.GuardianAngelCooldown = CBRevealCooldown.GetFloat();
         AURoleOptions.ProtectionDurationSeconds = 0f;
     }
     public override bool OnCheckProtect(PlayerControl killer, PlayerControl target)
