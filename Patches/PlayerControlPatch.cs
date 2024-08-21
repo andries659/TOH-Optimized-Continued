@@ -1775,7 +1775,7 @@ class PlayerControlSetRolePatch
     private static readonly Dictionary<PlayerControl, RoleTypes> ghostRoles = [];
     public static bool Prefix(PlayerControl __instance, [HarmonyArgument(0)] ref RoleTypes roleType, [HarmonyArgument(1)] ref bool canOverrideRole)
     {
-        // canOverrideRole = true; /* set this to true no matter the case */
+        canOverrideRole = true;
         if (GameStates.IsHideNSeek || __instance == null) return true;
         if (!ShipStatus.Instance.enabled || !AmongUsClient.Instance.AmHost) return true;
 
@@ -1845,7 +1845,7 @@ class PlayerControlSetRolePatch
                 {
                     if (seer == null || target == null) continue;
                     Logger.Info($"Desync {targetName} => {role} for {seer.GetNameWithRole().RemoveHtmlTags()}", "PlayerControl.RpcSetRole");
-                    target.RpcSetRoleDesync(role, false, seer.GetClientId());
+                    target.RpcSetRoleDesync(role, true, seer.GetClientId());
                 }
                 return false;
             }
@@ -1917,9 +1917,12 @@ class PlayerControlSetRolePatch
                 Logger.Info($" {__instance.GetRealName()} => {roleType}", "PlayerControl.RpcSetRole");
 
                 if (roleType is RoleTypes.CrewmateGhost or RoleTypes.ImpostorGhost or RoleTypes.GuardianAngel)
+                {
                     if (!DidSetGhost.ContainsKey(__instance.PlayerId))
                         DidSetGhost.Add(__instance.PlayerId, true);
+                }
             }
+            _ = new LateTask(() => { Main.AllPlayerControls.Do(x => Logger.Info($"{x.GetRealName()}/{x.Data.Role.GetType().Name}/{x.Data.Role.Role}", "Test All Roletypes, and Roleclass")); }, 3f);
         }
         catch (Exception e)
         {

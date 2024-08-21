@@ -1,4 +1,4 @@
-﻿using AmongUs.GameOptions;
+﻿/* using AmongUs.GameOptions;
 using Hazel;
 using InnerNet;
 using UnityEngine;
@@ -104,3 +104,4 @@ internal static class RoleBasisChanger
         }
     }
 }
+*/

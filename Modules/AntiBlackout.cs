@@ -1,3 +1,5 @@
+using AmongUs.GameOptions;
+using TOHE.Roles.Core.AssignManager;
 using Hazel;
 using System;
 using System.Runtime.CompilerServices;
@@ -11,7 +13,7 @@ public static class AntiBlackout
     ///<summary>
     /// Check num alive Impostors & Crewmates & NeutralKillers
     ///</summary>
-    public static bool BlackOutIsActive => !Options.DisableAntiBlackoutProtects.GetBool() && CheckBlackOut();
+    public static bool BlackOutIsActive => /*!Options.DisableAntiBlackoutProtects.GetBool() &&*/ CheckBlackOut();
 
     ///<summary>
     /// Count alive players and check black out 
@@ -63,7 +65,7 @@ public static class AntiBlackout
             BlackOutIsActive = numAliveNeutralKillers == 1 && numAliveImpostors == 1 && numAliveCrewmates <= 2;
 
         Logger.Info($" {BlackOutIsActive}", "BlackOut Is Active");
-        return BlackOutIsActive;
+        return false; //blackout is not needed anymore BlackOutIsActive;
     }
 
     public static bool IsCached { get; private set; } = false;
@@ -248,4 +250,30 @@ public static class AntiBlackout
 
     public static bool ShowExiledInfo = false;
     public static string StoreExiledMessage = "";
+}
+[HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.Die))]
+public static class ReassignImpostorPatch
+{
+    public static void Postfix(PlayerControl __instance)
+    {
+        if (!AmongUsClient.Instance.AmHost || !__instance.GetCustomRole().IsDesyncRole() && !__instance.GetCustomRole().IsImpostor()) return;
+
+        //idk if this is needed since anyways ghost-role desyncs aren't in here (cuz that is set later), so maybe I'll remove.
+
+        foreach (var Killer in Main.AllPlayerControls.Where(x => x.HasKillButton() && x != __instance))
+        {
+            Killer.RpcSetRoleDesync(Killer.GetCustomRole().GetVNRole().GetRoleTypes(), true, __instance.GetClientId());
+        }
+    }
+
+    public static void FixDesyncImpostorRoles(this PlayerControl __instance)
+    {
+        if (!AmongUsClient.Instance.AmHost || !__instance.GetCustomRole().IsDesyncRole() && !__instance.GetCustomRole().IsImpostor()
+            && (!GhostRoleAssign.GhostGetPreviousRole.TryGetValue(__instance.PlayerId, out var role) || !role.IsDesyncRole() || !role.IsImpostor())) return;
+
+        foreach (var Killer in Main.AllPlayerControls.Where(x => x.HasKillButton() && x != __instance))
+        {
+            Killer.RpcSetRoleDesync(Killer.GetCustomRole().GetVNRole().GetRoleTypes(), true, __instance.GetClientId());
+        }
+    }
 }

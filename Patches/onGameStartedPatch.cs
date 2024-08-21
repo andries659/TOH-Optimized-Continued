@@ -1,14 +1,17 @@
 using AmongUs.GameOptions;
 using Hazel;
 using System;
+using UnityEngine;
 using TOHE.Modules;
 using TOHE.Modules.ChatManager;
 using TOHE.Roles.AddOns.Common;
 using TOHE.Roles.AddOns.Crewmate;
 using TOHE.Roles.AddOns.Impostor;
+using static TOHE.Roles.Core.AssignManager.RoleAssign;
 using TOHE.Roles.Core;
 using TOHE.Roles.Core.AssignManager;
 using static TOHE.Translator;
+using System.Linq;
 
 namespace TOHE;
 
@@ -251,7 +254,7 @@ internal class SelectRolesPatch
             if (Main.EnableGM.Value)
             {
                 PlayerControl.LocalPlayer.RpcSetCustomRole(CustomRoles.GM);
-                PlayerControl.LocalPlayer.RpcSetRole(RoleTypes.Crewmate);
+                PlayerControl.LocalPlayer.RpcSetRole(RoleTypes.Crewmate, true);
                 PlayerControl.LocalPlayer.Data.IsDead = true;
                 Main.PlayerStates[PlayerControl.LocalPlayer.PlayerId].SetDead();
             }
@@ -269,7 +272,7 @@ internal class SelectRolesPatch
             if (Main.EnableGM.Value && Options.CurrentGameMode == CustomGameMode.Standard)
             {
                 PlayerControl.LocalPlayer.RpcSetCustomRole(CustomRoles.GM);
-                PlayerControl.LocalPlayer.RpcSetRole(RoleTypes.Crewmate);
+                PlayerControl.LocalPlayer.RpcSetRole(RoleTypes.Crewmate, true);
                 PlayerControl.LocalPlayer.Data.IsDead = true;
                 Main.PlayerStates[PlayerControl.LocalPlayer.PlayerId].SetDead();
             }
@@ -372,14 +375,18 @@ internal class SelectRolesPatch
                 AssignDesyncRole(role, pc, senders, rolesMap, BaseRole: role.GetDYRole());
 
             // Set Desync RoleType by "RpcSetRole"
-            MakeDesyncSender(senders, rolesMap);
+            // MakeDesyncSender(senders, rolesMap);
 
+            RpcSetRoleReplacer.DesyncPlayers.Clear();
             // Override RoleType for others players
             foreach (var (pc, role) in RoleAssign.RoleResult)
             {
-                if (pc == null || role.IsDesyncRole()) continue;
+                if (pc == null) continue;
+                var realrole = role;
+                if (role.IsDesyncRole()) realrole = CustomRoles.Crewmate;
 
-                RpcSetRoleReplacer.StoragedData.Add(pc, role.GetRoleTypes());
+                if (role.IsDesyncRole()) RpcSetRoleReplacer.DesyncPlayers.Add(pc, role);
+                RpcSetRoleReplacer.StoragedData.Add(pc, realrole.GetRoleTypes());
 
                 Logger.Warn($"Set original role type => {pc.GetRealName()}: {role} => {role.GetRoleTypes()}", "Override Role Select");
             }
@@ -618,7 +625,7 @@ internal class SelectRolesPatch
 
         RpcSetRoleReplacer.OverriddenSenderList.Add(senders[player.PlayerId]);
         //Set role for host
-        player.SetRole(othersRole, false);
+        player.SetRole(othersRole, true);
         player.Data.IsDead = true;
 
         Logger.Info($"Registered Role: {player?.Data?.PlayerName} => {role} : RoleType for self => {selfRole}, for others => {othersRole}", "AssignDesyncRoles");
@@ -663,6 +670,7 @@ internal class SelectRolesPatch
     {
         public static bool doReplace = false;
         public static Dictionary<byte, CustomRpcSender> senders;
+        public static Dictionary<PlayerControl, CustomRoles> DesyncPlayers = [];
         public static Dictionary<PlayerControl, RoleTypes> StoragedData = [];
         // List of Senders that do not require additional writing because SetRoleRpc has already been written by another process such as Position Desync
         public static List<CustomRpcSender> OverriddenSenderList;
@@ -674,7 +682,7 @@ internal class SelectRolesPatch
         {
             foreach (var sender in senders)
             {
-                if (OverriddenSenderList.Contains(sender.Value)) continue;
+                //if (OverriddenSenderList.Contains(sender.Value)) continue;
                 if (sender.Value.CurrentState != CustomRpcSender.State.InRootMessage)
                     throw new InvalidOperationException("A CustomRpcSender had Invalid State.");
 
@@ -682,11 +690,22 @@ internal class SelectRolesPatch
                 {
                     try
                     {
-                        seer.SetRole(roleType, false);
-                        sender.Value.AutoStartRpc(seer.NetId, (byte)RpcCalls.SetRole, Utils.GetPlayerById(sender.Key).GetClientId())
-                            .Write((ushort)roleType)
-                            .Write(false)
-                            .EndRpc();
+                        SetDisconnectedMessage(sender.Value.stream, true);
+                        if (!DesyncPlayers.TryGetValue(seer, out var role) || role.IsCrewmate())
+                        {
+                            seer.SetRole(roleType, true);
+                            sender.Value.AutoStartRpc(seer.NetId, (byte)RpcCalls.SetRole, Utils.GetPlayerById(sender.Key).GetClientId())
+                                .Write((ushort)roleType)
+                                .Write(true)
+                                .EndRpc();
+                        }
+                        else
+                        { // DESYNC NEUTRALS TEMPORALILY BROKEN, I need to fix it. 
+                            throw new NotImplementedException();
+                            // seer.RpcChangeRoleBasis(role.GetRoleTypes(), true);
+                        }
+
+                        SetDisconnectedMessage(sender.Value.stream, false);
                     }
                     catch
                     { }
@@ -694,6 +713,19 @@ internal class SelectRolesPatch
                 sender.Value.EndMessage();
             }
             doReplace = false;
+        }
+        private static void SetDisconnectedMessage(MessageWriter stream, bool disconnected)
+        {
+            foreach (var pc in Main.AllPlayerControls)
+            {
+                //if (pc.PlayerId != target.PlayerId) continue;
+                pc.Data.Disconnected = disconnected;
+
+                stream.StartMessage(1);
+                stream.WritePacked(pc.Data.NetId);
+                pc.Data.Serialize(stream, false);
+                stream.EndMessage();
+            }
         }
         public static void Initialize()
         {

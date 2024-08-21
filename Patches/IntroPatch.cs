@@ -9,6 +9,7 @@ using TOHE.Roles.Core;
 using TOHE.Roles.Core.AssignManager;
 using TOHE.Roles.Neutral;
 using UnityEngine;
+using static TOHE.SelectRolesPatch;
 using static TOHE.Translator;
 
 namespace TOHE;
@@ -66,7 +67,7 @@ class CoBeginPatch
 {
     public static void Prefix()
     {
-        if (RoleBasisChanger.IsChangeInProgress) return;
+        // if (RoleBasisChanger.IsChangeInProgress) return;
 
         var logger = Logger.Handler("Info");
 
@@ -458,9 +459,10 @@ class IntroCutsceneDestroyPatch
 {
     public static void Postfix()
     {
-        if (!GameStates.IsInGame || RoleBasisChanger.SkipTasksAfterAssignRole) return;
+        if (!GameStates.IsInGame /*|| RoleBasisChanger.SkipTasksAfterAssignRole*/) return;
 
         Main.introDestroyed = true;
+
 
         if (!GameStates.AirshipIsActive)
         {
@@ -510,6 +512,19 @@ class IntroCutsceneDestroyPatch
 
                     });
                 }, 3f, "Set Dev Ghost-Roles");
+            }
+            
+            //_ = new LateTask(() => { Main.AllPlayerControls.First(x => x.PlayerId != 0).RpcSetRole(RoleTypes.Impostor, true); }, 3f);
+            //_ = new LateTask(() => { Main.AllPlayerControls.First(x => x.PlayerId != 0).RpcChangeRoleBasis(RoleTypes.Impostor, true); }, 6f);
+            _ = new LateTask(() => {
+                foreach (var DYpc in Main.AllPlayerControls.Where(x => x.GetCustomRole().IsCrewmate() && RpcSetRoleReplacer.DesyncPlayers.TryGetValue(x, out _)))
+                {
+                    DYpc.RpcChangeRoleBasis(DYpc.GetCustomRole().GetRoleTypes(), true);
+                }
+            }, 1f, "Assign Impostor desync roles for crewmates");
+            foreach (var pc in Main.AllPlayerControls)
+            {
+                pc.MarkDirtySettings();
             }
 
             if (GameStates.IsNormalGame && (RandomSpawn.IsRandomSpawn() || Options.CurrentGameMode == CustomGameMode.FFA))
