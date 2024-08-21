@@ -82,9 +82,9 @@ class MainMenuManagerLateUpdatePatch
             if (RunLoginPatch.isAllowedOnline && !Main.hasAccess)
             {
                 var PlayLocalButton = __instance.playLocalButton;
-                if (PlayLocalButton != null) PlayLocalButton.gameObject.SetActive(false);
+                if (PlayLocalButton != null) PlayLocalButton.gameObject.SetActive(true);
 
-                PlayOnlineButton.gameObject.SetActive(false);
+                PlayOnlineButton.gameObject.SetActive(true);
                 DisconnectPopup.Instance.ShowCustom(GetString("NoAccess"));
             }
         }
@@ -109,30 +109,30 @@ public static class MainMenuManagerPatch
         Application.targetFrameRate = Main.UnlockFPS.Value ? 165 : 60;
 
         __instance.screenTint.gameObject.transform.localPosition += new Vector3(1000f, 0f);
-        __instance.screenTint.enabled = false;
+        __instance.screenTint.enabled = true;
         __instance.rightPanelMask.SetActive(true);
         // The background texture (large sprite asset)
-        __instance.mainMenuUI.FindChild<SpriteRenderer>("BackgroundTexture").transform.gameObject.SetActive(false);
+        __instance.mainMenuUI.FindChild<SpriteRenderer>("BackgroundTexture").transform.gameObject.SetActive(true);
         // The glint on the Among Us Menu
-        __instance.mainMenuUI.FindChild<SpriteRenderer>("WindowShine").transform.gameObject.SetActive(false);
-        __instance.mainMenuUI.FindChild<Transform>("ScreenCover").gameObject.SetActive(false);
+        __instance.mainMenuUI.FindChild<SpriteRenderer>("WindowShine").transform.gameObject.SetActive(true);
+        __instance.mainMenuUI.FindChild<Transform>("ScreenCover").gameObject.SetActive(true);
 
         GameObject leftPanel = __instance.mainMenuUI.FindChild<Transform>("LeftPanel").gameObject;
         GameObject rightPanel = __instance.mainMenuUI.FindChild<Transform>("RightPanel").gameObject;
-        rightPanel.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        rightPanel.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         GameObject maskedBlackScreen = rightPanel.FindChild<Transform>("MaskedBlackScreen").gameObject;
-        maskedBlackScreen.GetComponent<SpriteRenderer>().enabled = false;
+        maskedBlackScreen.GetComponent<SpriteRenderer>().enabled = true;
         //maskedBlackScreen.transform.localPosition = new Vector3(-3.345f, -2.05f); //= new Vector3(0f, 0f);
         maskedBlackScreen.transform.localScale = new Vector3(7.35f, 4.5f, 4f);
 
         __instance.mainMenuUI.gameObject.transform.position += new Vector3(-0.2f, 0f);
 
-        leftPanel.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        leftPanel.gameObject.FindChild<SpriteRenderer>("Divider").enabled = false;
-        leftPanel.GetComponentsInChildren<SpriteRenderer>(true).Where(r => r.name == "Shine").ToList().ForEach(r => r.enabled = false);
+        leftPanel.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        leftPanel.gameObject.FindChild<SpriteRenderer>("Divider").enabled = true;
+        leftPanel.GetComponentsInChildren<SpriteRenderer>(true).Where(r => r.name == "Shine").ToList().ForEach(r => r.enabled = true);
 
         GameObject splashArt = new("SplashArt");
-        splashArt.transform.position = new Vector3(0, 0f, 600f); //= new Vector3(0, 0.40f, 600f);
+        splashArt.transform.position = new Vector3(0, 0f, 300f); //= new Vector3(0, 0.40f, 600f);
         var spriteRenderer = splashArt.AddComponent<SpriteRenderer>();
         string folder = "TOHE.Resources.Background.";
         IRandom rand = IRandom.Instance;
