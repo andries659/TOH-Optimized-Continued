@@ -104,12 +104,12 @@ class ExileControllerWrapUpPatch
             player.GetRoleClass()?.OnPlayerExiled(player, exiled);
 
             // Check Anti BlackOut
-            //if (player.GetCustomRole().IsImpostor() 
-                //&& !player.IsAlive() // if player is dead impostor
-                //&& AntiBlackout.BlackOutIsActive) // if Anti BlackOut is activated
-            //{
-                //player.ResetPlayerCam(1f);
-            //}
+            if (player.GetCustomRole().IsImpostor() 
+                && !player.IsAlive() // if player is dead impostor
+                && AntiBlackout.BlackOutIsActive) // if Anti BlackOut is activated
+            {
+                player.ResetPlayerCam(1f);
+            }
 
             // Check for remove pet
             player.RpcRemovePet();
@@ -117,8 +117,6 @@ class ExileControllerWrapUpPatch
             // Reset Kill/Ability cooldown
             player.ResetKillCooldown();
             player.RpcResetAbilityCooldown();
-
-            player.FixDesyncImpostorRoles();
         }
 
         Main.MeetingIsStarted = false;

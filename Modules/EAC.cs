@@ -36,7 +36,7 @@ internal class EAC
         /* Disable eac until NikoCat233 rework it */
 
         if (!AmongUsClient.Instance.AmHost) return false;
-        //if (RoleBasisChanger.IsChangeInProgress) return false;
+        if (RoleBasisChanger.IsChangeInProgress) return false;
         if (pc == null || reader == null) return false;
         try
         {
