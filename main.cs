@@ -39,8 +39,8 @@ public class Main : BasePlugin
     public static ConfigEntry<string> DebugKeyInput { get; private set; }
 
     public const string PluginGuid = "com.Limeau.townofhostoptimized";
-    public const string PluginVersion = "2024.0820.130.01000"; // YEAR.MMDD.VERSION.CANARYDEV
-    public const string PluginDisplayVersion = "1.3.0 Test 1";
+    public const string PluginVersion = "2024.0825.130.02000"; // YEAR.MMDD.VERSION.CANARYDEV
+    public const string PluginDisplayVersion = "1.3.0 Test 2";
     public const string SupportedVersionAU = "2024.8.13";
 
     /******************* Change one of the three variables to true before making a release. *******************/
@@ -569,6 +569,7 @@ public enum CustomRoles
     Anonymous,
     AntiAdminer,
     Arrogance,
+    Bane,
     Bard,
     Berserker,
     Blackmailer,
