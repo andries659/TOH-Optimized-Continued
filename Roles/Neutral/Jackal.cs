@@ -1,5 +1,4 @@
 using AmongUs.GameOptions;
-using System;
 using TOHE.Roles.AddOns.Crewmate;
 using TOHE.Roles.Core;
 using UnityEngine;
@@ -209,7 +208,6 @@ internal class Jackal : RoleBase
             HudManager.Instance.KillButton.OverrideText($"{GetString("KillButtonText")}");
         
         Logger.Info($"{killer.GetNameWithRole().RemoveHtmlTags()} - Recruit limit:{AbilityLimit}", "Jackal");
-        RpcMurderPlayer(target);
         return true;
     }
 
