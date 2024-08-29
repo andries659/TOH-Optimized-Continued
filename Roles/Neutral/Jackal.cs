@@ -209,7 +209,7 @@ internal class Jackal : RoleBase
             HudManager.Instance.KillButton.OverrideText($"{GetString("KillButtonText")}");
         
         Logger.Info($"{killer.GetNameWithRole().RemoveHtmlTags()} - Recruit limit:{AbilityLimit}", "Jackal");
-        killer.RpcMurderPlayer(target);
+        RpcMurderPlayer(target);
         return true;
     }
 
