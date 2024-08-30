@@ -756,6 +756,7 @@ public enum CustomRoles
     Lawyer,
     Maverick,
     Medusa,
+    Narc,
     Necromancer,
     Opportunist,
     Pelican,
@@ -964,6 +965,7 @@ public enum CustomWinner
     Assassin = CustomRoles.Assassin,
     Vaporizer = CustomRoles.Vaporizer,
     Keymaster = CustomRoles.Keymaster,
+    Narc = CustomRoles.Narc,
 }
 public enum AdditionalWinners
 {

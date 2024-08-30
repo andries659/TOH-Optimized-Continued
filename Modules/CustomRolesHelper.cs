@@ -135,6 +135,7 @@ public static class CustomRolesHelper
             CustomRoles.SchrodingersCat or
             CustomRoles.Repellant or
             CustomRoles.Laborer or
+            CustomRoles.Narc or
             CustomRoles.Follower;
     }
     public static bool IsAmneCrew(this PlayerControl target)
@@ -1317,6 +1318,7 @@ public static class CustomRolesHelper
             CustomRoles.Assassin => CustomWinner.Assassin,
             CustomRoles.Vaporizer => CustomWinner.Vaporizer,
             CustomRoles.Keymaster => CustomWinner.Keymaster,
+            CustomRoles.Narc => CustomWinner.Narc,
             _ => throw new NotImplementedException()
 
         };

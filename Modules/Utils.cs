@@ -2230,6 +2230,8 @@ public static class Utils
             PlayerState.DeathReason.Slice => CustomRoles.Hawk.IsEnable(),
             PlayerState.DeathReason.BloodLet => CustomRoles.Bloodmoon.IsEnable(),
             PlayerState.DeathReason.Vaporized => CustomRoles.Vaporizer.IsEnable(),
+            PlayerState.DeathReason.Toxined => CustomRoles.Bane.IsEnable(),
+            PlayerState.DeathReason.Arrested => CustomRoles.Narc.IsEnable(),
             PlayerState.DeathReason.Kill => true,
             _ => true,
         };
