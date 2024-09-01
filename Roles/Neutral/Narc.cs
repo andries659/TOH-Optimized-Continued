@@ -1,4 +1,4 @@
-﻿/*using TOHE.Roles.Core;
+﻿using TOHE.Roles.Core;
 using static TOHE.Options;
 using static TOHE.Translator;
 namespace TOHE.Roles.Neutral;
@@ -12,6 +12,7 @@ internal class Narc : RoleBase
     public override CustomRoles ThisRoleBase => CustomRoles.Impostor;
     public override Custom_RoleType ThisRoleType => Custom_RoleType.NeutralEvil;
     //==================================================================\\
+    private bool AmnesiacReset = true;
     public override void Init()
     {
         PlayerIds.Clear();
@@ -24,7 +25,7 @@ internal class Narc : RoleBase
     {
         SetupRoleOptions(Id, TabGroup.NeutralRoles, CustomRoles.Narc);
     }
-    public override bool OnCheckMurderAsKiller(PlayerControl killer, PlayerControl target, ref bool DecidedWinner)
+    public override bool OnCheckMurderAsKiller(PlayerControl killer, PlayerControl target)
     {
         var allAlivePlayers = Main.AllAlivePlayerControls;
         int impnum = allAlivePlayers.Count(pc => pc.Is(Custom_Team.Impostor));
@@ -39,10 +40,7 @@ internal class Narc : RoleBase
             killer.SetKillCooldown();
             if (impnum == 0)
             {
-                if (DecidedWinner)
-                {
-                    CustomWinnerHolder.ShiftWinnerAndSetWinner(CustomWinner.Innocent);
-                }
+                AmnesiacReset = false;
                 if (!CustomWinnerHolder.CheckForConvertedWinner(killer.PlayerId))
                 {
                     CustomWinnerHolder.ResetAndSetWinner(CustomWinner.Narc);
@@ -70,12 +68,14 @@ internal class Narc : RoleBase
         if (!player.IsAlive()) return;
         if (impnum == 0)
         {
-            if (player.Is(CustomRoles.Narc))
+            if (AmnesiacReset == true)
             {
-                player.RpcSetCustomRole(CustomRoles.Amnesiac);
+                if (player.Is(CustomRoles.Narc))
+                {
+                    player.RpcSetCustomRole(CustomRoles.Amnesiac);
+                }
             }
         }
     }
     public override bool CanUseKillButton(PlayerControl pc) => true;
 }
-*/

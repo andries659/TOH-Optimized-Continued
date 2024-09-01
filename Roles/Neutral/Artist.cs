@@ -1,4 +1,3 @@
-/*
 using AmongUs.GameOptions;
 using Hazel;
 using System.Collections.Generic;
@@ -15,7 +14,7 @@ namespace TOHE.Roles.Neutral
         private static readonly NetworkedPlayerInfo.PlayerOutfit PaintedOutfit = new NetworkedPlayerInfo.PlayerOutfit().Set("", 15, "", "", "visor_Crack", "", "");
         private static readonly Dictionary<byte, NetworkedPlayerInfo.PlayerOutfit> OriginalPlayerSkins = new Dictionary<byte, NetworkedPlayerInfo.PlayerOutfit>();
 
-        private const int Id = 28800;
+        private const int Id = 31600;
         private static readonly HashSet<byte> PlayerIds = new HashSet<byte>();
         public static bool HasEnabled => PlayerIds.Any();
 
@@ -42,7 +41,7 @@ namespace TOHE.Roles.Neutral
                 .SetParent(CustomRoleSpawnChances[CustomRoles.Artist]);
             HasImpostorVision = BooleanOptionItem.Create(Id + 13, GeneralOption.ImpostorVision, true, TabGroup.NeutralRoles, false)
                 .SetParent(CustomRoleSpawnChances[CustomRoles.Artist]);
-            AbilityUses = IntegerOptionItem.Create(Id + 14, "AbilityUses", new(0, 15, 1), 5, TabGroup.NeutralRoles, false)
+            AbilityUses = IntegerOptionItem.Create(Id + 14, "ArtistAbilityUses", new(0, 15, 1), 5, TabGroup.NeutralRoles, false)
                 .SetParent(CustomRoleSpawnChances[CustomRoles.Artist])
                 .SetValueFormat(OptionFormat.Times);
         }
@@ -90,12 +89,12 @@ namespace TOHE.Roles.Neutral
             }
             else
             {
-                return killer.CheckDoubleTrigger(target, () => 
-                { 
+                return killer.CheckDoubleTrigger(target, () =>
+                {
                     AbilityLimit -= 1;
                     SetSkin(target, PaintedOutfit);
                     PlayerSkinsPainted[killer.PlayerId].Add(target.PlayerId);
-                killer.SetKillCooldown(PaintCooldown.GetFloat());
+                    killer.SetKillCooldown(PaintCooldown.GetFloat());
                     Utils.NotifyRoles(SpecifySeer: killer, SpecifyTarget: target);
                 });
             }
@@ -112,7 +111,6 @@ namespace TOHE.Roles.Neutral
 
                 PlayerSkinsPainted[killer.PlayerId].Add(target.PlayerId);
                 killer.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.Artist), GetString("ArtistPaintedSkin")));
-                target.Notify(Utils.ColorString(Utils.GetRoleColor(CustomRoles.Artist), GetString("PaintedByArtist")));
 
                 OriginalPlayerSkins[target.PlayerId] = Camouflage.PlayerSkins.GetValueOrDefault(target.PlayerId, null);
                 Camouflage.PlayerSkins[target.PlayerId] = PaintedOutfit;
@@ -182,10 +180,9 @@ namespace TOHE.Roles.Neutral
 
             sender.SendMessage();
         }
-        public override string GetProgressText(byte playerId, bool comms) 
+        public override string GetProgressText(byte playerId, bool comms)
             => Utils.ColorString(CanPaint(playerId) ? Utils.GetRoleColor(CustomRoles.Gangster).ShadeColor(0.25f) : Color.gray, $"({AbilityLimit})");
-    
+
         private bool CanPaint(byte id) => AbilityLimit > 0;
     }
 }
-*/
