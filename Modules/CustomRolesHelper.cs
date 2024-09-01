@@ -193,7 +193,8 @@ public static class CustomRolesHelper
             CustomRoles.Cultist or
             CustomRoles.DarkFairy or
             CustomRoles.Assassin or
-            CustomRoles.Vaporizer;
+            CustomRoles.Vaporizer or
+            CustomRoles.Artist;
     }
     public static bool IsTasklessCrewmate(this CustomRoles role)
     {
@@ -1250,6 +1251,7 @@ public static class CustomRolesHelper
            CustomRoles.DarkFairy => CountTypes.DarkFairy,
            CustomRoles.Assassin => CountTypes.Assassin,
            CustomRoles.Vaporizer => CountTypes.Vaporizer,
+           CustomRoles.Artist => CountTypes.Artist,
            _ => role.IsImpostorTeam() ? CountTypes.Impostor : CountTypes.Crew,
 
            // CustomRoles.Phantom => CountTypes.OutOfGame,
@@ -1317,6 +1319,7 @@ public static class CustomRolesHelper
             CustomRoles.DarkFairy => CustomWinner.DarkFairy,
             CustomRoles.Assassin => CustomWinner.Assassin,
             CustomRoles.Vaporizer => CustomWinner.Vaporizer,
+            CustomRoles.Artist => CustomWinner.Artist,
             CustomRoles.Keymaster => CustomWinner.Keymaster,
             CustomRoles.Narc => CustomWinner.Narc,
             _ => throw new NotImplementedException()
@@ -1336,6 +1339,7 @@ public static class CustomRolesHelper
             CountTypes.DarkFairy => CustomRoles.DarkFairy,
             CountTypes.Assassin => CustomRoles.Assassin,
             CountTypes.Vaporizer => CustomRoles.Vaporizer,
+            CountTypes.Artist => CustomRoles.Artist,
             CountTypes.Cultist => CustomRoles.Cultist,
             CountTypes.HexMaster => CustomRoles.HexMaster,
             CountTypes.Necromancer => CustomRoles.Necromancer,
@@ -1446,5 +1450,6 @@ public enum CountTypes
     DarkFairy,
     Darkened,
     Assassin,
-    Vaporizer
+    Vaporizer,
+    Artist
 }

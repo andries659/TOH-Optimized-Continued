@@ -3615,6 +3615,8 @@
   "WinnerRoleText.DarkFairy": "Dark Fairy Wins!",
   "WinnerRoleText.Assassin": "Assassin Wins!",
   "WinnerRoleText.Narc": "Narc Wins!",
+  "WinnerRoleText.Vaporizer": "Vaporizer Wins!",
+  "WinnerRoleText.Artist": "Artist Wins!",
   "AdditionalWinnerRoleText.Sidekick": "Sidekick",
   "AdditionalWinnerRoleText.Taskinator": "Taskinator",
   "AdditionalWinnerRoleText.Opportunist": "Opportunist",

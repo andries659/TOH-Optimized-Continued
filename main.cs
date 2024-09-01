@@ -966,6 +966,7 @@ public enum CustomWinner
     Vaporizer = CustomRoles.Vaporizer,
     Keymaster = CustomRoles.Keymaster,
     Narc = CustomRoles.Narc,
+    Artist = CustomRoles.Artist,
 }
 public enum AdditionalWinners
 {
