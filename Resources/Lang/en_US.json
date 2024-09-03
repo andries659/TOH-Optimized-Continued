@@ -3526,6 +3526,7 @@
   "RoleType.ImpGhost": "<color=#bd8b88>★</color> Impostor <color=#bd8b88>Ghost</color> Roles  /ghostinfo",
   "RoleType.Madmate": "★ Madmate Roles",
   "RoleType.CrewSupport": "<color=#00ffff>★</color> Crewmate <color=#00ffff>Support</color> Roles",
+  "RoleType.CrewHindering": "<color=#00ffff>★</color> Crewmate <color=#FFA500>Hindering</color> Roles",
   "RoleType.CrewInvestigative": "<color=#008080>★</color> Crewmate <color=#008080>Investigative</color> Roles",
   "RoleType.CrewPower": "<color=#ffff00>★</color> Crewmate <color=#ffff00>Power</color> Roles",
   "RoleType.CrewKilling": "<color=#ff1919>★</color> Crewmate <color=#ff1919>Killing</color> Roles",

@@ -786,11 +786,19 @@ public static class Options
          * MINI 
          */
         CustomRoles.Mini.GetStaticRoleClass().SetupCustomOption();
+        /*
+         * HINDERING ROLES
+         */
+        TextOptionItem.Create(10000008, "RoleType.CrewHindering", TabGroup.CrewmateRoles)
+            .SetGameMode(CustomGameMode.Standard)
+            .SetColor(new Color32(140, 255, 255, byte.MaxValue));
+
+        CustomRoleManager.GetNormalOptions(Custom_RoleType.CrewmateHindering).ForEach(r => r.SetupCustomOption());
 
         /*
          * SUPPORT ROLES
          */
-        TextOptionItem.Create(10000008, "RoleType.CrewSupport", TabGroup.CrewmateRoles)
+        TextOptionItem.Create(10000009, "RoleType.CrewSupport", TabGroup.CrewmateRoles)
             .SetGameMode(CustomGameMode.Standard)
             .SetColor(new Color32(140, 255, 255, byte.MaxValue));
 
@@ -799,7 +807,7 @@ public static class Options
         /*
          * KILLING ROLES
          */
-        TextOptionItem.Create(10000009, "RoleType.CrewKilling", TabGroup.CrewmateRoles)
+        TextOptionItem.Create(10000010, "RoleType.CrewKilling", TabGroup.CrewmateRoles)
             .SetGameMode(CustomGameMode.Standard)
             .SetColor(new Color32(140, 255, 255, byte.MaxValue));
 
@@ -808,7 +816,7 @@ public static class Options
         /*
          * POWER ROLES
          */
-        TextOptionItem.Create(10000010, "RoleType.CrewPower", TabGroup.CrewmateRoles)
+        TextOptionItem.Create(10000011, "RoleType.CrewPower", TabGroup.CrewmateRoles)
             .SetGameMode(CustomGameMode.Standard)
             .SetColor(new Color32(140, 255, 255, byte.MaxValue));
 
