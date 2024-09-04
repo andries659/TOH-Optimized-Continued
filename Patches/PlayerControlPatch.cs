@@ -1505,10 +1505,21 @@ class EnterVentPatch
         }
     }
 }
+[HarmonyPatch(typeof(Vent), nameof(Vent.ExitVent))]
+class ExitVentPatch
+{
+    public static void Postfix(Vent __instance, [HarmonyArgument(0)] PlayerControl pc)
+    {
+        Logger.Info($" {pc.GetNameWithRole()}, Vent ID: {__instance.Id} ({__instance.name})", "ExitVent");
+
+        if (pc.PlayerId == PlayerControl.LocalPlayer.PlayerId)
+        _ =  new LateTask(() => { HudManager.Instance.SetHudActive(pc, pc.Data.Role, true); }, 0.6f);
+    }
+}
 [HarmonyPatch(typeof(PlayerPhysics), nameof(PlayerPhysics.CoExitVent))]
 class CoExitVentPatch
 {
-    public static void Postfix(PlayerPhysics __instance, [HarmonyArgument(0)] int id)
+    public static void Postfix(PlayerPhysics __instance, [HarmonyArgument(0)] int id, [HarmonyArgument(0)] PlayerControl pc)
     {
         if (GameStates.IsHideNSeek) return;
         Logger.Info($" {__instance.myPlayer.GetNameWithRole().RemoveHtmlTags()}, Vent ID: {id}", "CoExitVent");
