@@ -2017,6 +2017,7 @@
   "DeathReason.BloodLet": "Bleed",
   "DeathReason.Vaporized": "Vaporized",
   "DeathReason.Toxined": "Toxined",
+  "DeathReason.Arrested": "Arrested",
   "OnlyEnabledDeathReasons": "Only Enabled Death Reasons",
   "Alive": "Alive",
   "Disconnected": "Disconnected",
