@@ -1022,7 +1022,7 @@
   "RevealedInfoLong": "(Add-ons):\nYou have been revealed by the Cursebearer and everyone can see your role.",
   "BaneInfoLong": "(Impostors):\nAs the Bane, use the shapeshift button to mark a spot. For a short period of time, anyone who walks in that spot dies.",
   "NarcInfoLong": "(Neutral):\nThe Narc's main objective is to reveal the Impostors. By using its kill button, the Narc can check if the player is a Crewmate or Impostor. If the Narc reveals a Crewmate or Neutral, the Narc will turn into an Amnesiac, and the target will not die. If the Narc reveals an Impostor, they will kill the Impostor and leave no body behind and add the death reason 'Arrested'. If the Narc reveals all the Impostors it wins alone.\nNote: If killing the last Impostor triggers another win, the Narc will not win.",
-  "ArtistInfoLong": "(Neutral):\nThe Artist can double click on a player to paint them gray. Single click to kill normally.",
+  "ArtistInfoLong": "(Neutral):\nThe Artist can single click on a player to paint them gray, similair to Devourer. Double click to kill normally.",
   "ShowTextOverlay": "Text Overlay",
   "Overlay.GuesserMode": "<size=50%>Guesser Mode</size>",
   "Overlay.NoGameEnd": "<size=50%>No Game End</size>",
