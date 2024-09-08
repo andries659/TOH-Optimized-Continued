@@ -764,6 +764,7 @@ public static class CustomRolesHelper
                 if (pc.Is(CustomRoles.Detective)
                     || pc.Is(CustomRoles.Vulture)
                     || pc.Is(CustomRoles.Sleuth)
+                    || pc.Is(CustomRoles.Identifier)
                     || pc.Is(CustomRoles.Cleaner)
                     || pc.Is(CustomRoles.Amnesiac)
                     || pc.Is(CustomRoles.Coroner)
