@@ -27,6 +27,7 @@ public static class DevManager
     {
         DevUserList =
         [
+            /*CREDITED DEVS BELOW*/
 
             // Karped stays bcs he is cool
             new(code: "actorour#0029", color: "#ffc0cb", tag: "Original Developer", isUp: true, isDev: true, deBug: true, colorCmd: true, upName: "KARPED1EM"),
@@ -34,33 +35,39 @@ public static class DevManager
             // Gurge also stays bcs he is cool too
             new(code: "neatnet#5851", color: "#FFFF00", tag: "The 200IQ guy", isUp: true, isDev: false, deBug: false, colorCmd: false, upName: "The 200IQ guy"),
         
+            /*CREDITED DEVS ABOVE*/
+
+            /*TOHO DEVS BELOW*/
+
             // Lime
             new(code: "latevoice#4590", color: "#00ff00", tag: "The entire circus", isUp: true, isDev: true, deBug: true, colorCmd: true, upName: "Lime"),
 
             // Ape
             new(code: "simianpair#1270", color: "#0e2f44", tag: "Executive", isUp: true, isDev: true, deBug: true, colorCmd: true, upName: "Ape"),
 
-            // Andries
-            new(code: "teemothy#6171", color: "#3e5f8a", tag: "★✦⋆ Andries/Coder ⋆✦★", isUp: true, isDev: true, deBug: true, colorCmd: true, upName: "Andries"),
-
             // Dailyhare
             new(code: "noshsame#8116", color: "#011efe", tag: "Bait Killer", isUp: true, isDev: true, deBug: true, colorCmd: true, upName: "Dailyhare"),
+            
+            /*TOHO DEVS ABOVE*/
+
+            /*TESTERS BELOW*/
 
             // BXO
-            new(code: "justgust#5169", color: "#07296c", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "BXO"),
+            new(code: "justgust#5169", color: "#07296c", tag: "Tester", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "BXO"),
 
             // Apoc
-            new(code: "crunchwide#1938", color: "#ffa500", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Apoc"),
+            new(code: "crunchwide#1938", color: "#ffa500", tag: "Tester", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Apoc"),
 
             // Diffy
-            new(code: "funnytiger#8420", color: "#FFC5CB", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Diffy"),
+            new(code: "funnytiger#8420", color: "#FFC5CB", tag: "Tester", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Diffy"),
 
             // Plague
-            new(code: "trunksun#2271", color: "#800080", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Plague"),
+            new(code: "trunksun#2271", color: "#800080", tag: "Tester", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Plague"),
 
             // Glazecraft
-            new(code: "motorstack#2287", color: "#ec9d2f", tag: "Verified Host", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Glazecraft"),
+            new(code: "motorstack#2287", color: "#ec9d2f", tag: "Tester", isUp: true, isDev: false, deBug: true, colorCmd: true, upName: "Glazecraft"),
 
+            /*TESTERS ABOVE*/
         ];
     }
 
