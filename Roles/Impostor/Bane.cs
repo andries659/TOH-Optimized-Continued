@@ -74,6 +74,11 @@ internal class Bane : RoleBase
         AURoleOptions.ShapeshifterDuration = 1f;
     }
 
+    public override void AfterMeetingTasks()
+    {
+        Traps.Clear();
+    }
+
     public override bool OnCheckShapeshift(PlayerControl shapeshifter, PlayerControl target, ref bool resetCooldown, ref bool shouldAnimate)
     {
         if (shapeshifter.PlayerId == target.PlayerId) return false;
