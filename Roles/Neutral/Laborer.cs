@@ -29,7 +29,7 @@ internal class Laborer : RoleBase
             .SetValueFormat(OptionFormat.Seconds);
         SkillLimitOpt = IntegerOptionItem.Create(Id + 11, "LaborerSkillLimit", new(1, 15, 1), 5, TabGroup.NeutralRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Laborer])
             .SetValueFormat(OptionFormat.Times);
-        CanVent = BooleanOptionItem.Create(Id + 11, GeneralOption.CanVent, true, TabGroup.NeutralRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Laborer]);
+        CanVent = BooleanOptionItem.Create(Id + 12, GeneralOption.CanVent, true, TabGroup.NeutralRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Laborer]);
         HasImpostorVision = BooleanOptionItem.Create(Id + 13, GeneralOption.ImpostorVision, true, TabGroup.NeutralRoles, false).SetParent(Options.CustomRoleSpawnChances[CustomRoles.Laborer]);
     }
     public override void Add(byte playerId)
