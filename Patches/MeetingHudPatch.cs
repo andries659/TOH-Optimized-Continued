@@ -397,6 +397,10 @@ class CheckForEndVotingPatch
 
         if (CustomRoles.Bard.RoleExist())
         {
+            Main.BardCreations++;
+            try { name = ("BARDIC INSPIRATIOOONNNN!"); }
+            catch { name = GetString("ByBardGetFailed"); }
+            name += "\n\t\t——" + GetString("ByBard");
             goto EndOfSession;
         }
 
