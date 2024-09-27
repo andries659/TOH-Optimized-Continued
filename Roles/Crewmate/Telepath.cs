@@ -5,14 +5,13 @@ using System.Text;
 using UnityEngine;
 using static TOHE.Options;
 using static TOHE.Utils;
-using static TOHE.Translator;
 
 namespace TOHE.Roles.Crewmate
 {
     internal class Telepath : RoleBase
     {
         //===========================SETUP================================\\
-        private const int Id = 10220;
+        private const int Id = 30200;
         private static readonly HashSet<byte> playerIdList = [];
         public static bool HasEnabled => playerIdList.Any();
         
