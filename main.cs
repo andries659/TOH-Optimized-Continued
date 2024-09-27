@@ -19,7 +19,7 @@ using UnityEngine;
 [assembly: AssemblyVersion(TOHE.Main.PluginVersion)]
 namespace TOHE;
 
-[BepInPlugin(PluginGuid, "TOHO", PluginVersion)]
+[BepInPlugin(PluginGuid, "TOHO-C", PluginVersion)]
 [BepInIncompatibility("jp.ykundesu.supernewroles")]
 [BepInProcess("Among Us.exe")]
 public class Main : BasePlugin
@@ -27,7 +27,7 @@ public class Main : BasePlugin
     // == プログラム設定 / Program Config ==
     public const string OriginalForkId = "OriginalTOH";
 
-    public static readonly string ModName = "Town of Host: Optimized";
+    public static readonly string ModName = "Town of Host: Optimized Continued";
     public static readonly string ForkId = "TOHO";
     public static readonly string ModColor = "#b47ede";
     public static readonly bool AllowPublicRoom = true;
@@ -38,10 +38,10 @@ public class Main : BasePlugin
 
     public static ConfigEntry<string> DebugKeyInput { get; private set; }
 
-    public const string PluginGuid = "com.Limeau.townofhostoptimized";
-    public const string PluginVersion = "2024.0908.131.00000"; // YEAR.MMDD.VERSION.CANARYDEV
-    public const string PluginDisplayVersion = "1.3.1";
-    public const string SupportedVersionAU = "2024.8.13";
+    public const string PluginGuid = "com.andries659.townofhostoptimizedcontinued";
+    public const string PluginVersion = "2024.0908.100.00000"; // YEAR.MMDD.VERSION.CANARYDEV
+    public const string PluginDisplayVersion = "1.0.0";
+    public const string SupportedVersionAU = "2024.9.9";
 
     /******************* Change one of the three variables to true before making a release. *******************/
     public static readonly bool Canary = false; // INACTIVE - Latest: (TOHE) V2.0.0 Canary 9
@@ -56,10 +56,10 @@ public class Main : BasePlugin
     public static readonly string GitHubInviteUrl = "https://github.com/Limeau/TownofHost-Optimized";
 
     public static readonly bool ShowDiscordButton = true;
-    public static readonly string DiscordInviteUrl = "https://discord.gg/tohoptimized";
+    public static readonly string DiscordInviteUrl = "https://discord.gg/HczqtuBfcu";
 
-    public static readonly bool ShowWebsiteButton = false;
-    public static readonly string WebsiteInviteUrl = "https://tohre.dev";
+    public static readonly bool ShowWebsiteButton = true;
+    public static readonly string WebsiteInviteUrl = "https://sites.google.com/view/toho-continued/home";
     
     public static readonly bool ShowKofiButton = false;
     public static readonly string kofiInviteUrl = "https://ko-fi.com/TOHE";
