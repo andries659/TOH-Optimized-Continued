@@ -22,10 +22,6 @@ namespace TOHE.Roles.Crewmate
         private static OptionItem TelepathLinkCooldown;
         private static OptionItem TelepathStunDuration;
 
-        private PlayerControl linkedPlayer;
-        private float linkCooldownTime;
-        private bool isStunned;
-
         public override void SetupCustomOption()
         {
             SetupSingleRoleOptions(Id, TabGroup.CrewmateRoles, CustomRoles.Telepath, 1);
