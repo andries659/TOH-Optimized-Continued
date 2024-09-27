@@ -1,5 +1,5 @@
 
-<h1 align="center">Town of Host: Optimized (TOH-O)</h1>
+<h1 align="center">Town of Host: Optimized Continued (TOHO-C)</h1>
 
 <br>
 
