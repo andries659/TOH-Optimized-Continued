@@ -3,7 +3,7 @@
 
 <br>
 
-<img align="left" alt="Cover" src="Resources/Images/TOHO_emblem.png" width="25%" height="300" /> 
+<img align="left" alt="Cover" src="Resources/Images/Logo.png" width="25%" height="300" /> 
 
 <p align="right">
   
@@ -17,8 +17,8 @@
 
 <center>
 <a href="https://sites.google.com/view/tohoptimized/home/" target="_blank"><img src="https://img.shields.io/badge/Website%20-%231DA1F2.svg?&style=for-the-badge&logo=vuedotjs&logoColor=white&color=3aa675"/></a>
-<a href="https://discord.gg/tohoptimized" target="_blank"><img src="https://img.shields.io/badge/Discord%20-%231DA1F2.svg?&style=for-the-badge&logo=discord&logoColor=white&color=5662f6"/></a>
-<a href="https://github.com/Limeau/TownofHost-Optimized/releases/latest" target="_blank"><img src="https://img.shields.io/badge/Latest Version%20-%231DA1F2.svg?&style=for-the-badge&logo=github&logoColor=white&color=181717"/></a>
+<a href="https://discord.gg/HczqtuBfcu" target="_blank"><img src="https://img.shields.io/badge/Discord%20-%231DA1F2.svg?&style=for-the-badge&logo=discord&logoColor=white&color=5662f6"/></a>
+<a href="https://github.com/andries659/TownofHost-Optimized-Continued/releases/latest" target="_blank"><img src="https://img.shields.io/badge/Latest Version%20-%231DA1F2.svg?&style=for-the-badge&logo=github&logoColor=white&color=181717"/></a>
 <a href="https://github.com/Limeau/TownofHost-Optimized/blob/main/ROLES.md" target="_blank"><img src="https://img.shields.io/badge/ROLES-b47ede"/></a>
 </center>
 
