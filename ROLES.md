@@ -1,2 +1,1 @@
-# COMING SOON!!
-<span style="color: red;">This text is red.</span>
+# COMING SOON!! ![Red text](https://via.placeholder.com/150/FF0000/FFFFFF?text=Red+Text)
