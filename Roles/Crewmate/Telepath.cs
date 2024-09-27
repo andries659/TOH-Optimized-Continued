@@ -1,7 +1,5 @@
 
 using AmongUs.GameOptions;
-using System;
-using System.Text;
 using UnityEngine;
 using static TOHE.Options;
 using static TOHE.Utils;
