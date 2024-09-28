@@ -147,7 +147,7 @@ class VersionShowerStartPatch
         var buildtype = "";
 
 #if RELEASE
-            Main.credentialsText += $"\r\n<color=#a54aff>By <color=#f34c50>LimeAU, Dailyhare, AndriesWorks, ApeMV</color>";
+            Main.credentialsText += $"\r\n<color=#a54aff>By <color=#4682B4>AndriesWorks</color>";
             buildtype = "Release";
 #endif
 
