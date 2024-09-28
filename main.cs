@@ -39,7 +39,7 @@ public class Main : BasePlugin
     public static ConfigEntry<string> DebugKeyInput { get; private set; }
 
     public const string PluginGuid = "com.andries659.townofhostoptimizedcontinued";
-    public const string PluginVersion = "2024.0813.100.00000"; // YEAR.MMDD.VERSION.CANARYDEV
+    public const string PluginVersion = "2024.0908.100.00000"; // YEAR.MMDD.VERSION.CANARYDEV
     public const string PluginDisplayVersion = "1.0.0";
     public const string SupportedVersionAU = "2024.8.13";
 
