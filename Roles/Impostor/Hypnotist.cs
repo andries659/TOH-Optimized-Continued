@@ -18,8 +18,12 @@ internal class Hypnotist : RoleBase
 
     public override void SetupCustomOption()
         {
-                .AutoSetupOption(ref AbilityCooldown, 30, new IntegerValueRule(0, 60, 1), OptionFormat.Seconds)
-                .AutoSetupOption(ref AbilityDuration, 15, new IntegerValueRule(0, 30, 1), OptionFormat.Seconds)
-                .AutoSetupOption(ref AbilityUseLimit, 1, new IntegerValueRule(0, 5, 1), OptionFormat.Times);
-        }
+        SetupRoleOptions(Id, TabGroup.ImpostorRoles, CustomRoles.Hypnotist);
+        AbilityCooldown = FloatOptionItem.Create(Id + 2, GeneralOption.ShapeshifterBase_ShapeshiftCooldown, new(1f, 180f, 1f), 25f, TabGroup.ImpostorRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Hypnotist])
+            .SetValueFormat(OptionFormat.Seconds);
+        AbilityDuration = FloatOptionItem.Create(Id + 4, GeneralOption.ShapeshifterBase_ShapeshiftDuration, new(1f, 180f, 1f), 25f, TabGroup.ImpostorRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Hypnotist])
+            .SetValueFormat(OptionFormat.Seconds);
+        AbilityUseLimit = FloatOptionItem.Create(Id + 4, GeneralOption.ShapeshifterBase_ShapeshiftDuration, new(1f, 60f, 1f), 10f, TabGroup.ImpostorRoles, false).SetParent(CustomRoleSpawnChances[CustomRoles.Hypnotist])
+            .SetValueFormat(OptionFormat.Seconds);
+    }
 }
