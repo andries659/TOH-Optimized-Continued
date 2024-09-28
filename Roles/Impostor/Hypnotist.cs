@@ -13,3 +13,7 @@ internal class Hypnotist : RoleBase
     public override CustomRoles ThisRoleBase => CustomRoles.Impostor;
     public override Custom_RoleType ThisRoleType => Custom_RoleType.ImpostorSupport;
     //==================================================================\\
+
+    public static OptionItem AbilityCooldown;
+    public static OptionItem AbilityDuration;
+    public static OptionItem AbilityUseLimit;
