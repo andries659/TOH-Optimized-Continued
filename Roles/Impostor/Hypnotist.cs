@@ -11,5 +11,5 @@ internal class Hypnotist : RoleBase
     public static bool HasEnabled => playerIdList.Any();
     
     public override CustomRoles ThisRoleBase => CustomRoles.Impostor;
-    public override Custom_RoleType ThisRoleType => Custom_RoleType.CrewmateBasic;
+    public override Custom_RoleType ThisRoleType => Custom_RoleType.ImpostorSupport;
     //==================================================================\\
