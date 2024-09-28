@@ -713,7 +713,6 @@ public enum CustomRoles
     TaskManager,
     Technician,
     Telecommunication,
-    Telepath,
     Tracefinder,
     //Tracker,
     Transporter,
