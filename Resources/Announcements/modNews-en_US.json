@@ -9,7 +9,7 @@
       "Date": "2024-02-01T02:18:00Z"
     },
     {
-      "Number": "100005",
+      "Number": "100003",
       "Title": "Town of Host: Optimized Continued v1.0.0",
       "Subtitle": "Our first release!",
       "Short": "TOHO-C v1.0.0",
@@ -19,6 +19,8 @@
         "\n     - Base on TOH: Optimized v1.3.1",
         "\n\r<b>【Crewmates】</b>",
         "\n     - Telepath (Crewmate Power - By: Andries, Idea: Andries)",
+        "\n\r<b>【Impostors】</b>",
+        "\n     - Hypnotist (Impostor Support - By: Andries, Idea: Andries)",
         "\n\r<b>【Neutrals】</b>",
         "\n     - Memory Thief (Neutral Evil - By: Andries, Idea: Andries",
         "\n\r<b>【Credits】</b>",
