@@ -12,9 +12,7 @@ using LibCpp2IL;
 
 namespace TOHE;
 
-// code credit https://github.com/Yumenopai/TownOfHost_Y
-[HarmonyPatch]
-public class ModNews
+public class ModNewsData
 {
     public int Number;
     public int BeforeNumber;
@@ -40,9 +38,19 @@ public class ModNews
 
         return result;
     }
-    public static List<ModNews> AllModNews = [];
-    public static string ModNewsURL = "https://raw.githubusercontent.com/andries659/TOH-Optimized-Continued/main/Resources/Announcements/modNews-em_US.json";
-    static bool downloaded = false;
+}
+
+// code credit https://github.com/Yumenopai/TownOfHost_Y
+[HarmonyPatch]
+public class ModNews
+{
+    public int Number;
+    public int BeforeNumber;
+    public string Title;
+    public string SubTitle;
+    public string ShortTitle;
+    public string Text;
+    public string Date;
     public ModNews(int Number, string Title, string SubTitle, string ShortTitle, string Text, string Date)
     {
         this.Number = Number;
@@ -54,6 +62,25 @@ public class ModNews
         AllModNews.Add(this);
     }
 
+    public Announcement ToAnnouncement()
+    {
+        var result = new Announcement
+        {
+            Number = Number,
+            Title = Title,
+            SubTitle = SubTitle,
+            ShortTitle = ShortTitle,
+            Text = Text,
+            Language = (uint)DataManager.Settings.Language.CurrentLanguage,
+            Date = Date,
+            Id = "ModNews"
+        };
+
+        return result;
+    }
+    public static List<ModNews> AllModNews = [];
+    public static string ModNewsURL = "https://raw.githubusercontent.com/andries659/TOH-Optimized-Continued/main/Resources/Announcements/modNews-en_US.json";
+    static bool downloaded = false;
     [HarmonyPatch(typeof(AnnouncementPopUp), nameof(AnnouncementPopUp.Init)), HarmonyPostfix]
     public static void Initialize_Postfix(ref Il2CppSystem.Collections.IEnumerator __result)
     {
@@ -64,23 +91,6 @@ public class ModNews
                 yield break;
             }
             downloaded = true;
-            ModNewsURL += TranslationController.Instance.currentLanguage.languageID switch
-            {
-                SupportedLangs.German => "de_DE.json",
-                SupportedLangs.Latam => "es_419.json",
-                SupportedLangs.Spanish => "es_ES.json",
-                SupportedLangs.Filipino => "fil_PH.json",
-                SupportedLangs.French => "fr_FR.json",
-                SupportedLangs.Italian => "it_IT.json",
-                SupportedLangs.Japanese => "ja_JP.json",
-                SupportedLangs.Korean => "ko_KR.json",
-                SupportedLangs.Dutch => "nl_NL.json",
-                SupportedLangs.Brazilian => "pt_BR.json",
-                SupportedLangs.Russian => "ru_RU.json",
-                SupportedLangs.SChinese => "zh_CN.json",
-                SupportedLangs.TChinese => "zh_TW.json",
-                _ => "en_US.json", //English and any other unsupported language
-            };
             var request = UnityWebRequest.Get(ModNewsURL);
             yield return request.SendWebRequest();
             if (request.isNetworkError || request.isHttpError)
