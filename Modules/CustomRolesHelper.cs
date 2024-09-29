@@ -1381,6 +1381,7 @@ public enum Custom_Team
 public enum Custom_RoleType
 {
     // Impostors
+    ImpostorPlanned,
     ImpostorVanilla,
     ImpostorKilling,
     ImpostorSupport,
@@ -1391,6 +1392,7 @@ public enum Custom_RoleType
     Madmate,
 
     // Crewmate
+    CrewmatePlanned,
     CrewmateVanilla,
     CrewmateVanillaGhosts,
     CrewmateBasic,
@@ -1401,6 +1403,7 @@ public enum Custom_RoleType
     CrewmateGhosts,
 
     // Neutral
+    NeutralPlanned,
     NeutralBenign,
     NeutralEvil,
     NeutralChaos,
