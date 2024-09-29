@@ -6,7 +6,7 @@ namespace TOHE.Roles.Impostor;
 internal class Hypnotist : RoleBase
 {
     //===========================SETUP================================\\
-    private const int Id = 30200;
+    private const int Id = 31700;
     public override CustomRoles ThisRoleBase => CustomRoles.Impostor;
     public override Custom_RoleType ThisRoleType => Custom_RoleType.ImpostorSupport;
     //==================================================================\\
