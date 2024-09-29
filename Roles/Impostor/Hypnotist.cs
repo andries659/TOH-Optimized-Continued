@@ -8,7 +8,7 @@ internal class Hypnotist : RoleBase
     //===========================SETUP================================\\
     private const int Id = 31700;
     public override CustomRoles ThisRoleBase => CustomRoles.Impostor;
-    public override Custom_RoleType ThisRoleType => Custom_RoleType.ImpostorSupport;
+    public override Custom_RoleType ThisRoleType => Custom_RoleType.ImpostorPlanned;
     //==================================================================\\
 
     public static OptionItem AbilityCooldown;
