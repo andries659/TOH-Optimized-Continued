@@ -695,21 +695,21 @@ public static class Options
 
         }
 
-        TextOptionItem.Create(10000001, "RoleType.ImpKilling", TabGroup.ImpostorRoles) // KILLING
+        /*
+         * PLANNED ROLES
+         */
+        TextOptionItem.Create(10000001, "RoleType.ImpPlanned", TabGroup.ImpostorRoles)
+            .SetGameMode(CustomGameMode.Standard)
+            .SetColor(new Color32(116, 17, 166, byte.MaxValue));
+
+        CustomRoleManager.GetNormalOptions(Custom_RoleType.ImpostorPlanned).ForEach(r => r.SetupCustomOption());
+
+        TextOptionItem.Create(10000002, "RoleType.ImpKilling", TabGroup.ImpostorRoles) // KILLING
             .SetGameMode(CustomGameMode.Standard)
             .SetHeader(true)
             .SetColor(new Color32(255, 25, 25, byte.MaxValue));// KILLING
 
         CustomRoleManager.GetNormalOptions(Custom_RoleType.ImpostorKilling).ForEach(r => r.SetupCustomOption());
-
-        /*
-         * PLANNED ROLES
-         */
-        TextOptionItem.Create(10000002, "RoleType.ImpPlanned", TabGroup.ImpostorRoles)
-            .SetGameMode(CustomGameMode.Standard)
-            .SetColor(new Color32(116, 17, 166, byte.MaxValue));
-
-        CustomRoleManager.GetNormalOptions(Custom_RoleType.ImpostorPlanned).ForEach(r => r.SetupCustomOption());
 
         /*
          * SUPPORT ROLES
