@@ -249,5 +249,12 @@
   "Revealed": "#d5913f",
   "Narc": "#506165",
   "Artist": "#806940",
-  "Hypnotist": "#c90000"
+  "Phantom": "#7200c9",
+  "Agent": "#db9035",
+  "Betrayer": "#ab0c26",
+  "Contactor": "#3963cc",
+  "Illutionist": "#5fe3dc",
+  "Timekeeper": "#1483de",
+  "Telepath": "#6b08c7",
+  "Sympathizer": "#e34bca"
 }
