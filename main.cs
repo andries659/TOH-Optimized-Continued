@@ -27,7 +27,7 @@ public class Main : BasePlugin
     // == プログラム設定 / Program Config ==
     public const string OriginalForkId = "OriginalTOH";
 
-    public static readonly string ModName = "Town of Host: Optimized Continued";
+    public static readonly string ModName = "TOH: Optimized Continued";
     public static readonly string ForkId = "TOHO";
     public static readonly string ModColor = "#b47ede";
     public static readonly bool AllowPublicRoom = true;
@@ -53,7 +53,7 @@ public class Main : BasePlugin
     public static readonly bool ShowUpdateButton = false;
 
     public static readonly bool ShowGitHubButton = true;
-    public static readonly string GitHubInviteUrl = "https://github.com/Limeau/TownofHost-Optimized";
+    public static readonly string GitHubInviteUrl = "https://github.com/andries659/TOH-Optimized-Continued";
 
     public static readonly bool ShowDiscordButton = true;
     public static readonly string DiscordInviteUrl = "https://discord.gg/HczqtuBfcu";
@@ -756,6 +756,7 @@ public enum CustomRoles
     Lawyer,
     Maverick,
     Medusa,
+    MemoryThief,
     Narc,
     Necromancer,
     Opportunist,
