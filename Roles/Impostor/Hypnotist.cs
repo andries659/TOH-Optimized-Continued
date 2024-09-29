@@ -7,7 +7,6 @@ internal class Hypnotist : RoleBase
 {
     //===========================SETUP================================\\
     private const int Id = 30200;
-    public static bool HasEnabled => CustomRoleManager.HasEnabled(CustomRoles.Hypnotist);
     public override CustomRoles ThisRoleBase => CustomRoles.Impostor;
     public override Custom_RoleType ThisRoleType => Custom_RoleType.ImpostorSupport;
     //==================================================================\\
