@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using HarmonyLib;
+﻿using Hazel;
+using System;
+using TOHE.Modules;
 using UnityEngine;
+using static TOHE.Translator;
 
-namespace EHR
+namespace TOHE
 {
     internal class HotPotatoManager
     {
