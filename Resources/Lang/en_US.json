@@ -3539,7 +3539,7 @@
   "RoleType.CrewKilling": "<color=#ff1919>★</color> Crewmate <color=#ff1919>Killing</color> Roles",
   "RoleType.CrewBasic": "<color=#FF6600>★</color> Crewmate <color=#FF6600>Basic</color> Roles",
   "RoleType.CrewGhost": "<color=#afc3c9>★</color> Crewmate <color=#afc3c9>Ghost</color> Roles  /ghostinfo",
-  "RoleType.NeutralEvil": "<color=#912900>★</color> <color=#b012ff>Planned</color> Neutral Roles",
+  "RoleType.NeutralPlanned": "<color=#912900>★</color> <color=#b012ff>Planned</color> Neutral Roles",
   "RoleType.NeutralEvil": "<color=#912900>★</color> Neutral <color=#912900>Evil</color> Roles",
   "RoleType.NeutralBenign": "<color=#046300>★</color> Neutral <color=#046300>Benign</color> Roles",
   "RoleType.NeutralChaos": "<color=#D4AF37>★</color> Neutral <color=#D4AF37>Chaos</color> Roles",
