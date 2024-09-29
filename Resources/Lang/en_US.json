@@ -5,7 +5,7 @@
   "IconColor": "#db008f",
   "Icon": "★",
   "HideHostText": "Hide 'TOHO-C★' Text",
-  "NameColor": "#ffc0cb",
+  "NameColor": "#3d08c4",
   "kofi": "Ko-Fi",
   "update": "Update",
   "GitHub": "GitHub",
@@ -2375,7 +2375,7 @@
 
 
   "Warning.InvalidRpc": "Kicked <b>{0}</b> because an invalid RPC was received.\nPlease check that no mods other than TOHO are installed.",
-  "Warning.NoModHost": "TOHO is not installed on the host",
+  "Warning.NoModHost": "TOHO-C is not installed on the host",
   "Warning.MismatchedVersion": "<b>{0}</b> has a different version of <b>{1}</b>",
   "Warning.AutoExitAtMismatchedVersion": "The host has no or a different version of {0}\nYou will be kicked in {1}",
   "Warning.CanNotUseBepInExConsole": "The use of the console is prohibited\nso your console has been off",
@@ -3863,5 +3863,8 @@
   "KeymasterOrange": "<color=#ffa500>ORANGE KEY</color>",
   "KeymasterYellow": "<color=#ffff00>YELLOW KEY</color>",
   "KeymasterBlack": "<color=#000000>BLACK KEY</color>",
-  "KeymasterWhite": "<color=#ffffff>WHITE KEY</color>"
+  "KeymasterWhite": "<color=#ffffff>WHITE KEY</color>",
+
+  "HypnotistHypnotizeCooldown": "Hypnotize Cooldown",
+  "HypnotistHypnotizeDuration": "Hypnotize Duration"
 }
