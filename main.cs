@@ -1002,7 +1002,7 @@ public enum AdditionalWinners
 public enum SuffixModes
 {
     None = 0,
-    TOHO-C,
+    TOHOC,
     Streaming,
     Recording,
     RoomHost,
