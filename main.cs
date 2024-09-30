@@ -28,8 +28,8 @@ public class Main : BasePlugin
     public const string OriginalForkId = "OriginalTOH";
 
     public static readonly string ModName = "TOH: Optimized Continued";
-    public static readonly string ForkId = "TOHO";
-    public static readonly string ModColor = "#b47ede";
+    public static readonly string ForkId = "TOHO-C";
+    public static readonly string ModColor = "#149ea3";
     public static readonly bool AllowPublicRoom = true;
 
     public static HashAuth DebugKeyAuth { get; private set; }
@@ -38,7 +38,7 @@ public class Main : BasePlugin
 
     public static ConfigEntry<string> DebugKeyInput { get; private set; }
 
-    public const string PluginGuid = "com.andries659.townofhostoptimizedcontinued";
+    public const string PluginGuid = "com.andries659.tohoptimizedcontinued";
     public const string PluginVersion = "2024.0908.100.00000"; // YEAR.MMDD.VERSION.CANARYDEV
     public const string PluginDisplayVersion = "1.0.0";
     public const string SupportedVersionAU = "2024.8.13";
@@ -1002,7 +1002,7 @@ public enum AdditionalWinners
 public enum SuffixModes
 {
     None = 0,
-    TOHE,
+    TOHO-C,
     Streaming,
     Recording,
     RoomHost,
