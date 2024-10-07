@@ -2,29 +2,32 @@
   "News": [
     {
       "Number": "100002",
-      "Title": "TOH: Optimized Continued v1.0.0",
-      "Subtitle": "Our First Release!",
-      "Short": "TOHO-C v1.0.0",
+      "Title": "TOH: Optimized Continued Test Build v1.0.0",
+      "Subtitle": "Our First Test Build!",
+      "Short": "TOHO-C Test Build v1.0.0",
       "Body": [
         "<b>【Base】</b>",
         "\n     - Base on TOH: Enhanced v2.0.0 Canary 9.1",
+        "\n     - Base on TOH: Optimized Continued v1.3.1",
         "\n\r<b>【Crewmates】</b>",
-        "\n     - Valkyrie (Crewmate Killing - By: Dailyhare and Ape, Idea: Retrodawn)",
-        "\n     - Protector (Crewmate Power - By: Ape and Lime, Idea: Dailyhare",
+        "\n     - Telepath (Crewmate Power - By: Andries, Idea: Andries)",
         "\n\r<b>【Impostors】</b>",
-        "\n     - Fury (Impostor Killing - By: Ape, Idea: Ape",
-        "\n     - Diviner (Impostor Killing - By: Dailyhare and Ape, Idea: Dailyhare",
-        "\n\r<b>【Neutrals】</b>",
-        "\n     - Dark Fairy (Neutral Evil - By: Andries and Lime, Idea: Retrodawn",
+        "\n     - Hypnotist (Impostor Power - By: Andries, Idea: Andries)",
+        "\n\r<b>【Planned Crewmate Roles】</b>",
+        "\n     - Contractor (Crewmate Support - By: Andries, Idea: Andries)",
+        "\n     - Illutionist (Crewmate Power - By: Andries, Idea: Andries)",
+        "\n     - Timekeeper (Crewmate Power - By: Andries, Idea: Andries)",
+        "\n     - Sympathizer (Crewmate Support - By: Andries, Idea: Andries)",
+        "\n\r<b>【Planned Impostor Roles】</b>",
+        "\n     - Corruptor (Impostor Killing - By: Andries, Idea: Andries)",
+        "\n     - Inquisitor (Impostor Power - By: Andries, Idea: Andries)",
+        "\n\r<b>【Planned Neutral Roles】</b>",
+        "\n     - Betrayer (Neutral Chaos - By: Andries, Idea: Andries)",
         "\n\r<b>【Credits】</b>",
-        "\n     - Dailyhare (Discord: @aperson9185)",
-        "\n     - Ape (Discord: @apemv)",
-        "\n     - Retrodawn (Discord: @retrodawn_1246)",
-        "\n     - Lime (Discord: @limeau)",
         "\n     - Andries (Discord: @andries_659)",
-        "\n\n★ Thank you for using Town of Host: Optimized v1.0.0 ★"
+        "\n\n★ Thank you for using TOH: Optimized Continued v1.0.0 ★"
       ],
-      "Date": "2024-10-05T02:18:00Z"
+      "Date": "2024-10-07T02:18:00Z"
     }
   ]
 }
